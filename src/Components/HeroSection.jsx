@@ -7,6 +7,18 @@ import "../css/fonts.css";
 import Arrow from "../Icons/Arrow.svg";
 
 import BulvarImg from "../Images/Projects/Bulvar.png";
+import BalanceImg from "../Images/Projects/Balance.png";
+import Aeron from "../Images/Projects/Aeron.png";
+import Balance73 from "../Images/Projects/Balance73.png";
+import Mission from "../Images/Mission.png";
+
+import ScrollReveal from "./ScrollReveal ";
+
+// sm: (≥377px)
+// md: (≥834px)
+// lg: (≥1024px)
+// xl: (≥1280px)
+// 2xl: (≥1920px)
 
 export default function HeroSection() {
   return (
@@ -19,55 +31,69 @@ export default function HeroSection() {
 
         <div className="relative z-10">
           <div className="container mx-auto">
-            <nav className="py-12 px-[50px]">
+            <nav className="py-6 sm:py-8 md:py-10 lg:py-12">
               <div className="flex items-center justify-between">
                 <button className="transition-opacity hover:opacity-80">
-                  <img src={BtnLang} alt="Сменить язык" />
+                  <img
+                    src={BtnLang}
+                    alt="Сменить язык"
+                    className="w-8 sm:w-10 md:w-12"
+                  />
                 </button>
 
                 <div className="flex-1 flex justify-center">
                   <img
                     src={Logo}
                     alt="Логотип"
-                    className="max-w-[120px] lg:max-w-[160px]"
+                    className="max-w-[80px] sm:max-w-[100px] md:max-w-[120px] lg:max-w-[140px] 2xl:max-w-[160px]"
                   />
                 </div>
 
-                <div className="flex items-center gap-3">
-                  <button className="bg-amber-50 text-gray-900 px-6 py-4 rounded-[27px] font-inter font-medium text-sm lg:text-base hover:bg-amber-100 transition-colors duration-200 shadow-md">
+                <div className="flex items-center gap-2 sm:gap-3">
+                  <button className="bg-amber-50 text-gray-900 px-4 py-2 sm:px-5 sm:py-3 md:px-6 md:py-4 rounded-[27px] font-inter font-medium text-xs sm:text-sm md:text-base max-[377px]:hidden hover:bg-amber-100 transition-colors duration-200 shadow-md">
                     Связаться с нами
                   </button>
-                  <button className="p-3 transition-opacity hover:opacity-80">
-                    <img src={BtnMenu} alt="Открыть меню" />
+                  <button className="p-2 sm:p-3 transition-opacity hover:opacity-80">
+                    <img
+                      src={BtnMenu}
+                      alt="Открыть меню"
+                      className="w-6 sm:w-8 md:w-10"
+                    />
                   </button>
                 </div>
               </div>
             </nav>
           </div>
 
-          <div className="header__info relative z-10 px-4 lg:pl-[250px] mt-8 lg:mt-20">
-            <h1 className="text-[96px] font-inter text-amber-50 leading-[1.1]">
+          <div className="header__info relative z-10 px-4 sm:px-6 md:px-8 lg:pl-[100px] xl:pl-[310px] 2xl:pl-[250px] mt-4 sm:mt-6 md:mt-8 lg:mt-12 2xl:mt-20">
+            <h1 className="text-[48px] sm:text-[64px] md:text-[72px] lg:text-[84px] xl:text-[90px] 2xl:text-[96px] font-inter text-amber-50 leading-[1.1]">
               <span className="block">Архитектура.</span>
-              <span className="block lg:mt-4">Дизайн интерьера.</span>
+              <span className="block lg:mt-2 2xl:mt-4">Дизайн интерьера.</span>
             </h1>
-            <div className="flex items-start gap-3 mt-[16px]">
-              <p className="text-[18px] text-amber-50 size-[230px] font-inter leading-relaxed">
+            <div className="flex items-start gap-2 sm:gap-3 mt-[12px] sm:mt-[14px] md:mt-[16px]">
+              <p className="text-[14px] sm:text-[16px] md:text-[17px] lg:text-[18px] text-amber-50 max-w-[180px] sm:max-w-[200px] md:max-w-[230px] font-inter leading-relaxed">
                 Пространства, где форма встречает функцию
               </p>
-              <img src={Arrow} alt="Contacts" className="mt-2" />
+              <img
+                src={Arrow}
+                alt="Contacts"
+                className="w-4 sm:w-10 md:w-12 mt-1 sm:mt-4"
+              />
             </div>
           </div>
         </div>
       </header>
 
-      <section className="studio py-16 lg:py-40 px-4 sm:px-6 lg:px-[250px]">
-        <h1 className="studio-title text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-[96px] font-inter font-medium mb-8 lg:mb-16">
+      <section className="studio py-8 sm:py-12 md:py-16 lg:py-24 2xl:py-40 px-4 sm:px-6 md:px-8 lg:px-[100px] xl:px-[150px] 2xl:px-[250px]">
+        <h1 className="studio-title text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl 2xl:text-[96px] font-inter font-medium mb-4 sm:mb-6 md:mb-8 lg:mb-12 2xl:mb-16">
           Студия /
         </h1>
-        <p
-          className="studio__info text-base sm:text-lg md:text-xl lg:text-2xl xl:text-[36px] 
-                indent-8 sm:indent-12 md:indent-16 lg:indent-24 xl:indent-[600px] 
-                max-w-full lg:max-w-[1320px] leading-relaxed lg:leading-normal"
+        <ScrollReveal
+          baseOpacity={0}
+          enableBlur={true}
+          baseRotation={0}
+          blurStrength={10}
+          className="text-sm sm:text-base md:text-lg lg:text-xl xl:text-xl 2xl:text-2xl"
         >
           AKRVM – формирует пространство через логику архитектуры и
           выразительность геометрии. Эстетика для нас — это не украшение, а
@@ -77,80 +103,101 @@ export default function HeroSection() {
           поиски баланса между визуальной чистотой и практическим смыслом.
           Современный дизайн — про честные конструкции и уместные решения, в
           которых нет лишнего.
-        </p>
+        </ScrollReveal>
       </section>
 
-      <section className="projects px-4 md:px-8 lg:px-16 xl:px-[250px] py-12 md:py-20 lg:py-28">
+      <section className="projects px-4 sm:px-6 md:px-8 lg:px-[50px] xl:px-[150px] 2xl:px-[250px] py-8 sm:py-12 md:py-16 lg:py-20 2xl:py-28">
         <div className="projects__container">
-          <div className="flex flex-col lg:flex-row lg:items-start lg:gap-16 xl:gap-24">
-            <h1 className="projects-title text-3xl md:text-4xl lg:text-5xl xl:text-6xl 2xl:text-[96px] font-inter font-medium lg:mb-0 lg:w-1/4 mb">
+          <div className="flex flex-col lg:flex-row lg:items-start lg:gap-8 xl:gap-12 2xl:gap-24">
+            <h1 className="projects-title text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl 2xl:text-[96px] font-inter font-medium lg:mb-0 lg:w-1/4 mb-4 sm:mb-6 md:mb-8">
               <span className="block lg:inline">Проекты</span>
-              <span className="block lg:inline ml-3">/</span>
+              <span className="block lg:inline ml-2 lg:ml-3">/</span>
             </h1>
 
-            {/* Сетка проектов */}
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 lg:gap-10 lg:w-3/4">
-              {/* Проект 1 */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-5 md:gap-6 lg:gap-8 xl:gap-10 lg:w-3/4">
               <div className="project-item">
                 <img
                   src={BulvarImg}
                   alt="BUL'VAR"
-                  className="w-full h-[250px] md:h-[300px] lg:h-[350px] object-cover mb-4"
+                  className="w-full h-[180px] sm:h-[200px] md:h-[250px] lg:h-[300px] xl:h-[350px] object-cover mb-3 sm:mb-4"
                 />
-                <p className="project-name uppercase text-[16px] md:text-[18px] font-medium mb-1">
+                <p className="project-name uppercase text-[14px] sm:text-[15px] md:text-[16px] lg:text-[17px] xl:text-[18px] font-medium mb-1">
                   bul'var
                 </p>
-                <p className="project-info uppercase text-[14px] md:text-[16px] text-[#000000B2]">
+                <p className="project-info uppercase text-[12px] sm:text-[13px] md:text-[14px] lg:text-[15px] xl:text-[16px] text-[#000000B2]">
                   Новосибирск, Россия / 109 м<sup>2</sup> / 2024
                 </p>
               </div>
 
-              {/* Проект 2 */}
               <div className="project-item">
                 <img
-                  src={BulvarImg}
+                  src={BalanceImg}
                   alt="Другой проект"
-                  className="w-full h-[250px] md:h-[300px] lg:h-[350px] object-cover mb-4"
+                  className="w-full h-[180px] sm:h-[200px] md:h-[250px] lg:h-[300px] xl:h-[350px] object-cover mb-3 sm:mb-4"
                 />
-                <p className="project-name uppercase text-[16px] md:text-[18px] font-medium mb-1">
-                  другой проект
+                <p className="project-name uppercase text-[14px] sm:text-[15px] md:text-[16px] lg:text-[17px] xl:text-[18px] font-medium mb-1">
+                  balance
                 </p>
-                <p className="project-info uppercase text-[14px] md:text-[16px] text-[#000000B2]">
-                  Москва, Россия / 85 м<sup>2</sup> / 2024
+                <p className="project-info uppercase text-[12px] sm:text-[13px] md:text-[14px] lg:text-[15px] xl:text-[16px] text-[#000000B2]">
+                  Новосибирск, Россия / 98 м<sup>2</sup> / 2025
                 </p>
               </div>
 
-              {/* Проект 3 */}
               <div className="project-item">
                 <img
-                  src={BulvarImg}
+                  src={Aeron}
                   alt="BUL'VAR"
-                  className="w-full h-[250px] md:h-[300px] lg:h-[350px] object-cover mb-4"
+                  className="w-full h-[180px] sm:h-[200px] md:h-[250px] lg:h-[300px] xl:h-[350px] object-cover mb-3 sm:mb-4"
                 />
-                <p className="project-name uppercase text-[16px] md:text-[18px] font-medium mb-1">
+                <p className="project-name uppercase text-[14px] sm:text-[15px] md:text-[16px] lg:text-[17px] xl:text-[18px] font-medium mb-1">
                   проект 3
                 </p>
-                <p className="project-info uppercase text-[14px] md:text-[16px] text-[#000000B2]">
-                  Санкт-Петербург / 120 м<sup>2</sup> / 2024
+                <p className="project-info uppercase text-[12px] sm:text-[13px] md:text-[14px] lg:text-[15px] xl:text-[16px] text-[#000000B2]">
+                  Новосибирск / 110 м<sup>2</sup> / 2025
                 </p>
               </div>
 
-              {/* Проект 4 */}
               <div className="project-item">
                 <img
-                  src={BulvarImg}
+                  src={Balance73}
                   alt="BUL'VAR"
-                  className="w-full h-[250px] md:h-[300px] lg:h-[350px] object-cover mb-4"
+                  className="w-full h-[180px] sm:h-[200px] md:h-[250px] lg:h-[300px] xl:h-[350px] object-cover mb-3 sm:mb-4"
                 />
-                <p className="project-name uppercase text-[16px] md:text-[18px] font-medium mb-1">
-                  проект 4
+                <p className="project-name uppercase text-[14px] sm:text-[15px] md:text-[16px] lg:text-[17px] xl:text-[18px] font-medium mb-1">
+                  Balance
                 </p>
-                <p className="project-info uppercase text-[14px] md:text-[16px] text-[#000000B2]">
-                  Екатеринбург / 95 м<sup>2</sup> / 2024
+                <p className="project-info uppercase text-[12px] sm:text-[13px] md:text-[14px] lg:text-[15px] xl:text-[16px] text-[#000000B2]">
+                  Новосибирск / 73 м<sup>2</sup> / 2024
                 </p>
               </div>
             </div>
           </div>
+        </div>
+      </section>
+      <section className="mission mt-8 sm:mt-[80px] md:mt-[114px] 2xl:mt-[320px] px-4 sm:px-6 md:px-8 lg:px-12 xl:px-[170px] 2xl:px-[220px]">
+        <div className="mission_text flex flex-col md:flex-row md:items-start md:gap-6 lg:gap-8 xl:gap-12 2xl:gap-16">
+          <h1 className="mission_title text-[32px] sm:text-[32px] md:text-[48px] lg:text-[66px] xl:text-[72px] 2xl:text-[96px] font-inter font-medium md:w-1/2 lg:w-2/5 xl:w-2/5 2xl:w-[960px] mb-4 sm:mb-6 md:mb-0">
+            Миссия /
+          </h1>
+          <ScrollReveal
+            baseOpacity={0}
+            enableBlur={true}
+            baseRotation={0}
+            blurStrength={10}
+            containerClassName="md:w-1/2 lg:w-3/5 xl:w-3/5"
+            textClassName="text-[18px] sm:text-[20px] md:text-[22px] lg:text-[28px] xl:text-[30px] 2xl:text-[36px] leading-relaxed md:leading-normal lg:leading-loose"
+          >
+            Архитектурный подход в дизайне интерьеров: выразительные формы,
+            монохромная палитра, натуральные материалы и эмоциональный акцент.
+            Мы создаём пространства, которые вдохновляют жить.
+          </ScrollReveal>
+        </div>
+        <div className="mt-6 sm:mt-8 md:mt-10 lg:mt-12 xl:mt-16 2xl:mt-20">
+          <img
+            src={Mission}
+            alt="mission"
+            className="w-full h-auto object-cover"
+          />
         </div>
       </section>
     </>

@@ -1,5 +1,7 @@
 @import "tailwindcss";
 
-.nav-contacts {
-  font-family: "Inter", sans-serif;
+@theme {
+  --breakpoint-s: 377px;
+  --breakpoint-2xl: 834px;
+  --breakpoint-3xl: 1920px;
 }
