@@ -5,3 +5,7 @@
   --breakpoint-2xl: 834px;
   --breakpoint-3xl: 1920px;
 }
+
+.studio__text {
+  font-weight: 400;
+}

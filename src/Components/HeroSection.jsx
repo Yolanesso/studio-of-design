@@ -5,6 +5,7 @@ import Logo from "../Icons/logo.svg";
 import BtnMenu from "../Icons/btn-menu.svg";
 import "../css/fonts.css";
 import Arrow from "../Icons/Arrow.svg";
+import ArrowBlack from "../Icons/Arrow-black.svg";
 
 import BulvarImg from "../Images/Projects/Bulvar.png";
 import BalanceImg from "../Images/Projects/Balance.png";
@@ -84,7 +85,7 @@ export default function HeroSection() {
         </div>
       </header>
 
-      <section className="studio py-8 sm:py-12 md:py-16 lg:py-24 2xl:py-40 px-4 sm:px-6 md:px-8 lg:px-[100px] xl:px-[150px] 2xl:px-[250px]">
+      <section className=" font-[400] studio py-8 sm:py-12 md:py-16 lg:py-24 2xl:py-40 px-4 sm:px-6 md:px-8 lg:px-[100px] xl:px-[150px] 2xl:px-[250px]">
         <h1 className="studio-title text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl 2xl:text-[96px] font-inter font-medium mb-4 sm:mb-6 md:mb-8 lg:mb-12 2xl:mb-16">
           Студия /
         </h1>
@@ -93,7 +94,8 @@ export default function HeroSection() {
           enableBlur={true}
           baseRotation={0}
           blurStrength={10}
-          className="text-sm sm:text-base md:text-lg lg:text-xl xl:text-xl 2xl:text-2xl"
+          containerClassName="font-normal font-[400] text-sm sm:text-[20px] md:text-lg lg:text-[26px] xl:text-xl 2xl:text-[36px]"
+          classNamee="studio__text"
         >
           AKRVM – формирует пространство через логику архитектуры и
           выразительность геометрии. Эстетика для нас — это не украшение, а
@@ -150,7 +152,7 @@ export default function HeroSection() {
                   className="w-full h-[180px] sm:h-[200px] md:h-[250px] lg:h-[300px] xl:h-[350px] object-cover mb-3 sm:mb-4"
                 />
                 <p className="project-name uppercase text-[14px] sm:text-[15px] md:text-[16px] lg:text-[17px] xl:text-[18px] font-medium mb-1">
-                  проект 3
+                  Aeron
                 </p>
                 <p className="project-info uppercase text-[12px] sm:text-[13px] md:text-[14px] lg:text-[15px] xl:text-[16px] text-[#000000B2]">
                   Новосибирск / 110 м<sup>2</sup> / 2025
@@ -185,7 +187,7 @@ export default function HeroSection() {
             baseRotation={0}
             blurStrength={10}
             containerClassName="md:w-1/2 lg:w-3/5 xl:w-3/5"
-            textClassName="text-[18px] sm:text-[20px] md:text-[22px] lg:text-[28px] xl:text-[30px] 2xl:text-[36px] leading-relaxed md:leading-normal lg:leading-loose"
+            textClassName="text-[18px] sm:text-[20px] md:text-[22px] lg:text-[28px] xl:text-[30px] 2xl:text-[36px] leading-relaxed md:leading-normal lg:leading-loose !font-normal"
           >
             Архитектурный подход в дизайне интерьеров: выразительные формы,
             монохромная палитра, натуральные материалы и эмоциональный акцент.
@@ -200,6 +202,26 @@ export default function HeroSection() {
           />
         </div>
       </section>
+
+      <footer>
+        <div className="footer__text flex flex-col md:flex-row px-4 sm:px-6 md:px-8 lg:px-12 xl:px-[170px] 2xl:px-[170px] justify-between items-center mt-12 sm:mt-16 md:mt-20 lg:mt-28 xl:mt-[150px] 2xl:mt-[183px] border-b border-b-[#00000033] pb-6 sm:pb-8 md:pb-10">
+          <div className="flex flex-col md:flex-row gap-4 sm:gap-6 md:gap-8 lg:gap-10 xl:gap-[62px] text-[#00000099] text-sm sm:text-base md:text-lg text-center md:text-left mb-4 md:mb-0">
+            <p>Современный дизайн интерьера</p>
+            <p>Архитектурный дизайн</p>
+            <p>По всему миру</p>
+          </div>
+          <div className="flex items-center gap-3 sm:gap-4 md:gap-5">
+            <p className="w-[150px] sm:w-[180px] md:w-[200px] lg:w-[210px] text-sm sm:text-base md:text-lg text-[#00000099] text-center md:text-right">
+              Пишите нам для воплощения ваших идей
+            </p>
+            <img
+              src={ArrowBlack}
+              alt="arrow"
+              className="w-6 sm:w-8 md:w-10 lg:w-12"
+            />
+          </div>
+        </div>
+      </footer>
     </>
   );
 }

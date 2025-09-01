@@ -1,7 +1,6 @@
 import { useEffect, useRef, useMemo } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-
 import "../css/scrollReveal.css";
 
 gsap.registerPlugin(ScrollTrigger);
@@ -109,9 +108,9 @@ const ScrollReveal = ({
   ]);
 
   return (
-    <h2 ref={containerRef} className={`scroll-reveal ${containerClassName}`}>
+    <div ref={containerRef} className={`scroll-reveal ${containerClassName}`}>
       <p className={`scroll-reveal-text ${textClassName}`}>{splitText}</p>
-    </h2>
+    </div>
   );
 };
 
