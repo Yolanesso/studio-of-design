@@ -108,7 +108,7 @@ export default function HeroSection() {
         </ScrollReveal>
       </section>
 
-      <section className="projects px-4 sm:px-6 md:px-8 lg:px-[50px] xl:px-[150px] 2xl:px-[250px] py-8 sm:py-12 md:py-16 lg:py-20 2xl:py-28">
+      <section className=" projects px-4 sm:px-6 md:px-8 lg:px-[50px] xl:px-[150px] 2xl:px-[250px] py-8 sm:py-12 md:py-16 lg:py-20 2xl:py-28">
         <div className="projects__container">
           <div className="flex flex-col lg:flex-row lg:items-start lg:gap-8 xl:gap-12 2xl:gap-24">
             <h1 className="projects-title text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl 2xl:text-[96px] font-inter font-medium lg:mb-0 lg:w-1/4 mb-4 sm:mb-6 md:mb-8">
@@ -203,22 +203,139 @@ export default function HeroSection() {
         </div>
       </section>
 
-      <footer>
-        <div className="footer__text flex flex-col md:flex-row px-4 sm:px-6 md:px-8 lg:px-12 xl:px-[170px] 2xl:px-[170px] justify-between items-center mt-12 sm:mt-16 md:mt-20 lg:mt-28 xl:mt-[150px] 2xl:mt-[183px] border-b border-b-[#00000033] pb-6 sm:pb-8 md:pb-10">
-          <div className="flex flex-col md:flex-row gap-4 sm:gap-6 md:gap-8 lg:gap-10 xl:gap-[62px] text-[#00000099] text-sm sm:text-base md:text-lg text-center md:text-left mb-4 md:mb-0">
-            <p>Современный дизайн интерьера</p>
-            <p>Архитектурный дизайн</p>
-            <p>По всему миру</p>
+      <footer role="contentinfo" aria-label="Футер сайта">
+        {/* Верхняя часть футера */}
+        <div className="footer__text w-full max-w-[1920px] mx-auto px-4 sm:px-6 md:px-8 lg:px-12 xl:px-[170px] 2xl:px-[170px] flex flex-col md:flex-row justify-between items-center mt-12 sm:mt-16 md:mt-20 lg:mt-28 xl:mt-[150px] 2xl:mt-[183px] border-b border-b-[#00000033] pb-6 sm:pb-8 md:pb-10">
+          {/* Левая часть: теги */}
+          <div className="flex gap-[20px] text-[#00000099] text-sm sm:text-base md:text-lg mb-6 md:mb-0 s:flex-col s:text-left">
+            <span className="whitespace-nowrap">
+              Современный дизайн интерьера
+            </span>
+            <span className="whitespace-nowrap">Архитектурный дизайн</span>
+            <span className="whitespace-nowrap">По всему миру</span>
           </div>
-          <div className="flex items-center gap-3 sm:gap-4 md:gap-5">
-            <p className="w-[150px] sm:w-[180px] md:w-[200px] lg:w-[210px] text-sm sm:text-base md:text-lg text-[#00000099] text-center md:text-right">
+
+          {/* Правая часть: призыв + стрелка на одном уровне */}
+          <div className="flex flex-row items-center gap-3 sm:gap-4 md:gap-5 text-[#00000099] text-sm sm:text-base md:text-lg">
+            <p className="max-w-xs sm:max-w-[180px] md:max-w-[200px] lg:max-w-[250px] text-center md:text-left">
               Пишите нам для воплощения ваших идей
             </p>
-            <img
-              src={ArrowBlack}
-              alt="arrow"
-              className="w-6 sm:w-8 md:w-10 lg:w-12"
-            />
+            <button
+              type="button"
+              aria-label="Начать диалог"
+              className="w-8 h-8 rounded-full border border-[#00000099] flex items-center justify-center hover:border-[#000000] transition-colors focus:outline-none focus:ring-2 focus:ring-[#000000] focus:ring-offset-2"
+            >
+              <img
+                src={ArrowBlack}
+                alt="Стрелка — начать диалог"
+                className="w-4 h-4"
+              />
+            </button>
+          </div>
+        </div>
+
+        {/* Нижняя часть футера с навигацией */}
+        <div className="footer-navigation flex flex-col md:flex-row px-4 sm:px-6 lg:px-12 xl:px-[170px] 2xl:px-[170px] py-8 sm:py-10 md:py-12 lg:py-16 gap-8 sm:gap-10 md:gap-12 lg:gap-16 justify-between">
+          {/* Колонка 1 - Навигация */}
+          <div className="flex flex-col">
+            <h3 className="text-[14px] sm:text-[16px] md:text-[18px] font-medium mb-4 sm:mb-6 text-[#000000]">
+              Навигация
+            </h3>
+            <nav aria-label="Навигация по сайту">
+              <ul className="flex flex-col gap-2 sm:gap-3">
+                <li>
+                  <a
+                    href="#projects"
+                    className="font-inter text-[14px] sm:text-[16px] md:text-[18px] lg:text-[20px] xl:text-[24px] 2xl:text-[36px] text-[#00000099] hover:text-[#000000] transition-colors font"
+                  >
+                    Проекты
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="#about"
+                    className="font-inter text-[14px] sm:text-[16px] md:text-[18px] lg:text-[20px] xl:text-[24px] 2xl:text-[36px] text-[#00000099] hover:text-[#000000] transition-colors"
+                  >
+                    О нас
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="#services"
+                    className="font-inter text-[14px] sm:text-[16px] md:text-[18px] lg:text-[20px] xl:text-[24px] 2xl:text-[36px] text-[#00000099] hover:text-[#000000] transition-colors"
+                  >
+                    Услуги
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="#contact"
+                    className="font-inter text-[14px] sm:text-[16px] md:text-[18px] lg:text-[20px] xl:text-[24px] 2xl:text-[36px] text-[#00000099] hover:text-[#000000] transition-colors"
+                  >
+                    Взаимодействие
+                  </a>
+                </li>
+              </ul>
+            </nav>
+          </div>
+
+          {/* Колонка 2 - Социальные сети */}
+          <div className="flex flex-col">
+            <h3 className="text-[14px] sm:text-[16px] md:text-[18px] font-medium mb-4 sm:mb-6 text-[#000000]">
+              Социальные сети
+            </h3>
+            <ul
+              className="flex flex-col gap-2 sm:gap-3"
+              aria-label="Наши социальные сети"
+            >
+              <li>
+                <a
+                  href="https://www.behance.net/вашпрофиль"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="font-inter text-[14px] sm:text-[16px] md:text-[18px] lg:text-[20px] xl:text-[24px] 2xl:text-[36px] text-[#00000099] hover:text-[#000000] transition-colors"
+                >
+                  Behance
+                </a>
+              </li>
+              <li>
+                <a
+                  href="https://www.instagram.com/вашпрофиль"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="font-inter text-[14px] sm:text-[16px] md:text-[18px] lg:text-[20px] xl:text-[24px] 2xl:text-[36px] text-[#00000099] hover:text-[#000000] transition-colors"
+                >
+                  Instagram
+                </a>
+              </li>
+            </ul>
+          </div>
+
+          {/* Колонка 3 - Контакты */}
+          <div className="flex flex-col">
+            <h3 className="text-[14px] sm:text-[16px] md:text-[18px] font-medium mb-4 sm:mb-6 text-[#000000]">
+              Контакты
+            </h3>
+            <address
+              className="flex flex-col gap-2 sm:gap-3 not-italic"
+              aria-label="Контактная информация"
+            >
+              <p className="font-inter text-[14px] sm:text-[16px] md:text-[18px] lg:text-[20px] xl:text-[24px] 2xl:text-[36px] text-[#00000099] hover:text-[#000000] transition-colors">
+                Новосибирск, Россия
+              </p>
+              <a
+                href="tel:+79963827307"
+                className="font-inter text-[14px] sm:text-[16px] md:text-[18px] lg:text-[20px] xl:text-[24px] 2xl:text-[36px] text-[#00000099] hover:text-[#000000] transition-colors"
+              >
+                +7 (996) 382-73-07
+              </a>
+              <a
+                href="mailto:hello@akrvm.ru"
+                className="font-inter text-[14px] sm:text-[16px] md:text-[18px] lg:text-[20px] xl:text-[24px] 2xl:text-[36px] text-[#00000099] hover:text-[#000000] transition-colors"
+              >
+                hello@akrvm.ru
+              </a>
+            </address>
           </div>
         </div>
       </footer>
