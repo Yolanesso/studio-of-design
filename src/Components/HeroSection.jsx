@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useState } from "react";
+
 import HeroBg from "../Images/HeroBg.png";
 import BtnLang from "../Icons/btn-lang.svg";
 import Logo from "../Icons/logo.svg";
@@ -22,6 +23,19 @@ import ScrollReveal from "./ScrollReveal ";
 // 2xl: (≥1920px)
 
 export default function HeroSection() {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+  const toggleMenu = () => {
+    setIsMenuOpen(!isMenuOpen);
+    document.body.classList.toggle("menu-open");
+  };
+
+  const scrollToSection = (sectionId) => {
+    const element = document.getElementById(sectionId);
+    if (element) {
+      element.scrollIntoView({ behavior: "smooth" });
+    }
+  };
   return (
     <>
       <header
@@ -54,16 +68,151 @@ export default function HeroSection() {
                   <button className="bg-amber-50 text-gray-900 px-4 py-2 sm:px-5 sm:py-3 md:px-6 md:py-4 rounded-[27px] font-inter font-medium text-xs sm:text-sm md:text-base max-[377px]:hidden hover:bg-amber-100 transition-colors duration-200 shadow-md">
                     Связаться с нами
                   </button>
-                  <button className="p-2 sm:p-3 transition-opacity hover:opacity-80">
+                  <button
+                    className="p-2 sm:p-3 transition-opacity hover:opacity-80 relative z-50"
+                    onClick={toggleMenu}
+                    aria-label="Открыть меню"
+                  >
                     <img
                       src={BtnMenu}
                       alt="Открыть меню"
-                      className="w-6 sm:w-8 md:w-10"
+                      className="w-6 sm:w-8 md:w-10 transition-transform duration-300"
+                      style={{
+                        transform: isMenuOpen
+                          ? "rotate(90deg)"
+                          : "rotate(0deg)",
+                      }}
                     />
                   </button>
                 </div>
               </div>
             </nav>
+          </div>
+
+          {/* Бургер-меню */}
+          <div
+            className={`fixed inset-0 z-40 transition-all duration-500 ease-out transform ${
+              isMenuOpen
+                ? "opacity-100 translate-y-0 visible"
+                : "opacity-0 -translate-y-full invisible pointer-events-none"
+            }`}
+          >
+            {/* Белый фон */}
+            <div className="w-full h-full bg-white">
+              {/* Контент меню */}
+              <div
+                className="flex flex-col items-center justify-start pt-16 pb-12 h-full px-6 sm:px-8 md:px-12 lg:px-20 overflow-y-auto"
+                onClick={(e) => e.stopPropagation()}
+              >
+                {/* Добавляем навигацию в меню */}
+                <nav className="w-full max-w-5xl mb-12">
+                  <div className="flex items-center justify-between">
+                    <button className="transition-opacity hover:opacity-80">
+                      <img
+                        src={BtnLang}
+                        alt="Сменить язык"
+                        className="w-8 sm:w-10 md:w-12"
+                      />
+                    </button>
+
+                    <div className="flex-1 flex justify-center">
+                      <img
+                        src={Logo}
+                        alt="Логотип"
+                        className="max-w-[80px] sm:max-w-[100px] md:max-w-[120px] lg:max-w-[140px] 2xl:max-w-[160px]"
+                      />
+                    </div>
+
+                    <div className="flex items-center gap-2 sm:gap-3">
+                      <button
+                        className="p-2 sm:p-3 transition-opacity hover:opacity-80 relative z-50"
+                        onClick={toggleMenu}
+                        aria-label="Закрыть меню"
+                      >
+                        <img
+                          src={BtnMenu}
+                          alt="Закрыть меню"
+                          className="w-6 sm:w-8 md:w-10 transition-transform duration-300"
+                          style={{
+                            transform: isMenuOpen
+                              ? "rotate(90deg)"
+                              : "rotate(0deg)",
+                          }}
+                        />
+                      </button>
+                    </div>
+                  </div>
+                </nav>
+
+                {/* Сетка 2 колонки */}
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-20 lg:gap-32 xl:gap-40 2xl:gap-48 w-full max-w-5xl">
+                  {/* Левая колонка — Навигация */}
+                  <div className="flex flex-col items-start justify-start gap-8 md:gap-10">
+                    <div className="flex flex-col gap-6 md:gap-8">
+                      <button
+                        onClick={() => {
+                          scrollToSection("projects");
+                          toggleMenu();
+                        }}
+                        className="text-4xl sm:text-5xl md:text-6xl lg:text-[36px] font-inter font-medium text-amber-500 hover:text-amber-600 transition-colors text-left leading-tight"
+                      >
+                        Проекты
+                      </button>
+                      <button
+                        onClick={() => {
+                          scrollToSection("about");
+                          toggleMenu();
+                        }}
+                        className="text-4xl sm:text-5xl md:text-6xl lg:text-[36px] font-inter font-medium text-amber-500 hover:text-amber-600 transition-colors text-left leading-tight"
+                      >
+                        О нас
+                      </button>
+                      <button
+                        onClick={() => {
+                          scrollToSection("services");
+                          toggleMenu();
+                        }}
+                        className="text-4xl sm:text-5xl md:text-6xl lg:text-[36px] font-inter font-medium text-amber-500 hover:text-amber-600 transition-colors text-left leading-tight"
+                      >
+                        Услуги
+                      </button>
+                      <button
+                        onClick={() => {
+                          scrollToSection("interaction");
+                          toggleMenu();
+                        }}
+                        className="text-4xl sm:text-5xl md:text-6xl lg:text-[36px] font-inter font-medium text-amber-500 hover:text-amber-600 transition-colors text-left leading-tight"
+                      >
+                        Взаимодействие
+                      </button>
+                    </div>
+                  </div>
+
+                  {/* Разделитель — только на мобильных */}
+                  <div className="h-px bg-amber-200 my-6 md:hidden w-full"></div>
+
+                  {/* Правая колонка — Информация */}
+                  <div className="flex flex-col items-start justify-start">
+                    <div className="mb-8 md:mb-1">
+                      <img src={ArrowBlack} alt="Arrow" />
+                    </div>
+
+                    <div className="text-lg sm:text-xl md:text-2xl lg:text-[22px] text-amber-600 max-w-[320px] leading-relaxed font-inter">
+                      Пишите нам для воплощения ваших идей
+                    </div>
+                  </div>
+                </div>
+
+                {/* Кнопка закрытия */}
+                <button
+                  onClick={toggleMenu}
+                  className="mt-12 sm:mt-16 text-xl sm:text-2xl font-inter text-amber-500 hover:text-amber-700 transition-colors tracking-wide"
+                  aria-label="Закрыть меню"
+                >
+                  Закрыть ×
+                </button>
+              </div>
+            </div>
           </div>
 
           <div className="header__info relative z-10 px-4 sm:px-6 md:px-8 lg:pl-[100px] xl:pl-[310px] 2xl:pl-[250px] mt-4 sm:mt-6 md:mt-8 lg:mt-12 2xl:mt-20">
@@ -203,139 +352,129 @@ export default function HeroSection() {
         </div>
       </section>
 
-      <footer role="contentinfo" aria-label="Футер сайта">
-        {/* Верхняя часть футера */}
-        <div className="footer__text w-full max-w-[1920px] mx-auto px-4 sm:px-6 md:px-8 lg:px-12 xl:px-[170px] 2xl:px-[170px] flex flex-col md:flex-row justify-between items-center mt-12 sm:mt-16 md:mt-20 lg:mt-28 xl:mt-[150px] 2xl:mt-[183px] border-b border-b-[#00000033] pb-6 sm:pb-8 md:pb-10">
-          {/* Левая часть: теги */}
-          <div className="flex gap-[20px] text-[#00000099] text-sm sm:text-base md:text-lg mb-6 md:mb-0 s:flex-col s:text-left">
-            <span className="whitespace-nowrap">
-              Современный дизайн интерьера
-            </span>
-            <span className="whitespace-nowrap">Архитектурный дизайн</span>
-            <span className="whitespace-nowrap">По всему миру</span>
+      <footer>
+        <div className="footer__text flex flex-col 2xl:flex-row px-4 sm:px-6 md:px-8 lg:px-12 xl:px-[170px] 2xl:px-[170px] justify-between items-start 2xl:items-center mt-12 sm:mt-16 md:mt-20 lg:mt-28 xl:mt-[150px] 2xl:mt-[183px] border-b border-b-[#00000033] pb-6 sm:pb-8 md:pb-10">
+          {/* Левая группа */}
+          <div className="flex flex-col 2xl:flex-row gap-4 sm:gap-6 md:gap-8 lg:gap-10 xl:gap-[62px] text-[#00000099] text-sm sm:text-base md:text-lg text-left mb-4 2xl:mb-0">
+            <p>Современный дизайн интерьера</p>
+            <p>Архитектурный дизайн</p>
+            <p>По всему миру</p>
           </div>
-
-          {/* Правая часть: призыв + стрелка на одном уровне */}
-          <div className="flex flex-row items-center gap-3 sm:gap-4 md:gap-5 text-[#00000099] text-sm sm:text-base md:text-lg">
-            <p className="max-w-xs sm:max-w-[180px] md:max-w-[200px] lg:max-w-[250px] text-center md:text-left">
+          <div className="flex items-center gap-3 sm:gap-4 md:gap-5 mt-4 2xl:mt-0">
+            <p className="text-left w-[150px] sm:w-[180px] md:w-[200px] lg:w-[250px] text-sm sm:text-base md:text-lg text-[#00000099]">
               Пишите нам для воплощения ваших идей
             </p>
-            <button
-              type="button"
-              aria-label="Начать диалог"
-              className="w-8 h-8 rounded-full border border-[#00000099] flex items-center justify-center hover:border-[#000000] transition-colors focus:outline-none focus:ring-2 focus:ring-[#000000] focus:ring-offset-2"
-            >
-              <img
-                src={ArrowBlack}
-                alt="Стрелка — начать диалог"
-                className="w-4 h-4"
-              />
-            </button>
+            <img
+              src={ArrowBlack}
+              alt="arrow"
+              className="w-6 sm:w-8 md:w-10 lg:w-12"
+            />
           </div>
         </div>
 
         {/* Нижняя часть футера с навигацией */}
-        <div className="footer-navigation flex flex-col md:flex-row px-4 sm:px-6 lg:px-12 xl:px-[170px] 2xl:px-[170px] py-8 sm:py-10 md:py-12 lg:py-16 gap-8 sm:gap-10 md:gap-12 lg:gap-16 justify-between">
+        <div className="footer-navigation flex flex-col md:flex-row px-4 sm:px-6 md:px-8 lg:px-12 xl:px-[170px] 2xl:px-[170px] py-6 sm:py-8 md:py-10 lg:py-12 gap-6 sm:gap-8 md:gap-10 lg:gap-16">
           {/* Колонка 1 - Навигация */}
-          <div className="flex flex-col">
-            <h3 className="text-[14px] sm:text-[16px] md:text-[18px] font-medium mb-4 sm:mb-6 text-[#000000]">
+          <div className="flex flex-col w-full md:w-auto">
+            <p className="text-[14px] sm:text-[16px] md:text-[18px] font- mb-3 sm:mb-4 text-[#000000]">
               Навигация
-            </h3>
-            <nav aria-label="Навигация по сайту">
-              <ul className="flex flex-col gap-2 sm:gap-3">
-                <li>
-                  <a
-                    href="#projects"
-                    className="font-inter text-[14px] sm:text-[16px] md:text-[18px] lg:text-[20px] xl:text-[24px] 2xl:text-[36px] text-[#00000099] hover:text-[#000000] transition-colors font"
-                  >
-                    Проекты
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="#about"
-                    className="font-inter text-[14px] sm:text-[16px] md:text-[18px] lg:text-[20px] xl:text-[24px] 2xl:text-[36px] text-[#00000099] hover:text-[#000000] transition-colors"
-                  >
-                    О нас
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="#services"
-                    className="font-inter text-[14px] sm:text-[16px] md:text-[18px] lg:text-[20px] xl:text-[24px] 2xl:text-[36px] text-[#00000099] hover:text-[#000000] transition-colors"
-                  >
-                    Услуги
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="#contact"
-                    className="font-inter text-[14px] sm:text-[16px] md:text-[18px] lg:text-[20px] xl:text-[24px] 2xl:text-[36px] text-[#00000099] hover:text-[#000000] transition-colors"
-                  >
-                    Взаимодействие
-                  </a>
-                </li>
-              </ul>
-            </nav>
+            </p>
+            <div className="flex flex-col gap-2 sm:gap-3">
+              <a
+                href="#"
+                className="font-inter text-[14px] sm:text-[16px] md:text-[18px] lg:text-[20px] xl:text-[22px] text-[#00000099] hover:text-[#000000] transition-colors"
+              >
+                Проекты
+              </a>
+              <a
+                href="#"
+                className="text-[14px] xl:text-[22px] sm:text-[16px] md:text-[18px] text-[#00000099] hover:text-[#000000] transition-colors"
+              >
+                О нас
+              </a>
+              <a
+                href="#"
+                className="text-[14px] xl:text-[22px] sm:text-[16px] md:text-[18px] text-[#00000099] hover:text-[#000000] transition-colors"
+              >
+                Услуги
+              </a>
+              <a
+                href="#"
+                className="text-[14px] xl:text-[22px] sm:text-[16px] md:text-[18px] text-[#00000099] hover:text-[#000000] transition-colors"
+              >
+                Взаимодействие
+              </a>
+            </div>
           </div>
 
           {/* Колонка 2 - Социальные сети */}
-          <div className="flex flex-col">
-            <h3 className="text-[14px] sm:text-[16px] md:text-[18px] font-medium mb-4 sm:mb-6 text-[#000000]">
+          <div className="flex flex-col w-full md:w-auto mt-6 md:mt-0">
+            <p className="text-[14px] sm:text-[16px] md:text-[18px]  mb-3 sm:mb-4 text-[#000000]">
               Социальные сети
-            </h3>
-            <ul
-              className="flex flex-col gap-2 sm:gap-3"
-              aria-label="Наши социальные сети"
-            >
-              <li>
-                <a
-                  href="https://www.behance.net/вашпрофиль"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="font-inter text-[14px] sm:text-[16px] md:text-[18px] lg:text-[20px] xl:text-[24px] 2xl:text-[36px] text-[#00000099] hover:text-[#000000] transition-colors"
-                >
-                  Behance
-                </a>
-              </li>
-              <li>
-                <a
-                  href="https://www.instagram.com/вашпрофиль"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="font-inter text-[14px] sm:text-[16px] md:text-[18px] lg:text-[20px] xl:text-[24px] 2xl:text-[36px] text-[#00000099] hover:text-[#000000] transition-colors"
-                >
-                  Instagram
-                </a>
-              </li>
-            </ul>
+            </p>
+            <div className="flex flex-col gap-2 sm:gap-3">
+              <a
+                href="https://www.behance.net/a_kplv"
+                className="text-[14px] xl:text-[22px] sm:text-[16px] md:text-[18px] text-[#00000099] hover:text-[#000000] transition-colors"
+              >
+                Behance
+              </a>
+              <a
+                href="https://www.instagram.com/a_kplv/"
+                className="text-[14px] xl:text-[22px] sm:text-[16px] md:text-[18px] text-[#00000099] hover:text-[#000000] transition-colors"
+              >
+                Instagram
+              </a>
+            </div>
           </div>
 
           {/* Колонка 3 - Контакты */}
-          <div className="flex flex-col">
-            <h3 className="text-[14px] sm:text-[16px] md:text-[18px] font-medium mb-4 sm:mb-6 text-[#000000]">
-              Контакты
-            </h3>
-            <address
-              className="flex flex-col gap-2 sm:gap-3 not-italic"
-              aria-label="Контактная информация"
-            >
-              <p className="font-inter text-[14px] sm:text-[16px] md:text-[18px] lg:text-[20px] xl:text-[24px] 2xl:text-[36px] text-[#00000099] hover:text-[#000000] transition-colors">
+          <div className="flex flex-col w-full md:w-auto mt-6 md:mt-0">
+            <p className="text-[14px] sm:text-[16px] md:text-[18px]  mb-3 sm:mb-4 text-[#000000]">
+              Контакты:
+            </p>
+            <div className="flex flex-col gap-2 sm:gap-3">
+              <p className="text-[14px] xl:text-[22px] sm:text-[16px] md:text-[18px] text-[#00000099]">
                 Новосибирск, Россия
               </p>
-              <a
-                href="tel:+79963827307"
-                className="font-inter text-[14px] sm:text-[16px] md:text-[18px] lg:text-[20px] xl:text-[24px] 2xl:text-[36px] text-[#00000099] hover:text-[#000000] transition-colors"
-              >
-                +7 (996) 382-73-07
-              </a>
-              <a
-                href="mailto:hello@akrvm.ru"
-                className="font-inter text-[14px] sm:text-[16px] md:text-[18px] lg:text-[20px] xl:text-[24px] 2xl:text-[36px] text-[#00000099] hover:text-[#000000] transition-colors"
-              >
-                hello@akrvm.ru
-              </a>
-            </address>
+              <p className="text-[14px] xl:text-[22px] sm:text-[16px] md:text-[18px] text-[#00000099]">
+                +7 996 382 73-07
+              </p>
+              <p className="text-[14px] xl:text-[22px] sm:text-[16px] md:text-[18px] text-[#00000099] underline underline-offset-4 ">
+                akplv97@yandex.ru
+              </p>
+            </div>
+          </div>
+        </div>
+        <div>
+          {" "}
+          {/* ← Убрали border-t отсюда */}
+          <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-2 sm:gap-3 md:gap-0 py-4 sm:py-5 md:py-6 lg:py-8 px-4 sm:px-5 md:px-8 lg:px-12 xl:px-[170px] border-t border-t-[#00000033]">
+            {/* Правая часть — ссылки */}
+            <div className="flex flex-col md:flex-row justify-between items-center w-full mt-2 md:mt-0">
+              {/* Левый элемент */}
+              <div className="text-[12px] sm:text-[13px] md:text-[14px] lg:text-[15px] xl:text-[16px] text-[#00000099] mb-2 md:mb-0">
+                ©2025 AKRVM
+              </div>
+
+              {/* Центральный элемент с правым */}
+              <div className="flex flex-col sm:flex-row gap-4 sm:gap-6 md:gap-8 lg:gap-10 xl:gap-[111px] items-center">
+                <a
+                  href="#"
+                  className="text-[12px] sm:text-[13px] md:text-[14px] lg:text-[15px] xl:text-[16px] text-[#00000099] hover:text-[#000000] transition-colors text-center sm:text-left"
+                >
+                  Политика конфиденциальности
+                </a>
+
+                {/* Правый элемент */}
+                <a
+                  href="#"
+                  className="text-[12px] sm:text-[13px] md:text-[14px] lg:text-[15px] xl:text-[16px] text-[#00000099] hover:text-[#000000] transition-colors"
+                >
+                  В начало ↑
+                </a>
+              </div>
+            </div>
           </div>
         </div>
       </footer>
