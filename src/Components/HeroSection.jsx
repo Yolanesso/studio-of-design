@@ -2,7 +2,10 @@ import React, { useState } from "react";
 
 import HeroBg from "../Images/HeroBg.png";
 import BtnLang from "../Icons/btn-lang.svg";
-import Logo from "../Icons/logo.svg";
+import BtnLangBlack from "../Icons/btn lang-black.svg";
+import Logo from "../Icons/logo-black.svg";
+import LogoBlack from "../Icons/logo-white.svg";
+import BtnClose from "../Icons/btn-close.svg";
 import BtnMenu from "../Icons/btn-menu.svg";
 import "../css/fonts.css";
 import Arrow from "../Icons/Arrow.svg";
@@ -110,9 +113,10 @@ export default function HeroSection() {
                   <div className="flex items-center justify-between">
                     <button className="transition-opacity hover:opacity-80">
                       <img
-                        src={BtnLang}
+                        src={BtnLangBlack}
                         alt="Сменить язык"
-                        className="w-8 sm:w-10 md:w-12"
+                        width={38}
+                        height={38}
                       />
                     </button>
 
@@ -124,15 +128,24 @@ export default function HeroSection() {
                       />
                     </div>
 
+                    <button onClick={toggleMenu} aria-label="Закрыть меню">
+                      <img
+                        width={38}
+                        height={38}
+                        src={BtnClose}
+                        alt="Закрыть меню"
+                      />
+                    </button>
+
                     <div className="flex items-center gap-2 sm:gap-3">
                       <button
                         className="p-2 sm:p-3 transition-opacity hover:opacity-80 relative z-50"
                         onClick={toggleMenu}
-                        aria-label="Закрыть меню"
+                        aria-label="Открыть меню"
                       >
                         <img
                           src={BtnMenu}
-                          alt="Закрыть меню"
+                          alt="Открыть меню"
                           className="w-6 sm:w-8 md:w-10 transition-transform duration-300"
                           style={{
                             transform: isMenuOpen
@@ -146,7 +159,6 @@ export default function HeroSection() {
                 </nav>
 
                 {/* Сетка 2 колонки */}
-
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-20 lg:gap-32 xl:gap-40 2xl:gap-48 w-full max-w-5xl">
                   {/* Левая колонка — Навигация */}
                   <div className="flex flex-col items-start justify-start gap-8 md:gap-10">
@@ -204,15 +216,6 @@ export default function HeroSection() {
                     </div>
                   </div>
                 </div>
-
-                {/* Кнопка закрытия */}
-                <button
-                  onClick={toggleMenu}
-                  className="mt-12 sm:mt-16 text-xl sm:text-2xl font-inter text-amber-500 hover:text-amber-700 transition-colors tracking-wide"
-                  aria-label="Закрыть меню"
-                >
-                  Закрыть ×
-                </button>
               </div>
             </div>
           </div>
@@ -248,7 +251,7 @@ export default function HeroSection() {
           containerClassName="font-normal font-[400] text-sm sm:text-[20px] md:text-lg lg:text-[26px] xl:text-xl 2xl:text-[36px]"
           classNamee="studio__text"
         >
-          AKRVM – формирует пространство через логику архитектуры и
+          OTHER – формирует пространство через логику архитектуры и
           выразительность геометрии. Эстетика для нас — это не украшение, а
           результат точного взаимодействия формы и функции. Мы стремимся к
           ясности: в линиях, в пропорциях, в структуре. Свет и тень становятся

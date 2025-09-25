@@ -106,7 +106,7 @@ export default function Footer() {
           <div className="flex flex-col md:flex-row justify-between items-center w-full mt-2 md:mt-0">
             {/* Левый элемент */}
             <div className="text-[12px] sm:text-[13px] md:text-[14px] lg:text-[15px] xl:text-[16px] text-[#00000099] mb-2 md:mb-0">
-              ©2025 AKRVM
+              ©2025 OTHER
             </div>
 
             {/* Центральный элемент с правым */}
