@@ -1,23 +1,29 @@
-// hooks/useScrollAnimation.js
-import { useState, useEffect } from "react";
-import { useScroll, useSpring } from "framer-motion";
+import { useEffect, useRef, useState } from "react";
 
-export const useScrollAnimation = () => {
-  const [scrollProgress, setScrollProgress] = useState(0);
-
-  const { scrollYProgress } = useScroll();
-  const smoothScrollProgress = useSpring(scrollYProgress, {
-    damping: 30,
-    stiffness: 100,
-  });
+export function useScrollAnimation() {
+  const ref = useRef(null);
+  const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
-    const unsubscribe = smoothScrollProgress.on("change", (latest) => {
-      setScrollProgress(latest);
-    });
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+        }
+      },
+      { threshold: 0.1, rootMargin: '0px 0px -50px 0px' }
+    );
 
-    return () => unsubscribe();
-  }, [smoothScrollProgress]);
+    if (ref.current) {
+      observer.observe(ref.current);
+    }
 
-  return scrollProgress;
-};
+    return () => {
+      if (ref.current) {
+        observer.unobserve(ref.current);
+      }
+    };
+  }, []);
+
+  return [ref, isVisible];
+}

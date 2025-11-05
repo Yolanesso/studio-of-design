@@ -1,10 +1,12 @@
-import HeroSection from "./Components/HeroSection";
-import ServicePage from "./Components/Services/ServicePage";
+import MainPage from "./pages/MainPage";
+import HeroSection from "./pages/MainPage";
+import ServicePage from "./pages/ServicePage"
+import HeaderServices from "./Components/Services/HeaderServices";
 
 export function App() {
   return (
     <>
-      <ServicePage />
+      <ServicePage /> 
     </>
   );
 }

@@ -1,15 +1,12 @@
-import React from "react";
+import React, { useState } from "react";
 
 import HeroBg from "../Images/HeroBg.png";
 import BtnLang from "../Icons/btn-lang.svg";
-import BtnLangBlack from "../Icons/btn lang-black.svg";
 import Logo from "../Icons/logo-black.svg";
 import LogoBlack from "../Icons/logo-white.svg";
-import BtnClose from "../Icons/btn-close.svg";
 import BtnMenu from "../Icons/btn-menu.svg";
 import "../css/fonts.css";
 import Arrow from "../Icons/Arrow.svg";
-import ArrowBlack from "../Icons/Arrow-black.svg";
 
 import BulvarImg from "../Images/Projects/Bulvar.png";
 import BalanceImg from "../Images/Projects/Balance.png";
@@ -17,10 +14,10 @@ import Aeron from "../Images/Projects/Aeron.png";
 import Balance73 from "../Images/Projects/Balance73.png";
 import Mission from "../Images/Mission.png";
 
-import ScrollReveal from "./ScrollReveal ";
+import ScrollReveal from "../Components/ScrollReveal ";
 
-import Footer from "./Footer";
-import Header from "./Services/HeaderServices";
+import Footer from "../Components/Footer";
+import BurgerMenu from "../Components/BurgerMenu";
 // sm: (≥377px)
 // md: (≥834px)
 // lg: (≥1024px)
@@ -28,9 +25,97 @@ import Header from "./Services/HeaderServices";
 // 2xl: (≥1920px)
 
 export default function HeroSection() {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+  const toggleMenu = () => {
+    setIsMenuOpen(!isMenuOpen);
+    document.body.classList.toggle("menu-open");
+  };
+
+  const scrollToSection = (sectionId) => {
+    const element = document.getElementById(sectionId);
+    if (element) {
+      element.scrollIntoView({ behavior: "smooth" });
+    }
+  };
   return (
     <>
-      <Header />
+      <header
+        className="relative min-h-screen w-full bg-cover bg-center bg-no-repeat grayscale"
+        style={{ backgroundImage: `url(${HeroBg})` }}
+      >
+        <div className="absolute inset-0 bg-black/20"></div>
+
+        <div className="relative z-10">
+          <div className="container mx-auto">
+            <nav className="py-6 sm:py-8 md:py-10 lg:py-12">
+              <div className="flex items-center justify-between">
+                <button className="transition-opacity hover:opacity-80">
+                  <img
+                    src={BtnLang}
+                    alt="Сменить язык"
+                    className="w-8 sm:w-10 md:w-12"
+                  />
+                </button>
+
+                <div className="flex-1 flex justify-center">
+                  <img
+                    src={Logo}
+                    alt="Логотип"
+                    className="max-w-[80px] sm:max-w-[100px] md:max-w-[120px] lg:max-w-[140px] 2xl:max-w-[160px]"
+                  />
+                </div>
+
+                <div className="flex items-center gap-2 sm:gap-3">
+                  <button className="bg-amber-50 text-gray-900 px-4 py-2 sm:px-5 sm:py-3 md:px-6 md:py-4 rounded-[27px] font-inter font-medium text-xs sm:text-sm md:text-base max-[377px]:hidden hover:bg-amber-100 transition-colors duration-200 shadow-md">
+                    Связаться с нами
+                  </button>
+                  <button
+                    className="p-2 sm:p-3 transition-opacity hover:opacity-80 relative z-50"
+                    onClick={toggleMenu}
+                    aria-label="Открыть меню"
+                  >
+                    <img
+                      src={BtnMenu}
+                      alt="Открыть меню"
+                      className="w-6 sm:w-8 md:w-10 transition-transform duration-300"
+                      style={{
+                        transform: isMenuOpen
+                          ? "rotate(90deg)"
+                          : "rotate(0deg)",
+                      }}
+                    />
+                  </button>
+                </div>
+              </div>
+            </nav>
+          </div>
+
+          {/* Бургер-меню */}
+          <BurgerMenu 
+            isMenuOpen={isMenuOpen}
+            toggleMenu={toggleMenu}
+            scrollToSection={scrollToSection}
+          />
+
+          <div className="header__info relative z-10 px-4 sm:px-6 md:px-8 lg:pl-[100px] xl:pl-[310px] 2xl:pl-[250px] mt-4 sm:mt-6 md:mt-8 lg:mt-12 2xl:mt-20">
+            <h1 className="text-[48px] sm:text-[64px] md:text-[72px] lg:text-[84px] xl:text-[90px] 2xl:text-[96px] font-inter text-amber-50 leading-[1.1]">
+              <span className="block">Архитектура.</span>
+              <span className="block lg:mt-2 2xl:mt-4">Дизайн интерьера.</span>
+            </h1>
+            <div className="flex items-start gap-2 sm:gap-3 mt-[12px] sm:mt-[14px] md:mt-[16px]">
+              <p className="text-[14px] sm:text-[16px] md:text-[17px] lg:text-[18px] text-amber-50 max-w-[180px] sm:max-w-[200px] md:max-w-[230px] font-inter leading-relaxed">
+                Пространства, где форма встречает функцию
+              </p>
+              <img
+                src={Arrow}
+                alt="Contacts"
+                className="w-4 sm:w-10 md:w-12 mt-1 sm:mt-4"
+              />
+            </div>
+          </div>
+        </div>
+      </header>
 
       <section className=" font-[400] studio py-8 sm:py-12 md:py-16 lg:py-24 2xl:py-40 px-4 sm:px-6 md:px-8 lg:px-[100px] xl:px-[150px] 2xl:px-[250px]">
         <h1 className="studio-title text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl 2xl:text-[96px] font-inter font-medium mb-4 sm:mb-6 md:mb-8 lg:mb-12 2xl:mb-16">
@@ -44,7 +129,7 @@ export default function HeroSection() {
           containerClassName="font-normal font-[400] text-sm sm:text-[20px] md:text-lg lg:text-[26px] xl:text-xl 2xl:text-[36px]"
           classNamee="studio__text"
         >
-          OTHR – формирует пространство через логику архитектуры и
+          OTHER – формирует пространство через логику архитектуры и
           выразительность геометрии. Эстетика для нас — это не украшение, а
           результат точного взаимодействия формы и функции. Мы стремимся к
           ясности: в линиях, в пропорциях, в структуре. Свет и тень становятся
