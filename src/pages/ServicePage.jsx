@@ -9,7 +9,6 @@ import ArrowBlack from "../Icons/Arrow-black.svg";
 import "../css/fonts.css";
 import Footer from "../Components/Footer";
 
-// Импорт компонентов услуг
 import ServiceBlockArchitectural from "../Components/Services/ServiceBlockArchitectural";
 import ServiceBlockDesignProject from "../Components/Services/ServiceBlockDesignProject";
 import ServiceBlockCompleting from "../Components/Services/ServiceBlockCompleting";
@@ -90,7 +89,6 @@ function Header() {
         </div>
       </header>
 
-      {/* Бургер-меню - вынесено за пределы header для правильного позиционирования */}
       <div
         className={`fixed inset-0 z-40 transition-all duration-500 ease-out transform ${
           isMenuOpen
@@ -98,14 +96,11 @@ function Header() {
             : "opacity-0 -translate-y-full invisible pointer-events-none"
         }`}
       >
-        {/* Белый фон */}
         <div className="w-full h-full bg-white">
-          {/* Контент меню */}
           <div
             className="flex flex-col items-center justify-start pt-16 pb-12 h-full px-6 sm:px-8 md:px-12 lg:px-20 overflow-y-auto"
             onClick={(e) => e.stopPropagation()}
           >
-            {/* Добавляем навигацию в меню */}
             <nav className="w-full max-w-5xl mb-12">
               <div className="flex items-center justify-between">
                 <button className="transition-opacity hover:opacity-80">
@@ -155,9 +150,7 @@ function Header() {
               </div>
             </nav>
 
-            {/* Сетка 2 колонки */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-20 lg:gap-32 xl:gap-40 2xl:gap-48 w-full max-w-5xl">
-              {/* Левая колонка — Навигация */}
               <div className="flex flex-col items-start justify-start gap-8 md:gap-10">
                 <div className="flex flex-col gap-6 md:gap-8">
                   <button
@@ -211,10 +204,8 @@ function Header() {
                 </div>
               </div>
 
-              {/* Разделитель — только на мобильных */}
               <div className="h-px my-6 md:hidden w-full" style={{ backgroundColor: '#e5e7eb' }}></div>
 
-              {/* Правая колонка — Информация */}
               <div className="flex flex-col items-start justify-start">
                 <div className="mb-8 md:mb-1">
                   <img src={ArrowBlack} alt="Arrow" />
