@@ -1,29 +1,86 @@
-import React from "react";
+import React, { useState, useCallback } from "react";
+import { createPortal } from "react-dom";
+import { motion, AnimatePresence } from "framer-motion";
 import { useScrollAnimation } from "../../hooks/useScrollAnimation";
 import archConceptMain from '../../Images/Services/arch-con-main.png';
 
+import bestuzhevskijMain from "../../Images/Projects/Bestuzhevskij/bestuzhevskij-main.png"
+import bestuzhevskijFirst from "../../Images/Projects/Bestuzhevskij/bestuzhevskij-first.png"
+import bestuzhevskijSecond from "../../Images/Projects/Bestuzhevskij/bestuzhevskij-second.png"
+import bestuzhevskijThird from "../../Images/Projects/Bestuzhevskij/bestuzhevskij-third.png"
+
 export default function ServiceBlockConsultation() {
   const [ref, isVisible] = useScrollAnimation();
+  const [selectedImageIndex, setSelectedImageIndex] = useState(null);
+  const [direction, setDirection] = useState(0);
+  
+  const allImages = [bestuzhevskijMain, bestuzhevskijFirst, bestuzhevskijSecond, bestuzhevskijThird];
+  
+  const openImage = (index) => {
+    setSelectedImageIndex(index);
+    setDirection(0);
+  };
+  
+  const closeImage = useCallback(() => {
+    setSelectedImageIndex(null);
+    setDirection(0);
+  }, []);
+  
+  const nextImage = useCallback(() => {
+    setDirection(1);
+    setSelectedImageIndex((prev) => (prev + 1) % allImages.length);
+  }, [allImages.length]);
+  
+  const prevImage = useCallback(() => {
+    setDirection(-1);
+    setSelectedImageIndex((prev) => (prev - 1 + allImages.length) % allImages.length);
+  }, [allImages.length]);
+  
+  React.useEffect(() => {
+    const handleKeyDown = (e) => {
+      if (selectedImageIndex !== null) {
+        if (e.key === 'Escape') {
+          closeImage();
+        } else if (e.key === 'ArrowRight') {
+          nextImage();
+        } else if (e.key === 'ArrowLeft') {
+          prevImage();
+        }
+      }
+    };
+    
+    if (selectedImageIndex !== null) {
+      document.addEventListener('keydown', handleKeyDown);
+      return () => document.removeEventListener('keydown', handleKeyDown);
+    }
+  }, [selectedImageIndex, closeImage, nextImage, prevImage]);
 
   const mainImage = (
-    <div className="w-full bg-gray-200 overflow-hidden" style={{ aspectRatio: '650/350' }}>
-      <img 
-        src={archConceptMain} 
-        alt="Консультация" 
-        className="w-full h-auto"
-        style={{ 
-          aspectRatio: '650/350',
-          objectFit: 'cover'
-        }}
-      />
-    </div>
+    <img 
+      src={bestuzhevskijMain} 
+      alt="Консультация" 
+      className="w-full h-auto cursor-pointer transition-opacity hover:opacity-90"
+      style={{ 
+        aspectRatio: '650/350',
+        objectFit: 'cover'
+      }}
+      onClick={() => openImage(0)}
+    />
   );
 
-  const thumbnails = [1, 2, 3].map((item) => (
-    <div key={item} className="w-full h-[120px] sm:h-[150px] md:h-[180px] bg-gray-200 overflow-hidden">
-      <div className="w-full h-full bg-gradient-to-br from-gray-300 to-gray-400 flex items-center justify-center">
-        <span className="text-gray-600 text-sm">Thumb {item}</span>
-      </div>
+  const thumbnailImages = [bestuzhevskijFirst, bestuzhevskijSecond, bestuzhevskijThird];
+  
+  const thumbnails = thumbnailImages.map((img, index) => (
+    <div 
+      key={index} 
+      className="w-[60px] h-[60px] sm:w-[70px] sm:h-[70px] md:w-[75px] md:h-[75px] overflow-hidden cursor-pointer transition-opacity hover:opacity-90"
+      onClick={() => openImage(index + 1)}
+    >
+      <img 
+        src={img} 
+        alt="" 
+        className="w-full h-full object-cover"
+      />
     </div>
   ));
 
@@ -86,7 +143,7 @@ export default function ServiceBlockConsultation() {
             </div>
           </div>
 
-          <div className="grid grid-cols-3 gap-3 md:gap-4">
+          <div className="flex gap-[20px]">
             {thumbnails}
           </div>
         </div>
@@ -114,6 +171,99 @@ export default function ServiceBlockConsultation() {
           </div>
         </div>
       </div>
+      
+      {typeof document !== 'undefined' && createPortal(
+        <AnimatePresence>
+          {selectedImageIndex !== null && (
+            <motion.div 
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.3 }}
+              className="fixed inset-0 z-[9999] bg-black/70 flex items-center justify-center p-4"
+              onClick={closeImage}
+              style={{ width: '100vw', height: '100vh' }}
+            >
+              <div 
+                className="relative max-w-[90vw] max-h-[90vh] flex items-center justify-center"
+                onClick={(e) => e.stopPropagation()}
+              >
+                <motion.button
+                  initial={{ opacity: 0, scale: 0.8 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  transition={{ delay: 0.2 }}
+                  onClick={closeImage}
+                  className="absolute top-4 right-4 text-white text-3xl font-bold z-10 hover:opacity-70 transition-opacity w-10 h-10 flex items-center justify-center rounded-full hover:bg-white/10"
+                  aria-label="Закрыть"
+                >
+                  ×
+                </motion.button>
+                
+                <motion.button
+                  initial={{ opacity: 0, x: -20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ delay: 0.2 }}
+                  onClick={prevImage}
+                  className="absolute left-4 text-white text-5xl font-light z-10 hover:opacity-70 transition-opacity w-12 h-12 flex items-center justify-center rounded-full hover:bg-white/10"
+                  aria-label="Предыдущее изображение"
+                >
+                  ‹
+                </motion.button>
+                
+                <AnimatePresence mode="wait" custom={direction}>
+                  <motion.img 
+                    key={selectedImageIndex}
+                    custom={direction}
+                    initial={(dir) => ({ 
+                      opacity: 0, 
+                      scale: 0.95, 
+                      x: dir > 0 ? 100 : -100 
+                    })}
+                    animate={{ 
+                      opacity: 1, 
+                      scale: 1, 
+                      x: 0 
+                    }}
+                    exit={(dir) => ({ 
+                      opacity: 0, 
+                      scale: 0.95, 
+                      x: dir > 0 ? -100 : 100 
+                    })}
+                    transition={{ 
+                      duration: 0.5,
+                      ease: [0.4, 0, 0.2, 1]
+                    }}
+                    src={allImages[selectedImageIndex]} 
+                    alt={`Изображение ${selectedImageIndex + 1}`}
+                    className="max-w-full max-h-[90vh] object-contain"
+                  />
+                </AnimatePresence>
+                
+                <motion.button
+                  initial={{ opacity: 0, x: 20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ delay: 0.2 }}
+                  onClick={nextImage}
+                  className="absolute right-4 text-white text-5xl font-light z-10 hover:opacity-70 transition-opacity w-12 h-12 flex items-center justify-center rounded-full hover:bg-white/10"
+                  aria-label="Следующее изображение"
+                >
+                  ›
+                </motion.button>
+                
+                <motion.div 
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.3 }}
+                  className="absolute bottom-4 left-1/2 transform -translate-x-1/2 text-white text-sm bg-black/50 px-4 py-2 rounded-full"
+                >
+                  {selectedImageIndex + 1} / {allImages.length}
+                </motion.div>
+              </div>
+            </motion.div>
+          )}
+        </AnimatePresence>,
+        document.body
+      )}
     </div>
   );
 }

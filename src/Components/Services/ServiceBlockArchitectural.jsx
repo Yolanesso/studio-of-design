@@ -175,7 +175,6 @@ export default function ServiceBlockArchitectural() {
         </div>
       </div>
       
-      {/* Модальное окно для просмотра изображений - вынесено через Portal */}
       {typeof document !== 'undefined' && createPortal(
         <AnimatePresence>
           {selectedImageIndex !== null && (
@@ -192,7 +191,6 @@ export default function ServiceBlockArchitectural() {
                 className="relative max-w-[90vw] max-h-[90vh] flex items-center justify-center"
                 onClick={(e) => e.stopPropagation()}
               >
-                {/* Кнопка закрытия */}
                 <motion.button
                   initial={{ opacity: 0, scale: 0.8 }}
                   animate={{ opacity: 1, scale: 1 }}
@@ -204,7 +202,6 @@ export default function ServiceBlockArchitectural() {
                   ×
                 </motion.button>
                 
-                {/* Кнопка предыдущее изображение */}
                 <motion.button
                   initial={{ opacity: 0, x: -20 }}
                   animate={{ opacity: 1, x: 0 }}
@@ -216,7 +213,6 @@ export default function ServiceBlockArchitectural() {
                   ‹
                 </motion.button>
                 
-                {/* Изображение с анимацией */}
                 <AnimatePresence mode="wait" custom={direction}>
                   <motion.img 
                     key={selectedImageIndex}
@@ -246,7 +242,6 @@ export default function ServiceBlockArchitectural() {
                   />
                 </AnimatePresence>
                 
-                {/* Кнопка следующее изображение */}
                 <motion.button
                   initial={{ opacity: 0, x: 20 }}
                   animate={{ opacity: 1, x: 0 }}
@@ -258,7 +253,6 @@ export default function ServiceBlockArchitectural() {
                   ›
                 </motion.button>
                 
-                {/* Индикатор текущего изображения */}
                 <motion.div 
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
