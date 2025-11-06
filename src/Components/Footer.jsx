@@ -2,9 +2,10 @@ import ArrowBlack from "../Icons/Arrow-black.svg";
 
 import React from "react";
 
-export default function Footer() {
+export default function Footer({ hideTopBlock = false }) {
   return (
     <footer>
+      {!hideTopBlock && (
       <div className="footer__text flex flex-col 2xl:flex-row px-4 sm:px-6 md:px-8 lg:px-12 xl:px-[170px] 2xl:px-[170px] justify-between items-start 2xl:items-center mt-12 sm:mt-16 md:mt-20 lg:mt-28 xl:mt-[150px] 2xl:mt-[183px] border-b border-b-[#00000033] pb-6 sm:pb-8 md:pb-10">
         {/* Левая группа */}
         <div className="flex flex-col 2xl:flex-row gap-4 sm:gap-6 md:gap-8 lg:gap-10 xl:gap-[62px] text-[#00000099] text-sm sm:text-base md:text-lg text-left mb-4 2xl:mb-0">
@@ -23,6 +24,7 @@ export default function Footer() {
           />
         </div>
       </div>
+      )}
 
       {/* Нижняя часть футера с навигацией */}
       <div className="footer-navigation flex flex-col md:flex-row px-4 sm:px-6 md:px-8 lg:px-12 xl:px-[170px] 2xl:px-[170px] py-6 sm:py-8 md:py-10 lg:py-12 gap-6 sm:gap-8 md:gap-10 lg:gap-16">
