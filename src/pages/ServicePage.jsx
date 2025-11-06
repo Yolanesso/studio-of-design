@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 import ServicesBg from "../Images/services-bg.png";
 import BtnLangBlack from "../Icons/btn lang-black.svg";
@@ -16,6 +17,7 @@ import ServiceBlockAuthorSupervision from "../Components/Services/ServiceBlockAu
 import ServiceBlockConsultation from "../Components/Services/ServiceBlockConsultation";
 
 function Header() {
+  const navigate = useNavigate();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const toggleMenu = () => {
@@ -28,6 +30,12 @@ function Header() {
     if (element) {
       element.scrollIntoView({ behavior: "smooth" });
     }
+  };
+
+  const handleNavigation = (path) => {
+    navigate(path);
+    toggleMenu();
+    window.scrollTo(0, 0);
   };
 
   return (
@@ -51,15 +59,23 @@ function Header() {
                 </button>
 
                 <div className="flex-1 flex justify-center">
-                  <img
-                    src={Logo}
-                    alt="Логотип"
-                    className="max-w-[80px] sm:max-w-[100px] md:max-w-[120px] lg:max-w-[140px] xl:max-w-[150px] 2xl:max-w-[160px]"
-                  />
+                  <button 
+                    onClick={() => navigate("/")}
+                    className="transition-opacity hover:opacity-80"
+                  >
+                    <img
+                      src={Logo}
+                      alt="Логотип"
+                      className="max-w-[80px] sm:max-w-[100px] md:max-w-[120px] lg:max-w-[140px] xl:max-w-[150px] 2xl:max-w-[160px]"
+                    />
+                  </button>
                 </div>
 
                 <div className="flex items-center gap-2 sm:gap-3 md:gap-4">
-                  <button className="bg-gray-900 text-amber-50 px-4 py-2 sm:px-5 sm:py-3 md:px-6 md:py-4 rounded-[27px] font-inter font-medium text-xs sm:text-sm md:text-base max-[377px]:hidden hover:bg-gray-800 transition-colors duration-200 shadow-md">
+                  <button 
+                    onClick={() => navigate("/contact")}
+                    className="bg-gray-900 text-amber-50 px-4 py-2 sm:px-5 sm:py-3 md:px-6 md:py-4 rounded-[27px] font-inter font-medium text-xs sm:text-sm md:text-base max-[377px]:hidden hover:bg-gray-800 transition-colors duration-200 shadow-md"
+                  >
                     Связаться с нами
                   </button>
                   <button
@@ -154,10 +170,7 @@ function Header() {
               <div className="flex flex-col items-start justify-start gap-8 md:gap-10">
                 <div className="flex flex-col gap-6 md:gap-8">
                   <button
-                    onClick={() => {
-                      scrollToSection("projects");
-                      toggleMenu();
-                    }}
+                    onClick={() => handleNavigation("/")}
                     className="text-4xl sm:text-5xl md:text-6xl lg:text-[36px] font-inter font-medium transition-colors text-left leading-tight"
                     style={{ color: '#00000099' }}
                     onMouseEnter={(e) => e.target.style.color = '#000000'}
@@ -166,10 +179,7 @@ function Header() {
                     Проекты
                   </button>
                   <button
-                    onClick={() => {
-                      scrollToSection("about");
-                      toggleMenu();
-                    }}
+                    onClick={() => handleNavigation("/about")}
                     className="text-4xl sm:text-5xl md:text-6xl lg:text-[36px] font-inter font-medium transition-colors text-left leading-tight"
                     style={{ color: '#00000099' }}
                     onMouseEnter={(e) => e.target.style.color = '#000000'}
@@ -178,10 +188,7 @@ function Header() {
                     О нас
                   </button>
                   <button
-                    onClick={() => {
-                      scrollToSection("services");
-                      toggleMenu();
-                    }}
+                    onClick={() => handleNavigation("/services")}
                     className="text-4xl sm:text-5xl md:text-6xl lg:text-[36px] font-inter font-medium transition-colors text-left leading-tight"
                     style={{ color: '#00000099' }}
                     onMouseEnter={(e) => e.target.style.color = '#000000'}
@@ -190,10 +197,7 @@ function Header() {
                     Услуги
                   </button>
                   <button
-                    onClick={() => {
-                      scrollToSection("interaction");
-                      toggleMenu();
-                    }}
+                    onClick={() => handleNavigation("/contact")}
                     className="text-4xl sm:text-5xl md:text-6xl lg:text-[36px] font-inter font-medium transition-colors text-left leading-tight"
                     style={{ color: '#00000099' }}
                     onMouseEnter={(e) => e.target.style.color = '#000000'}

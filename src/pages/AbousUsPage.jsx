@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { motion } from "framer-motion";
 import { useInView } from "framer-motion";
+import { useNavigate } from "react-router-dom";
 
 import HeroBg from "../Images/AboutUs/bg.png";
 import BtnLang from "../Icons/btn-lang.svg";
@@ -49,6 +50,7 @@ const AnimatedText = ({ children, className = "", delay = 0 }) => {
 };
 
 export default function AboutUsPage() {
+  const navigate = useNavigate();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const toggleMenu = () => {
@@ -61,6 +63,12 @@ export default function AboutUsPage() {
     if (element) {
       element.scrollIntoView({ behavior: "smooth" });
     }
+  };
+
+  const handleNavigation = (path) => {
+    navigate(path);
+    toggleMenu();
+    window.scrollTo(0, 0);
   };
 
   return (
@@ -93,7 +101,10 @@ export default function AboutUsPage() {
                 </div>
 
                 <div className="flex items-center gap-2 sm:gap-3">
-                  <button className="bg-white text-gray-900 px-4 py-2 sm:px-5 sm:py-3 md:px-6 md:py-4 rounded-[27px] font-inter font-medium text-xs sm:text-sm md:text-base max-[377px]:hidden hover:bg-gray-100 transition-colors duration-200 border border-white">
+                  <button 
+                    onClick={() => navigate("/contact")}
+                    className="bg-white text-gray-900 px-4 py-2 sm:px-5 sm:py-3 md:px-6 md:py-4 rounded-[27px] font-inter font-medium text-xs sm:text-sm md:text-base max-[377px]:hidden hover:bg-gray-100 transition-colors duration-200 border border-white"
+                  >
                     Связаться с нами
                   </button>
                   <button
@@ -408,11 +419,16 @@ export default function AboutUsPage() {
                 </button>
 
                 <div className="flex-1 flex justify-center">
-                  <img
-                    src={Logo}
-                    alt="Логотип"
-                    className="max-w-[80px] sm:max-w-[100px] md:max-w-[120px] lg:max-w-[140px] 2xl:max-w-[160px]"
-                  />
+                  <button 
+                    onClick={() => navigate("/")}
+                    className="transition-opacity hover:opacity-80"
+                  >
+                    <img
+                      src={Logo}
+                      alt="Логотип"
+                      className="max-w-[80px] sm:max-w-[100px] md:max-w-[120px] lg:max-w-[140px] 2xl:max-w-[160px]"
+                    />
+                  </button>
                 </div>
 
                 <button onClick={toggleMenu} aria-label="Закрыть меню">
@@ -449,10 +465,7 @@ export default function AboutUsPage() {
               <div className="flex flex-col items-start justify-start gap-8 md:gap-10">
                 <div className="flex flex-col gap-6 md:gap-8">
                   <button
-                    onClick={() => {
-                      scrollToSection("projects");
-                      toggleMenu();
-                    }}
+                    onClick={() => handleNavigation("/")}
                     className="text-4xl sm:text-5xl md:text-6xl lg:text-[36px] font-inter font-medium transition-colors text-left leading-tight"
                     style={{ color: '#00000099' }}
                     onMouseEnter={(e) => e.target.style.color = '#000000'}
@@ -461,10 +474,7 @@ export default function AboutUsPage() {
                     Проекты
                   </button>
                   <button
-                    onClick={() => {
-                      scrollToSection("about");
-                      toggleMenu();
-                    }}
+                    onClick={() => handleNavigation("/about")}
                     className="text-4xl sm:text-5xl md:text-6xl lg:text-[36px] font-inter font-medium transition-colors text-left leading-tight"
                     style={{ color: '#00000099' }}
                     onMouseEnter={(e) => e.target.style.color = '#000000'}
@@ -473,10 +483,7 @@ export default function AboutUsPage() {
                     О нас
                   </button>
                   <button
-                    onClick={() => {
-                      scrollToSection("services");
-                      toggleMenu();
-                    }}
+                    onClick={() => handleNavigation("/services")}
                     className="text-4xl sm:text-5xl md:text-6xl lg:text-[36px] font-inter font-medium transition-colors text-left leading-tight"
                     style={{ color: '#00000099' }}
                     onMouseEnter={(e) => e.target.style.color = '#000000'}
@@ -485,10 +492,7 @@ export default function AboutUsPage() {
                     Услуги
                   </button>
                   <button
-                    onClick={() => {
-                      scrollToSection("interaction");
-                      toggleMenu();
-                    }}
+                    onClick={() => handleNavigation("/contact")}
                     className="text-4xl sm:text-5xl md:text-6xl lg:text-[36px] font-inter font-medium transition-colors text-left leading-tight"
                     style={{ color: '#00000099' }}
                     onMouseEnter={(e) => e.target.style.color = '#000000'}

@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 import HeroBg from "../Images/Contact/bg.png";
 import BtnLang from "../Icons/btn-lang.svg";
@@ -13,6 +14,7 @@ import "../css/fonts.css";
 import Footer from "../Components/Footer";
 
 export default function ContactPage() {
+  const navigate = useNavigate();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [formData, setFormData] = useState({
     name: "",
@@ -33,6 +35,12 @@ export default function ContactPage() {
     if (element) {
       element.scrollIntoView({ behavior: "smooth" });
     }
+  };
+
+  const handleNavigation = (path) => {
+    navigate(path);
+    toggleMenu();
+    window.scrollTo(0, 0);
   };
 
   const handleInputChange = (e) => {
@@ -290,11 +298,16 @@ export default function ContactPage() {
                 </button>
 
                 <div className="flex-1 flex justify-center">
-                  <img
-                    src={Logo}
-                    alt="Логотип"
-                    className="max-w-[80px] sm:max-w-[100px] md:max-w-[120px] lg:max-w-[140px] 2xl:max-w-[160px]"
-                  />
+                  <button 
+                    onClick={() => navigate("/")}
+                    className="transition-opacity hover:opacity-80"
+                  >
+                    <img
+                      src={Logo}
+                      alt="Логотип"
+                      className="max-w-[80px] sm:max-w-[100px] md:max-w-[120px] lg:max-w-[140px] 2xl:max-w-[160px]"
+                    />
+                  </button>
                 </div>
 
                 <button onClick={toggleMenu} aria-label="Закрыть меню">
@@ -331,10 +344,7 @@ export default function ContactPage() {
               <div className="flex flex-col items-start justify-start gap-8 md:gap-10">
                 <div className="flex flex-col gap-6 md:gap-8">
                   <button
-                    onClick={() => {
-                      scrollToSection("projects");
-                      toggleMenu();
-                    }}
+                    onClick={() => handleNavigation("/")}
                     className="text-4xl sm:text-5xl md:text-6xl lg:text-[36px] font-inter font-medium transition-colors text-left leading-tight"
                     style={{ color: '#00000099' }}
                     onMouseEnter={(e) => e.target.style.color = '#000000'}
@@ -343,10 +353,7 @@ export default function ContactPage() {
                     Проекты
                   </button>
                   <button
-                    onClick={() => {
-                      scrollToSection("about");
-                      toggleMenu();
-                    }}
+                    onClick={() => handleNavigation("/about")}
                     className="text-4xl sm:text-5xl md:text-6xl lg:text-[36px] font-inter font-medium transition-colors text-left leading-tight"
                     style={{ color: '#00000099' }}
                     onMouseEnter={(e) => e.target.style.color = '#000000'}
@@ -355,10 +362,7 @@ export default function ContactPage() {
                     О нас
                   </button>
                   <button
-                    onClick={() => {
-                      scrollToSection("services");
-                      toggleMenu();
-                    }}
+                    onClick={() => handleNavigation("/services")}
                     className="text-4xl sm:text-5xl md:text-6xl lg:text-[36px] font-inter font-medium transition-colors text-left leading-tight"
                     style={{ color: '#00000099' }}
                     onMouseEnter={(e) => e.target.style.color = '#000000'}
@@ -367,10 +371,7 @@ export default function ContactPage() {
                     Услуги
                   </button>
                   <button
-                    onClick={() => {
-                      scrollToSection("interaction");
-                      toggleMenu();
-                    }}
+                    onClick={() => handleNavigation("/contact")}
                     className="text-4xl sm:text-5xl md:text-6xl lg:text-[36px] font-inter font-medium transition-colors text-left leading-tight"
                     style={{ color: '#00000099' }}
                     onMouseEnter={(e) => e.target.style.color = '#000000'}

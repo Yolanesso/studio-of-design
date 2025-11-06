@@ -1,4 +1,5 @@
 import React from "react";
+import { Link, useNavigate } from "react-router-dom";
 
 import BtnLangBlack from "../Icons/btn lang-black.svg";
 import Logo from "../Icons/logo-black.svg";
@@ -7,6 +8,13 @@ import BtnMenu from "../Icons/btn-menu.svg";
 import ArrowBlack from "../Icons/Arrow-black.svg";
 
 export default function BurgerMenu({ isMenuOpen, toggleMenu, scrollToSection }) {
+  const navigate = useNavigate();
+
+  const handleNavigation = (path) => {
+    navigate(path);
+    toggleMenu();
+    window.scrollTo(0, 0);
+  };
   return (
     <div
       className={`fixed inset-0 z-40 transition-all duration-500 ease-out transform ${
@@ -35,11 +43,16 @@ export default function BurgerMenu({ isMenuOpen, toggleMenu, scrollToSection }) 
               </button>
 
               <div className="flex-1 flex justify-center">
-                <img
-                  src={Logo}
-                  alt="Логотип"
-                  className="max-w-[80px] sm:max-w-[100px] md:max-w-[120px] lg:max-w-[140px] 2xl:max-w-[160px]"
-                />
+                <button 
+                  onClick={() => handleNavigation("/")}
+                  className="transition-opacity hover:opacity-80"
+                >
+                  <img
+                    src={Logo}
+                    alt="Логотип"
+                    className="max-w-[80px] sm:max-w-[100px] md:max-w-[120px] lg:max-w-[140px] 2xl:max-w-[160px]"
+                  />
+                </button>
               </div>
 
               <button onClick={toggleMenu} aria-label="Закрыть меню">
@@ -78,10 +91,7 @@ export default function BurgerMenu({ isMenuOpen, toggleMenu, scrollToSection }) 
             <div className="flex flex-col items-start justify-start gap-8 md:gap-10">
               <div className="flex flex-col gap-6 md:gap-8">
                 <button
-                  onClick={() => {
-                    scrollToSection("projects");
-                    toggleMenu();
-                  }}
+                  onClick={() => handleNavigation("/")}
                   className="text-4xl sm:text-5xl md:text-6xl lg:text-[36px] font-inter font-medium transition-colors text-left leading-tight"
                   style={{ color: '#f59e0b' }}
                   onMouseEnter={(e) => e.target.style.color = '#d97706'}
@@ -90,10 +100,7 @@ export default function BurgerMenu({ isMenuOpen, toggleMenu, scrollToSection }) 
                   Проекты
                 </button>
                 <button
-                  onClick={() => {
-                    scrollToSection("about");
-                    toggleMenu();
-                  }}
+                  onClick={() => handleNavigation("/about")}
                   className="text-4xl sm:text-5xl md:text-6xl lg:text-[36px] font-inter font-medium transition-colors text-left leading-tight"
                   style={{ color: '#f59e0b' }}
                   onMouseEnter={(e) => e.target.style.color = '#d97706'}
@@ -102,10 +109,7 @@ export default function BurgerMenu({ isMenuOpen, toggleMenu, scrollToSection }) 
                   О нас
                 </button>
                 <button
-                  onClick={() => {
-                    scrollToSection("services");
-                    toggleMenu();
-                  }}
+                  onClick={() => handleNavigation("/services")}
                   className="text-4xl sm:text-5xl md:text-6xl lg:text-[36px] font-inter font-medium transition-colors text-left leading-tight"
                   style={{ color: '#f59e0b' }}
                   onMouseEnter={(e) => e.target.style.color = '#d97706'}
@@ -114,10 +118,7 @@ export default function BurgerMenu({ isMenuOpen, toggleMenu, scrollToSection }) 
                   Услуги
                 </button>
                 <button
-                  onClick={() => {
-                    scrollToSection("interaction");
-                    toggleMenu();
-                  }}
+                  onClick={() => handleNavigation("/contact")}
                   className="text-4xl sm:text-5xl md:text-6xl lg:text-[36px] font-inter font-medium transition-colors text-left leading-tight"
                   style={{ color: '#f59e0b' }}
                   onMouseEnter={(e) => e.target.style.color = '#d97706'}

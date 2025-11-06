@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 import HeroBg from "../Images/HeroBg.png";
 import BtnLang from "../Icons/btn-lang.svg";
@@ -25,6 +26,7 @@ import BurgerMenu from "../Components/BurgerMenu";
 // 2xl: (≥1920px)
 
 export default function HeroSection() {
+  const navigate = useNavigate();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const toggleMenu = () => {
@@ -59,15 +61,23 @@ export default function HeroSection() {
                 </button>
 
                 <div className="flex-1 flex justify-center">
-                  <img
-                    src={Logo}
-                    alt="Логотип"
-                    className="max-w-[80px] sm:max-w-[100px] md:max-w-[120px] lg:max-w-[140px] 2xl:max-w-[160px]"
-                  />
+                  <button 
+                    onClick={() => navigate("/")}
+                    className="transition-opacity hover:opacity-80"
+                  >
+                    <img
+                      src={Logo}
+                      alt="Логотип"
+                      className="max-w-[80px] sm:max-w-[100px] md:max-w-[120px] lg:max-w-[140px] 2xl:max-w-[160px]"
+                    />
+                  </button>
                 </div>
 
                 <div className="flex items-center gap-2 sm:gap-3">
-                  <button className="bg-amber-50 text-gray-900 px-4 py-2 sm:px-5 sm:py-3 md:px-6 md:py-4 rounded-[27px] font-inter font-medium text-xs sm:text-sm md:text-base max-[377px]:hidden hover:bg-amber-100 transition-colors duration-200 shadow-md">
+                  <button 
+                    onClick={() => navigate("/contact")}
+                    className="bg-amber-50 text-gray-900 px-4 py-2 sm:px-5 sm:py-3 md:px-6 md:py-4 rounded-[27px] font-inter font-medium text-xs sm:text-sm md:text-base max-[377px]:hidden hover:bg-amber-100 transition-colors duration-200 shadow-md"
+                  >
                     Связаться с нами
                   </button>
                   <button
