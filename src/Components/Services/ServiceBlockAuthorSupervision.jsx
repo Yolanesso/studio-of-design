@@ -85,31 +85,31 @@ export default function ServiceBlockAuthorSupervision() {
 
   const services = (
     <>
-      <li className="flex gap-2">
+      <li className="flex gap-2 transition-all duration-300 hover:translate-x-2">
         <span className="font-inter" style={{ color: '#00000099', fontSize: '14px' }}>01.</span>
         <div className="flex-1">
           <span className="font-inter" style={{ fontSize: '16px' }}>Контроль реализации и соответствия выбранных материалов, мебели, текстиля и т.д.</span>
         </div>
       </li>
-      <li className="flex gap-2">
+      <li className="flex gap-2 transition-all duration-300 hover:translate-x-2">
         <span className="font-inter" style={{ color: '#00000099', fontSize: '14px' }}>02.</span>
         <div className="flex-1">
           <span className="font-inter" style={{ fontSize: '16px' }}>Выезды на объект для согласования всех значимых этапов</span>
         </div>
       </li>
-      <li className="flex gap-2">
+      <li className="flex gap-2 transition-all duration-300 hover:translate-x-2">
         <span className="font-inter" style={{ color: '#00000099', fontSize: '14px' }}>03.</span>
         <div className="flex-1">
           <span className="font-inter" style={{ fontSize: '16px' }}>Консультирование заказчика по всем вопросам, связанных с реализацией проекта</span>
         </div>
       </li>
-      <li className="flex gap-2">
+      <li className="flex gap-2 transition-all duration-300 hover:translate-x-2">
         <span className="font-inter" style={{ color: '#00000099', fontSize: '14px' }}>04.</span>
         <div className="flex-1">
           <span className="font-inter" style={{ fontSize: '16px' }}>Внесение изменений и дополнений в рабочий проект</span>
         </div>
       </li>
-      <li className="flex gap-2">
+      <li className="flex gap-2 transition-all duration-300 hover:translate-x-2">
         <span className="font-inter" style={{ color: '#00000099', fontSize: '14px' }}>05.</span>
         <div className="flex-1">
           <span className="font-inter" style={{ fontSize: '16px' }}>Подбор и расстановка элементов декора в интерьере</span>

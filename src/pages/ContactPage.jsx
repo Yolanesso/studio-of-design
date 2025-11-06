@@ -76,7 +76,19 @@ export default function ContactPage() {
                   />
                 </button>
 
-                
+                <div className="flex-1 flex justify-center">
+                  <button 
+                    onClick={() => navigate("/")}
+                    className="transition-opacity hover:opacity-80"
+                  >
+                    <img
+                      src={Logo}
+                      alt="Логотип"
+                      className="max-w-[80px] sm:max-w-[100px] md:max-w-[120px] lg:max-w-[140px] 2xl:max-w-[160px]"
+                      style={{ filter: 'brightness(0) invert(1)' }}
+                    />
+                  </button>
+                </div>
 
                 <div className="flex items-center gap-2 sm:gap-3">
                   <button className="bg-white text-gray-900 px-4 py-2 sm:px-5 sm:py-3 md:px-6 md:py-4 rounded-[27px] font-inter font-medium text-xs sm:text-sm md:text-base max-[377px]:hidden hover:bg-gray-100 transition-colors duration-200 border border-white">
@@ -344,7 +356,7 @@ export default function ContactPage() {
               <div className="flex flex-col items-start justify-start gap-8 md:gap-10">
                 <div className="flex flex-col gap-6 md:gap-8">
                   <button
-                    onClick={() => handleNavigation("/")}
+                    onClick={() => handleNavigation("/projects")}
                     className="text-4xl sm:text-5xl md:text-6xl lg:text-[36px] font-inter font-medium transition-colors text-left leading-tight"
                     style={{ color: '#00000099' }}
                     onMouseEnter={(e) => e.target.style.color = '#000000'}

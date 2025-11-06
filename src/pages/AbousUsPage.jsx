@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import { motion } from "framer-motion";
 import { useInView } from "framer-motion";
 import { useNavigate } from "react-router-dom";
@@ -46,6 +46,48 @@ const AnimatedText = ({ children, className = "", delay = 0 }) => {
     >
       {children}
     </motion.div>
+  );
+};
+
+// Компонент для анимации текста по словам с эффектом размытия
+const AnimatedWordText = ({ children, className = "", delay = 0 }) => {
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true, margin: "-100px" });
+  const words = children.split(/(\s+)/);
+
+  return (
+    <div ref={ref} className={className}>
+      {words.map((word, index) => {
+        if (word.match(/^\s+$/)) {
+          return <span key={index}>{word}</span>;
+        }
+        return (
+          <motion.span
+            key={index}
+            initial={{ filter: "blur(10px)", opacity: 0 }}
+            animate={
+              isInView
+                ? {
+                    filter: "blur(0px)",
+                    opacity: 1,
+                  }
+                : {
+                    filter: "blur(10px)",
+                    opacity: 0,
+                  }
+            }
+            transition={{
+              duration: 0.4,
+              delay: delay + index * 0.02,
+              ease: [0.25, 0.46, 0.45, 0.94],
+            }}
+            className="inline-block"
+          >
+            {word}
+          </motion.span>
+        );
+      })}
+    </div>
   );
 };
 
@@ -97,7 +139,17 @@ export default function AboutUsPage() {
                 </button>
 
                 <div className="flex-1 flex flex-col items-center justify-center">
-                  
+                  <button 
+                    onClick={() => navigate("/")}
+                    className="transition-opacity hover:opacity-80"
+                  >
+                    <img
+                      src={Logo}
+                      alt="Логотип"
+                      className="max-w-[80px] sm:max-w-[100px] md:max-w-[120px] lg:max-w-[140px] 2xl:max-w-[160px]"
+                      style={{ filter: 'brightness(0) invert(1)' }}
+                    />
+                  </button>
                 </div>
 
                 <div className="flex items-center gap-2 sm:gap-3">
@@ -167,64 +219,57 @@ export default function AboutUsPage() {
                 </h2>
               </AnimatedText>
               
-              <AnimatedText delay={0.2}>
-                <p className="text-base sm:text-lg md:text-xl lg:text-2xl font-inter text-black leading-relaxed">
-                  создает не просто дизайн — мы формируем пространство, которое работает на ваш стиль жизни. Наше бюро — это команда профессионалов, влюбленных в архитектуру, эстетику и продуманные решения. Мы верим, что настоящий дизайн начинается с понимания личности клиента, а заканчивается проектом, в котором всё — от пропорций до света — работает в гармонии.
-                </p>
-              </AnimatedText>
+              <AnimatedWordText
+                className="text-base sm:text-lg md:text-xl lg:text-2xl font-inter text-black leading-relaxed"
+                delay={0.2}
+              >
+                OTHR создает не просто дизайн — мы формируем пространство, которое работает на ваш стиль жизни. Наше бюро — это команда профессионалов, влюбленных в архитектуру, эстетику и продуманные решения. Мы верим, что настоящий дизайн начинается с понимания личности клиента, а заканчивается проектом, в котором всё — от пропорций до света — работает в гармонии.
+              </AnimatedWordText>
             </div>
 
             <div>
-              <AnimatedText>
-                <p className="text-base sm:text-lg md:text-xl lg:text-2xl font-inter text-black leading-relaxed">
-                  Каждый проект — это результат глубокого анализа, творческого поиска и точной архитектурной логики.
-                </p>
-              </AnimatedText>
+              <AnimatedWordText
+                className="text-base sm:text-lg md:text-xl lg:text-2xl font-inter text-black leading-relaxed"
+              >
+                Каждый проект — это результат глубокого анализа, творческого поиска и точной архитектурной логики.
+              </AnimatedWordText>
             </div>
 
             <div className="space-y-6 md:space-y-8 lg:space-y-10">
-              <AnimatedText>
-                <h2 className="text-[32px] sm:text-[40px] md:text-[48px] lg:text-[56px] xl:text-[64px] 2xl:text-[72px] font-inter font-medium text-black leading-[1.1]">
-                  Мы подбираем решения,<br />
-                  которые отвечают именно<br />
-                  вашему образу<br />
-                  жизни — без шаблонов и<br />
-                  компромиссов.
-                </h2>
-              </AnimatedText>
+              <AnimatedWordText
+                className="text-[32px] sm:text-[40px] md:text-[48px] lg:text-[56px] xl:text-[64px] 2xl:text-[72px] font-inter font-medium text-black leading-[1.1]"
+              >
+                Мы подбираем решения, которые отвечают именно вашему образу жизни — без шаблонов и компромиссов.
+              </AnimatedWordText>
               
-              <AnimatedText delay={0.2}>
-                <p className="text-base sm:text-lg md:text-xl lg:text-2xl font-inter text-black leading-relaxed">
-                  Мы не следуем моде — мы создаем актуальные пространства, в которых
-                  красота и функция неразделимы. Лаконичные формы, грамотная геометрия,
-                  чувственная простота — всё это позволяет нам разрабатывать проекты,
-                  которые не устаревают, а со временем раскрываются еще глубже.
-                </p>
-              </AnimatedText>
+              <AnimatedWordText
+                className="text-base sm:text-lg md:text-xl lg:text-2xl font-inter text-black leading-relaxed"
+                delay={0.2}
+              >
+                Мы не следуем моде — мы создаем актуальные пространства, в которых красота и функция неразделимы. Лаконичные формы, грамотная геометрия, чувственная простота — всё это позволяет нам разрабатывать проекты, которые не устаревают, а со временем раскрываются еще глубже.
+              </AnimatedWordText>
             </div>
 
             <div className="space-y-6 md:space-y-8 lg:space-y-10">
-              <AnimatedText>
-                <p className="text-base sm:text-lg md:text-xl lg:text-2xl font-inter text-black leading-relaxed">
-                  Когда вы выбираете нас, вы выбираете не просто студию дизайна.
-                </p>
-              </AnimatedText>
+              <AnimatedWordText
+                className="text-base sm:text-lg md:text-xl lg:text-2xl font-inter text-black leading-relaxed"
+              >
+                Когда вы выбираете нас, вы выбираете не просто студию дизайна.
+              </AnimatedWordText>
               
-              <AnimatedText delay={0.2}>
-                <h2 className="text-[32px] sm:text-[40px] md:text-[48px] lg:text-[56px] xl:text-[64px] 2xl:text-[72px] font-inter font-medium text-black leading-[1.1]">
-                  Вы выбираете партнёров,<br />
-                  которые слышат, чувствуют и<br />
-                  умеют воплощать.
-                </h2>
-              </AnimatedText>
+              <AnimatedWordText
+                className="text-[32px] sm:text-[40px] md:text-[48px] lg:text-[56px] xl:text-[64px] 2xl:text-[72px] font-inter font-medium text-black leading-[1.1]"
+                delay={0.2}
+              >
+                Вы выбираете партнёров, которые слышат, чувствуют и умеют воплощать.
+              </AnimatedWordText>
               
-              <AnimatedText delay={0.4}>
-                <p className="text-base sm:text-lg md:text-xl lg:text-2xl font-inter text-black leading-relaxed">
-                  С нами вы проходите путь от первых идей до пространства, в котором хочется
-                  жить, творить и быть собой. Пространства, в котором каждая деталь говорит
-                  о вас — и работает на вас.
-                </p>
-              </AnimatedText>
+              <AnimatedWordText
+                className="text-base sm:text-lg md:text-xl lg:text-2xl font-inter text-black leading-relaxed"
+                delay={0.4}
+              >
+                С нами вы проходите путь от первых идей до пространства, в котором хочется жить, творить и быть собой. Пространства, в котором каждая деталь говорит о вас — и работает на вас.
+              </AnimatedWordText>
             </div>
           </div>
         </div>
@@ -233,34 +278,31 @@ export default function AboutUsPage() {
       <section className="bg-white py-12 sm:py-16 md:py-20 lg:py-24 xl:py-32">
         <div className="container mx-auto px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16 2xl:px-[140px]">
           <div className="max-w-4xl space-y-8 md:space-y-12 lg:space-y-16 mb-12 md:mb-16 lg:mb-20">
-            <AnimatedText>
-              <h2 className="text-[32px] sm:text-[40px] md:text-[48px] lg:text-[56px] xl:text-[64px] 2xl:text-[72px] font-inter font-medium text-black leading-[1.1] mb-6 md:mb-8">
-                Вы выбираете партнёров,<br />
-                которые слышат, чувствуют и<br />
-                умеют воплощать.
-              </h2>
-            </AnimatedText>
+            <AnimatedWordText
+              className="text-[32px] sm:text-[40px] md:text-[48px] lg:text-[56px] xl:text-[64px] 2xl:text-[72px] font-inter font-medium text-black leading-[1.1] mb-6 md:mb-8"
+            >
+              Вы выбираете партнёров, которые слышат, чувствуют и умеют воплощать.
+            </AnimatedWordText>
             
-            <AnimatedText delay={0.2}>
-              <p className="text-base sm:text-lg md:text-xl lg:text-2xl font-inter text-black leading-relaxed">
-                С нами вы проходите путь от первых идей до пространства, в котором хочется
-                жить, творить и быть собой. Пространства, в котором каждая деталь говорит
-                о вас — и работает на вас.
-              </p>
-            </AnimatedText>
+            <AnimatedWordText
+              className="text-base sm:text-lg md:text-xl lg:text-2xl font-inter text-black leading-relaxed"
+              delay={0.2}
+            >
+              С нами вы проходите путь от первых идей до пространства, в котором хочется жить, творить и быть собой. Пространства, в котором каждая деталь говорит о вас — и работает на вас.
+            </AnimatedWordText>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 lg:gap-12">
             {/* Артем Копылов */}
             <AnimatedText>
-              <div className="relative">
-                <div className="relative w-full aspect-[3/4] bg-gray-200 mb-4">
+              <div className="relative group">
+                <div className="relative w-full aspect-[3/4] bg-gray-200 mb-4 overflow-hidden">
                   <img 
                     src={ArtemImg} 
                     alt="Артем Копылов"
-                    className="w-full h-full object-cover"
+                    className="w-full h-full object-cover grayscale transition-all duration-300 group-hover:grayscale-0"
                   />
-                  <div className="absolute bottom-0 left-0 right-0 bg-black/60 backdrop-blur-sm p-4 sm:p-6 md:p-8">
+                  <div className="absolute bottom-0 left-0 right-0 bg-black/60 backdrop-blur-sm p-4 sm:p-6 md:p-8 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                     <div className="mb-3 sm:mb-4">
                       <p className="text-white text-sm sm:text-base md:text-lg font-inter font-medium flex items-center gap-2">
                         <span className="text-lg sm:text-xl md:text-2xl">«</span>
@@ -268,7 +310,7 @@ export default function AboutUsPage() {
                       </p>
                     </div>
                     <p className="text-white text-xs sm:text-sm md:text-base lg:text-lg font-inter leading-relaxed">
-                      «Я пришел в дизайн через архитектуру, вдохновленный идеей пространства как продолжения человека. Наша студия — это команда профессионалов, где каждый проект отражает свободу, простоту и минимализм, честно служащий человеку»
+                      Я пришел в дизайн через архитектуру — с самого начала меня увлекала идея пространства как продолжения человека. Студия для меня — это команда, в которой каждый силён, и проект, где нет случайных решений. Мне важно, чтобы в каждом проекте было ощущение свободы, простоты и уважения к человеку. Минимализм — моя форма честности.
                     </p>
                   </div>
                 </div>
@@ -280,13 +322,23 @@ export default function AboutUsPage() {
 
             {/* Ангелина Магильная */}
             <AnimatedText delay={0.2}>
-              <div className="relative md:mt-16 lg:mt-24">
-                <div className="relative w-full aspect-[3/4] bg-gray-200 mb-4">
+              <div className="relative md:mt-16 lg:mt-24 group">
+                <div className="relative w-full aspect-[3/4] bg-gray-200 mb-4 overflow-hidden">
                   <img 
                     src={AngelinaImg} 
                     alt="Ангелина Магильная"
-                    className="w-full h-full object-cover grayscale"
+                    className="w-full h-full object-cover grayscale transition-all duration-300 group-hover:grayscale-0"
                   />
+                  <div className="absolute bottom-0 left-0 right-0 bg-black/60 backdrop-blur-sm p-4 sm:p-6 md:p-8 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                    <div className="mb-3 sm:mb-4">
+                      <p className="text-white text-sm sm:text-base md:text-lg font-inter font-medium">
+                        Архитектор
+                      </p>
+                    </div>
+                    <p className="text-white text-xs sm:text-sm md:text-base lg:text-lg font-inter leading-relaxed">
+                      Меня вдохновляют сложные задачи. Я люблю, когда планировка продумывается как шахматная партия — каждый ход имеет значение. Я не боюсь предлагать то, что сначала кажется нестандартным — потому что именно в таких решениях рождается настоящая архитектура.
+                    </p>
+                  </div>
                 </div>
                 <p className="text-black text-base sm:text-lg md:text-xl font-inter font-medium">
                   АНГЕЛИНА МАГИЛЬНАЯ
@@ -296,13 +348,23 @@ export default function AboutUsPage() {
 
             {/* Глеб Вершушин */}
             <AnimatedText delay={0.4}>
-              <div className="relative">
-                <div className="relative w-full aspect-[3/4] bg-gray-200 mb-4">
+              <div className="relative group">
+                <div className="relative w-full aspect-[3/4] bg-gray-200 mb-4 overflow-hidden">
                   <img 
                     src={GlebImg} 
                     alt="Глеб Вершушин"
-                    className="w-full h-full object-cover grayscale"
+                    className="w-full h-full object-cover grayscale transition-all duration-300 group-hover:grayscale-0"
                   />
+                  <div className="absolute bottom-0 left-0 right-0 bg-black/60 backdrop-blur-sm p-4 sm:p-6 md:p-8 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                    <div className="mb-3 sm:mb-4">
+                      <p className="text-white text-sm sm:text-base md:text-lg font-inter font-medium">
+                        Архитектор
+                      </p>
+                    </div>
+                    <p className="text-white text-xs sm:text-sm md:text-base lg:text-lg font-inter leading-relaxed">
+                      Архитектура — это моя точка опоры. Я умею видеть объем, работать с масштабом и структурой. Когда клиент говорит: "Я бы и не подумал, что так можно", — значит, я всё сделал правильно.
+                    </p>
+                  </div>
                 </div>
                 <p className="text-black text-base sm:text-lg md:text-xl font-inter font-medium">
                   ГЛЕБ ВЕРХУШИН
@@ -312,13 +374,23 @@ export default function AboutUsPage() {
 
             {/* Кристина Гордиенко */}
             <AnimatedText delay={0.6}>
-              <div className="relative md:mt-16 lg:mt-24">
-                <div className="relative w-full aspect-[3/4] bg-gray-200 mb-4">
+              <div className="relative md:mt-16 lg:mt-24 group">
+                <div className="relative w-full aspect-[3/4] bg-gray-200 mb-4 overflow-hidden">
                   <img 
                     src={KrisImg} 
                     alt="Кристина Гордиенко"
-                    className="w-full h-full object-cover grayscale"
+                    className="w-full h-full object-cover grayscale transition-all duration-300 group-hover:grayscale-0"
                   />
+                  <div className="absolute bottom-0 left-0 right-0 bg-black/60 backdrop-blur-sm p-4 sm:p-6 md:p-8 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                    <div className="mb-3 sm:mb-4">
+                      <p className="text-white text-sm sm:text-base md:text-lg font-inter font-medium">
+                        Менеджер проектов
+                      </p>
+                    </div>
+                    <p className="text-white text-xs sm:text-sm md:text-base lg:text-lg font-inter leading-relaxed">
+                      Если честно, я обожаю быть в эпицентре всего. Следить за тем, как движется проект, как срастаются детали, как клиенты начинают доверять — в этом для меня есть драйв. У нас в студии много творческих людей, и моя задача — быть их навигатором. Я тут, чтобы всё случилось в срок, по делу и красиво.
+                    </p>
+                  </div>
                 </div>
                 <p className="text-black text-base sm:text-lg md:text-xl font-inter font-medium">
                   КРИСТИНА ГОРДИЕНКО
@@ -328,13 +400,23 @@ export default function AboutUsPage() {
 
             {/* Никита */}
             <AnimatedText delay={0.8}>
-              <div className="relative">
-                <div className="relative w-full aspect-[3/4] bg-gray-200 mb-4">
+              <div className="relative group">
+                <div className="relative w-full aspect-[3/4] bg-gray-200 mb-4 overflow-hidden">
                   <img 
                     src={NikitaImg} 
                     alt="Никита"
-                    className="w-full h-full object-cover grayscale"
+                    className="w-full h-full object-cover grayscale transition-all duration-300 group-hover:grayscale-0"
                   />
+                  <div className="absolute bottom-0 left-0 right-0 bg-black/60 backdrop-blur-sm p-4 sm:p-6 md:p-8 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                    <div className="mb-3 sm:mb-4">
+                      <p className="text-white text-sm sm:text-base md:text-lg font-inter font-medium">
+                        Дизайнер
+                      </p>
+                    </div>
+                    <p className="text-white text-xs sm:text-sm md:text-base lg:text-lg font-inter leading-relaxed">
+                      Мне важно не просто красиво оформить пространство, а почувствовать человека, для которого я это делаю. Я слушаю, наблюдаю, вникаю в привычки и желания — и постепенно выстраиваю интерьер, в котором ему будет по-настоящему хорошо. Я верю, что стиль — это не тренд, а честное отражение личности.
+                    </p>
+                  </div>
                 </div>
                 <p className="text-black text-base sm:text-lg md:text-xl font-inter font-medium">
                   НИКИТА ВОЛЬХИН
@@ -344,13 +426,23 @@ export default function AboutUsPage() {
 
             {/* Олеся */}
             <AnimatedText delay={1.0}>
-              <div className="relative md:mt-16 lg:mt-24">
-                <div className="relative w-full aspect-[3/4] bg-gray-200 mb-4">
+              <div className="relative md:mt-16 lg:mt-24 group">
+                <div className="relative w-full aspect-[3/4] bg-gray-200 mb-4 overflow-hidden">
                   <img 
                     src={OlesyaImg} 
                     alt="Олеся"
-                    className="w-full h-full object-cover grayscale"
+                    className="w-full h-full object-cover grayscale transition-all duration-300 group-hover:grayscale-0"
                   />
+                  <div className="absolute bottom-0 left-0 right-0 bg-black/60 backdrop-blur-sm p-4 sm:p-6 md:p-8 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                    <div className="mb-3 sm:mb-4">
+                      <p className="text-white text-sm sm:text-base md:text-lg font-inter font-medium">
+                        Графический дизайнер
+                      </p>
+                    </div>
+                    <p className="text-white text-xs sm:text-sm md:text-base lg:text-lg font-inter leading-relaxed">
+                      Я пришла в интерьерную студию через визуальную коммуникацию. Мне важно, чтобы идеи не только рождались — но и были красиво оформлены, поняты, переданы. Мне нравится быть тем, кто связывает творческое и понятное. А ещё — я просто кайфую от шрифтов, чистоты и хорошей верстки.
+                    </p>
+                  </div>
                 </div>
                 <p className="text-black text-base sm:text-lg md:text-xl font-inter font-medium">
                   ОЛЕСЯ АНТОНОВА
@@ -360,13 +452,23 @@ export default function AboutUsPage() {
 
             {/* Устим */}
             <AnimatedText delay={1.2}>
-              <div className="relative">
-                <div className="relative w-full aspect-[3/4] bg-gray-200 mb-4">
+              <div className="relative group">
+                <div className="relative w-full aspect-[3/4] bg-gray-200 mb-4 overflow-hidden">
                   <img 
                     src={UstimImg} 
                     alt="Устим"
-                    className="w-full h-full object-cover grayscale"
+                    className="w-full h-full object-cover grayscale transition-all duration-300 group-hover:grayscale-0"
                   />
+                  <div className="absolute bottom-0 left-0 right-0 bg-black/60 backdrop-blur-sm p-4 sm:p-6 md:p-8 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                    <div className="mb-3 sm:mb-4">
+                      <p className="text-white text-sm sm:text-base md:text-lg font-inter font-medium">
+                        Руководитель строительного направления
+                      </p>
+                    </div>
+                    <p className="text-white text-xs sm:text-sm md:text-base lg:text-lg font-inter leading-relaxed">
+                      Я умею находить язык с подрядчиками и всегда держу в фокусе качество. Когда проект сдан, и клиент говорит "это даже лучше, чем я представлял" — это лучший момент. Моя задача — чтобы всё, что придумала команда, работало на объекте.
+                    </p>
+                  </div>
                 </div>
                 <p className="text-black text-base sm:text-lg md:text-xl font-inter font-medium">
                   УСТИМ ШОСТАЦКИЙ
@@ -376,13 +478,23 @@ export default function AboutUsPage() {
 
             {/* Юлиана */}
             <AnimatedText delay={1.4}>
-              <div className="relative md:mt-16 lg:mt-24">
-                <div className="relative w-full aspect-[3/4] bg-gray-200 mb-4">
+              <div className="relative md:mt-16 lg:mt-24 group">
+                <div className="relative w-full aspect-[3/4] bg-gray-200 mb-4 overflow-hidden">
                   <img 
                     src={YlyanaImg} 
                     alt="Юлиана"
-                    className="w-full h-full object-cover grayscale"
+                    className="w-full h-full object-cover grayscale transition-all duration-300 group-hover:grayscale-0"
                   />
+                  <div className="absolute bottom-0 left-0 right-0 bg-black/60 backdrop-blur-sm p-4 sm:p-6 md:p-8 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                    <div className="mb-3 sm:mb-4">
+                      <p className="text-white text-sm sm:text-base md:text-lg font-inter font-medium">
+                        Менеджер комплектации
+                      </p>
+                    </div>
+                    <p className="text-white text-xs sm:text-sm md:text-base lg:text-lg font-inter leading-relaxed">
+                      Моя работа — это про внимание. Я знаю, где найти "тот самый" предмет, и умею вести переговоры, когда что-то идёт не по плану. Иногда кажется, что я играю в квест: найти лучшее, привезти вовремя, не выходя из бюджета. И мне это правда нравится — потому что именно из деталей строится ощущение целостности.
+                    </p>
+                  </div>
                 </div>
                 <p className="text-black text-base sm:text-lg md:text-xl font-inter font-medium">
                   УЛЬЯНА ПАРФЕНОВА
@@ -465,7 +577,7 @@ export default function AboutUsPage() {
               <div className="flex flex-col items-start justify-start gap-8 md:gap-10">
                 <div className="flex flex-col gap-6 md:gap-8">
                   <button
-                    onClick={() => handleNavigation("/")}
+                    onClick={() => handleNavigation("/projects")}
                     className="text-4xl sm:text-5xl md:text-6xl lg:text-[36px] font-inter font-medium transition-colors text-left leading-tight"
                     style={{ color: '#00000099' }}
                     onMouseEnter={(e) => e.target.style.color = '#000000'}

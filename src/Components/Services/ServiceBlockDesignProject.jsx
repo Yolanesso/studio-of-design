@@ -87,25 +87,25 @@ export default function ServiceBlockDesignProject() {
 
   const services = (
     <>
-      <li className="flex gap-2">
+      <li className="flex gap-2 transition-all duration-300 hover:translate-x-2">
         <span className="font-inter" style={{ color: '#00000099', fontSize: '14px' }}>01.</span>
         <div className="flex-1">
           <span className="font-inter" style={{ fontSize: '16px' }}>Планировочное решение и концепция</span>
         </div>
       </li>
-      <li className="flex gap-2">
+      <li className="flex gap-2 transition-all duration-300 hover:translate-x-2">
         <span className="font-inter" style={{ color: '#00000099', fontSize: '14px' }}>02.</span>
         <div className="flex-1">
           <span className="font-inter" style={{ fontSize: '16px' }}>Дизайн и визуализации</span>
         </div>
       </li>
-      <li className="flex gap-2">
+      <li className="flex gap-2 transition-all duration-300 hover:translate-x-2">
         <span className="font-inter" style={{ color: '#00000099', fontSize: '14px' }}>03.</span>
         <div className="flex-1">
           <span className="font-inter" style={{ fontSize: '16px' }}>Рабочий проект, чертежи для строителей</span>
         </div>
       </li>
-      <li className="flex gap-2">
+      <li className="flex gap-2 transition-all duration-300 hover:translate-x-2">
         <span className="font-inter" style={{ color: '#00000099', fontSize: '14px' }}>04.</span>
         <div className="flex-1">
           <span className="font-inter" style={{ fontSize: '16px' }}>Чертежи индивидуальных изделий</span>

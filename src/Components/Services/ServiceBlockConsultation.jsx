@@ -86,31 +86,31 @@ export default function ServiceBlockConsultation() {
 
   const services = (
     <>
-      <li className="flex gap-2">
+      <li className="flex gap-2 transition-all duration-300 hover:translate-x-2">
         <span className="font-inter" style={{ color: '#00000099', fontSize: '14px' }}>01.</span>
         <div className="flex-1">
           <span className="font-inter" style={{ fontSize: '16px' }}>Выезд на объект/производство, в салон с вами или вместо вас</span>
         </div>
       </li>
-      <li className="flex gap-2">
+      <li className="flex gap-2 transition-all duration-300 hover:translate-x-2">
         <span className="font-inter" style={{ color: '#00000099', fontSize: '14px' }}>02.</span>
         <div className="flex-1">
           <span className="font-inter" style={{ fontSize: '16px' }}>Разбор существующего проекта, планировки. или проектного решения</span>
         </div>
       </li>
-      <li className="flex gap-2">
+      <li className="flex gap-2 transition-all duration-300 hover:translate-x-2">
         <span className="font-inter" style={{ color: '#00000099', fontSize: '14px' }}>03.</span>
         <div className="flex-1">
           <span className="font-inter" style={{ fontSize: '16px' }}>Оценка опций приобретаемой недвижимости для максимально удачного планировочного решения</span>
         </div>
       </li>
-      <li className="flex gap-2">
+      <li className="flex gap-2 transition-all duration-300 hover:translate-x-2">
         <span className="font-inter" style={{ color: '#00000099', fontSize: '14px' }}>04.</span>
         <div className="flex-1">
           <span className="font-inter" style={{ fontSize: '16px' }}>Личная встреча для консультации по этапам проектирования или демонстрации примеров работы студии</span>
         </div>
       </li>
-      <li className="flex gap-2">
+      <li className="flex gap-2 transition-all duration-300 hover:translate-x-2">
         <span className="font-inter" style={{ color: '#00000099', fontSize: '14px' }}>05.</span>
         <div className="flex-1">
           <span className="font-inter" style={{ fontSize: '16px' }}>Подбор и расстановка элементов декора в интерьере</span>

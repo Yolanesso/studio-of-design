@@ -1,5 +1,7 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import { useNavigate } from "react-router-dom";
+import { motion } from "framer-motion";
+import { useInView } from "framer-motion";
 
 import HeroBg from "../Images/HeroBg.png";
 import BtnLang from "../Icons/btn-lang.svg";
@@ -10,15 +12,56 @@ import "../css/fonts.css";
 import Arrow from "../Icons/Arrow.svg";
 
 import BulvarImg from "../Images/Projects/Bulvar.png";
-import BalanceImg from "../Images/Projects/Balance.png";
+import BalanceImg from "../Images/Projects/Balance/balance-project.png";
 import Aeron from "../Images/Projects/Aeron.png";
 import Balance73 from "../Images/Projects/Balance73.png";
 import Mission from "../Images/Mission.png";
 
-import ScrollReveal from "../Components/ScrollReveal ";
+import BeringImg from "../Images/Projects/Bering/bering-project.png"
 
 import Footer from "../Components/Footer";
 import BurgerMenu from "../Components/BurgerMenu";
+
+const AnimatedWordText = ({ children, className = "", delay = 0 }) => {
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true, margin: "-100px" });
+  const words = children.split(/(\s+)/);
+
+  return (
+    <div ref={ref} className={className}>
+      {words.map((word, index) => {
+        if (word.match(/^\s+$/)) {
+          return <span key={index}>{word}</span>;
+        }
+        return (
+          <motion.span
+            key={index}
+            initial={{ filter: "blur(10px)", opacity: 0 }}
+            animate={
+              isInView
+                ? {
+                    filter: "blur(0px)",
+                    opacity: 1,
+                  }
+                : {
+                    filter: "blur(10px)",
+                    opacity: 0,
+                  }
+            }
+            transition={{
+              duration: 0.4,
+              delay: delay + index * 0.02,
+              ease: [0.25, 0.46, 0.45, 0.94],
+            }}
+            className="inline-block"
+          >
+            {word}
+          </motion.span>
+        );
+      })}
+    </div>
+  );
+};
 // sm: (≥377px)
 // md: (≥834px)
 // lg: (≥1024px)
@@ -69,6 +112,7 @@ export default function HeroSection() {
                       src={Logo}
                       alt="Логотип"
                       className="max-w-[80px] sm:max-w-[100px] md:max-w-[120px] lg:max-w-[140px] 2xl:max-w-[160px]"
+                      style={{ filter: 'brightness(0) invert(1)' }}
                     />
                   </button>
                 </div>
@@ -128,89 +172,116 @@ export default function HeroSection() {
       </header>
 
       <section className=" font-[400] studio py-8 sm:py-12 md:py-16 lg:py-24 2xl:py-40 px-4 sm:px-6 md:px-8 lg:px-[100px] xl:px-[150px] 2xl:px-[250px]">
-        <h1 className="studio-title text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl 2xl:text-[96px] font-inter font-medium mb-4 sm:mb-6 md:mb-8 lg:mb-12 2xl:mb-16">
+        <h1 
+          className="studio-title font-inter mb-4 sm:mb-6 md:mb-8 lg:mb-12 2xl:mb-16 text-[48px] sm:text-[64px] md:text-[80px] lg:text-[90px] xl:text-[96px] 2xl:text-[96px]"
+          style={{
+            fontFamily: 'Inter',
+            fontWeight: 400,
+            fontStyle: 'normal',
+            lineHeight: '100%',
+            letterSpacing: '0%'
+          }}
+        >
           Студия /
         </h1>
-        <ScrollReveal
-          baseOpacity={0}
-          enableBlur={true}
-          baseRotation={0}
-          blurStrength={10}
-          containerClassName="font-normal font-[400] text-sm sm:text-[20px] md:text-lg lg:text-[26px] xl:text-xl 2xl:text-[36px]"
-          classNamee="studio__text"
+        <AnimatedWordText
+          className="font-inter text-[18px] sm:text-[24px] md:text-[28px] lg:text-[32px] xl:text-[36px] 2xl:text-[36px]"
+          style={{
+            fontFamily: 'Inter',
+            fontWeight: 400,
+            fontStyle: 'normal',
+            lineHeight: '140%',
+            letterSpacing: '0%'
+          }}
         >
-          OTHER – формирует пространство через логику архитектуры и
-          выразительность геометрии. Эстетика для нас — это не украшение, а
-          результат точного взаимодействия формы и функции. Мы стремимся к
-          ясности: в линиях, в пропорциях, в структуре. Свет и тень становятся
-          инструментами, подчёркивающими характер и глубину. Каждый проект — это
-          поиски баланса между визуальной чистотой и практическим смыслом.
-          Современный дизайн — про честные конструкции и уместные решения, в
-          которых нет лишнего.
-        </ScrollReveal>
+          OTHR – формирует пространство через логику архитектуры и выразительность геометрии. Эстетика для нас — это не украшение, а результат точного взаимодействия формы и функции. Мы стремимся к ясности: в линиях, в пропорциях, в структуре. Свет и тень становятся инструментами, подчёркивающими характер и глубину. Каждый проект — это поиски баланса между визуальной чистотой и практическим смыслом. Современный дизайн — про честные конструкции и уместные решения, в которых нет лишнего.
+        </AnimatedWordText>
       </section>
 
-      <section className=" projects px-4 sm:px-6 md:px-8 lg:px-[50px] xl:px-[150px] 2xl:px-[250px] py-8 sm:py-12 md:py-16 lg:py-20 2xl:py-28">
+      <section id="projects" className=" projects px-4 sm:px-6 md:px-8 lg:px-[50px] xl:px-[150px] 2xl:px-[250px] py-8 sm:py-12 md:py-16 lg:py-20 2xl:py-28">
         <div className="projects__container">
           <div className="flex flex-col lg:flex-row lg:items-start lg:gap-8 xl:gap-12 2xl:gap-24">
-            <h1 className="projects-title text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl 2xl:text-[96px] font-inter font-medium lg:mb-0 lg:w-1/4 mb-4 sm:mb-6 md:mb-8">
+            <h1 
+              className="projects-title font-inter lg:mb-0 lg:w-1/4 mb-4 sm:mb-6 md:mb-8 text-[48px] sm:text-[64px] md:text-[80px] lg:text-[90px] xl:text-[96px] 2xl:text-[96px]"
+              style={{
+                fontFamily: 'Inter',
+                fontWeight: 400,
+                fontStyle: 'normal',
+                lineHeight: '100%',
+                letterSpacing: '0%'
+              }}
+            >
               <span className="block lg:inline">Проекты</span>
               <span className="block lg:inline ml-2 lg:ml-3">/</span>
             </h1>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-5 md:gap-6 lg:gap-8 xl:gap-10 lg:w-3/4">
-              <div className="project-item">
+              <div 
+                className="project-item group cursor-pointer"
+                onClick={() => navigate("/projects/bulvar")}
+              >
                 <img
                   src={BulvarImg}
                   alt="BUL'VAR"
-                  className="w-full h-[180px] sm:h-[200px] md:h-[250px] lg:h-[300px] xl:h-[350px] object-cover mb-3 sm:mb-4"
+                  className="w-full aspect-[4/3] object-cover mb-3 sm:mb-4 transition-all duration-300 group-hover:invert"
                 />
-                <p className="project-name uppercase text-[14px] sm:text-[15px] md:text-[16px] lg:text-[17px] xl:text-[18px] font-medium mb-1">
+                <p className="project-name uppercase text-[14px] sm:text-[15px] md:text-[16px] lg:text-[17px] xl:text-[18px] font-medium mb-1 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                   bul'var
                 </p>
-                <p className="project-info uppercase text-[12px] sm:text-[13px] md:text-[14px] lg:text-[15px] xl:text-[16px] text-[#000000B2]">
+                <p className="project-info uppercase text-[12px] sm:text-[13px] md:text-[14px] lg:text-[15px] xl:text-[16px] text-[#000000B2] opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                   Новосибирск, Россия / 109 м<sup>2</sup> / 2024
                 </p>
               </div>
 
-              <div className="project-item">
+              <div 
+                className="project-item group cursor-pointer"
+                onClick={() => navigate("/projects/balance")}
+              >
                 <img
                   src={BalanceImg}
                   alt="Другой проект"
-                  className="w-full h-[180px] sm:h-[200px] md:h-[250px] lg:h-[300px] xl:h-[350px] object-cover mb-3 sm:mb-4"
+                  className="w-full aspect-[4/3] object-cover mb-3 sm:mb-4 transition-all duration-300 group-hover:invert"
+                  style={{ objectPosition: 'center 70%' }}
                 />
-                <p className="project-name uppercase text-[14px] sm:text-[15px] md:text-[16px] lg:text-[17px] xl:text-[18px] font-medium mb-1">
+                <p className="project-name uppercase text-[14px] sm:text-[15px] md:text-[16px] lg:text-[17px] xl:text-[18px] font-medium mb-1 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                   balance
                 </p>
-                <p className="project-info uppercase text-[12px] sm:text-[13px] md:text-[14px] lg:text-[15px] xl:text-[16px] text-[#000000B2]">
+                <p className="project-info uppercase text-[12px] sm:text-[13px] md:text-[14px] lg:text-[15px] xl:text-[16px] text-[#000000B2] opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                   Новосибирск, Россия / 98 м<sup>2</sup> / 2025
                 </p>
               </div>
 
-              <div className="project-item">
+              <div 
+                className="project-item group cursor-pointer"
+                onClick={() => navigate("/projects/bering")}
+              >
                 <img
-                  src={Aeron}
+                  src={BeringImg}
                   alt="BUL'VAR"
-                  className="w-full h-[180px] sm:h-[200px] md:h-[250px] lg:h-[300px] xl:h-[350px] object-cover mb-3 sm:mb-4"
+                  className="w-full aspect-[4/3] object-cover mb-3 sm:mb-4 transition-all duration-300 group-hover:invert"
                 />
-                <p className="project-name uppercase text-[14px] sm:text-[15px] md:text-[16px] lg:text-[17px] xl:text-[18px] font-medium mb-1">
-                  Aeron
+                <p className="project-name uppercase text-[14px] sm:text-[15px] md:text-[16px] lg:text-[17px] xl:text-[18px] font-medium mb-1 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                  Bering
                 </p>
-                <p className="project-info uppercase text-[12px] sm:text-[13px] md:text-[14px] lg:text-[15px] xl:text-[16px] text-[#000000B2]">
+                <p className="project-info uppercase text-[12px] sm:text-[13px] md:text-[14px] lg:text-[15px] xl:text-[16px] text-[#000000B2] opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                   Новосибирск / 110 м<sup>2</sup> / 2025
                 </p>
               </div>
 
-              <div className="project-item">
+              <div 
+                className="project-item group cursor-pointer"
+                onClick={() => navigate("/projects/balance73")}
+              >
                 <img
                   src={Balance73}
                   alt="BUL'VAR"
-                  className="w-full h-[180px] sm:h-[200px] md:h-[250px] lg:h-[300px] xl:h-[350px] object-cover mb-3 sm:mb-4"
+                  className="w-full aspect-[4/3] object-cover mb-3 sm:mb-4 transition-all duration-300 group-hover:invert"
+                  style={{ objectPosition: 'center 70%' }}
                 />
-                <p className="project-name uppercase text-[14px] sm:text-[15px] md:text-[16px] lg:text-[17px] xl:text-[18px] font-medium mb-1">
+                <p className="project-name uppercase text-[14px] sm:text-[15px] md:text-[16px] lg:text-[17px] xl:text-[18px] font-medium mb-1 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                   Balance
                 </p>
-                <p className="project-info uppercase text-[12px] sm:text-[13px] md:text-[14px] lg:text-[15px] xl:text-[16px] text-[#000000B2]">
+                <p className="project-info uppercase text-[12px] sm:text-[13px] md:text-[14px] lg:text-[15px] xl:text-[16px] text-[#000000B2] opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                   Новосибирск / 73 м<sup>2</sup> / 2024
                 </p>
               </div>
@@ -220,21 +291,30 @@ export default function HeroSection() {
       </section>
       <section className="mission mt-8 sm:mt-[80px] md:mt-[114px] 2xl:mt-[320px] px-4 sm:px-6 md:px-8 lg:px-12 xl:px-[170px] 2xl:px-[220px]">
         <div className="mission_text flex flex-col md:flex-row md:items-start md:gap-6 lg:gap-8 xl:gap-12 2xl:gap-16">
-          <h1 className="mission_title text-[32px] sm:text-[32px] md:text-[48px] lg:text-[66px] xl:text-[72px] 2xl:text-[96px] font-inter font-medium md:w-1/2 lg:w-2/5 xl:w-2/5 2xl:w-[960px] mb-4 sm:mb-6 md:mb-0">
+          <h1 
+            className="mission_title font-inter md:w-1/2 lg:w-2/5 xl:w-2/5 2xl:w-[960px] mb-4 sm:mb-6 md:mb-0 text-[48px] sm:text-[64px] md:text-[80px] lg:text-[90px] xl:text-[96px] 2xl:text-[96px]"
+            style={{
+              fontFamily: 'Inter',
+              fontWeight: 400,
+              fontStyle: 'normal',
+              lineHeight: '100%',
+              letterSpacing: '0%'
+            }}
+          >
             Миссия /
           </h1>
-          <ScrollReveal
-            baseOpacity={0}
-            enableBlur={true}
-            baseRotation={0}
-            blurStrength={10}
-            containerClassName="md:w-1/2 lg:w-3/5 xl:w-3/5"
-            textClassName="text-[18px] sm:text-[20px] md:text-[22px] lg:text-[28px] xl:text-[30px] 2xl:text-[36px] leading-relaxed md:leading-normal lg:leading-loose !font-normal"
+          <AnimatedWordText
+            className="md:w-1/2 lg:w-3/5 xl:w-3/5 text-[18px] sm:text-[24px] md:text-[28px] lg:text-[32px] xl:text-[36px] 2xl:text-[36px] font-inter"
+            style={{
+              fontFamily: 'Inter',
+              fontWeight: 400,
+              fontStyle: 'normal',
+              lineHeight: '140%',
+              letterSpacing: '0%'
+            }}
           >
-            Архитектурный подход в дизайне интерьеров: выразительные формы,
-            монохромная палитра, натуральные материалы и эмоциональный акцент.
-            Мы создаём пространства, которые вдохновляют жить.
-          </ScrollReveal>
+            Архитектурный подход в дизайне интерьеров: выразительные формы, монохромная палитра, натуральные материалы и эмоциональный акцент. Мы создаём пространства, которые вдохновляют жить.
+          </AnimatedWordText>
         </div>
         <div className="mt-6 sm:mt-8 md:mt-10 lg:mt-12 xl:mt-16 2xl:mt-20">
           <img

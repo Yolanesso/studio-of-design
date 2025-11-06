@@ -63,25 +63,6 @@ export default function BurgerMenu({ isMenuOpen, toggleMenu, scrollToSection }) 
                   alt="Закрыть меню"
                 />
               </button>
-
-              <div className="flex items-center gap-2 sm:gap-3">
-                <button
-                  className="p-2 sm:p-3 transition-opacity hover:opacity-80 relative z-50"
-                  onClick={toggleMenu}
-                  aria-label="Открыть меню"
-                >
-                  <img
-                    src={BtnMenu}
-                    alt="Открыть меню"
-                    className="w-6 sm:w-8 md:w-10 transition-transform duration-300"
-                    style={{
-                      transform: isMenuOpen
-                        ? "rotate(90deg)"
-                        : "rotate(0deg)",
-                    }}
-                  />
-                </button>
-              </div>
             </div>
           </nav>
 
@@ -91,7 +72,7 @@ export default function BurgerMenu({ isMenuOpen, toggleMenu, scrollToSection }) 
             <div className="flex flex-col items-start justify-start gap-8 md:gap-10">
               <div className="flex flex-col gap-6 md:gap-8">
                 <button
-                  onClick={() => handleNavigation("/")}
+                  onClick={() => handleNavigation("/projects")}
                   className="text-4xl sm:text-5xl md:text-6xl lg:text-[36px] font-inter font-medium transition-colors text-left leading-tight"
                   style={{ color: '#f59e0b' }}
                   onMouseEnter={(e) => e.target.style.color = '#d97706'}

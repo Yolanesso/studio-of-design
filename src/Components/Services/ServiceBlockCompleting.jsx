@@ -87,43 +87,43 @@ export default function ServiceBlockCompleting() {
 
   const services = (
     <>
-      <li className="flex gap-2">
+      <li className="flex gap-2 transition-all duration-300 hover:translate-x-2">
         <span className="font-inter" style={{ color: '#00000099', fontSize: '14px' }}>01.</span>
         <div className="flex-1">
           <span className="font-inter" style={{ fontSize: '16px' }}>Спецификация</span>
         </div>
       </li>
-      <li className="flex gap-2">
+      <li className="flex gap-2 transition-all duration-300 hover:translate-x-2">
         <span className="font-inter" style={{ color: '#00000099', fontSize: '14px' }}>02.</span>
         <div className="flex-1">
           <span className="font-inter" style={{ fontSize: '16px' }}>Просчет стоимости, сверка цен, поиск поставщиков</span>
         </div>
       </li>
-      <li className="flex gap-2">
+      <li className="flex gap-2 transition-all duration-300 hover:translate-x-2">
         <span className="font-inter" style={{ color: '#00000099', fontSize: '14px' }}>03.</span>
         <div className="flex-1">
           <span className="font-inter" style={{ fontSize: '16px' }}>Сопровождение на всех этапах реализации: закупки, доставки, рекламации, монтажи</span>
         </div>
       </li>
-      <li className="flex gap-2">
+      <li className="flex gap-2 transition-all duration-300 hover:translate-x-2">
         <span className="font-inter" style={{ color: '#00000099', fontSize: '14px' }}>04.</span>
         <div className="flex-1">
           <span className="font-inter" style={{ fontSize: '16px' }}>Общение с поставщиками</span>
         </div>
       </li>
-      <li className="flex gap-2">
+      <li className="flex gap-2 transition-all duration-300 hover:translate-x-2">
         <span className="font-inter" style={{ color: '#00000099', fontSize: '14px' }}>05.</span>
         <div className="flex-1">
           <span className="font-inter" style={{ fontSize: '16px' }}>Ведение общего графика</span>
         </div>
       </li>
-      <li className="flex gap-2">
+      <li className="flex gap-2 transition-all duration-300 hover:translate-x-2">
         <span className="font-inter" style={{ color: '#00000099', fontSize: '14px' }}>06.</span>
         <div className="flex-1">
           <span className="font-inter" style={{ fontSize: '16px' }}>Координация с ведением строительных работ</span>
         </div>
       </li>
-      <li className="flex gap-2">
+      <li className="flex gap-2 transition-all duration-300 hover:translate-x-2">
         <span className="font-inter" style={{ color: '#00000099', fontSize: '14px' }}>07.</span>
         <div className="flex-1">
           <span className="font-inter" style={{ fontSize: '16px' }}>Еженедельные и ежемесячные отчеты</span>
