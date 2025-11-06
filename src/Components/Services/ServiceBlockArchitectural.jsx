@@ -182,7 +182,11 @@ export default function ServiceBlockArchitectural() {
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
               transition={{ duration: 0.3 }}
-              className="fixed inset-0 z-[9999] bg-black/70 flex items-center justify-center p-4"
+              className={`fixed inset-0 z-[9999] flex items-center justify-center p-4 ${
+                selectedImageIndex === 0 || selectedImageIndex === 1
+                  ? "bg-white/90"
+                  : "bg-black/70"
+              }`}
               onClick={closeImage}
               style={{ width: '100vw', height: '100vh' }}
             >
@@ -195,7 +199,11 @@ export default function ServiceBlockArchitectural() {
                   animate={{ opacity: 1, scale: 1 }}
                   transition={{ delay: 0.2 }}
                   onClick={closeImage}
-                  className="absolute top-4 right-4 text-white text-3xl font-bold z-10 hover:opacity-70 transition-opacity w-10 h-10 flex items-center justify-center rounded-full hover:bg-white/10"
+                  className={`absolute top-4 right-4 text-3xl font-bold z-10 hover:opacity-70 transition-opacity w-10 h-10 flex items-center justify-center rounded-full ${
+                    selectedImageIndex === 0 || selectedImageIndex === 1
+                      ? "text-black hover:bg-black/10"
+                      : "text-white hover:bg-white/10"
+                  }`}
                   aria-label="Закрыть"
                 >
                   ×
@@ -206,7 +214,11 @@ export default function ServiceBlockArchitectural() {
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ delay: 0.2 }}
                   onClick={prevImage}
-                  className="absolute left-4 text-white text-5xl font-light z-10 hover:opacity-70 transition-opacity w-12 h-12 flex items-center justify-center rounded-full hover:bg-white/10"
+                  className={`absolute left-4 text-5xl font-light z-10 hover:opacity-70 transition-opacity w-12 h-12 flex items-center justify-center rounded-full ${
+                    selectedImageIndex === 0 || selectedImageIndex === 1
+                      ? "text-black hover:bg-black/10"
+                      : "text-white hover:bg-white/10"
+                  }`}
                   aria-label="Предыдущее изображение"
                 >
                   ‹
@@ -246,7 +258,11 @@ export default function ServiceBlockArchitectural() {
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ delay: 0.2 }}
                   onClick={nextImage}
-                  className="absolute right-4 text-white text-5xl font-light z-10 hover:opacity-70 transition-opacity w-12 h-12 flex items-center justify-center rounded-full hover:bg-white/10"
+                  className={`absolute right-4 text-5xl font-light z-10 hover:opacity-70 transition-opacity w-12 h-12 flex items-center justify-center rounded-full ${
+                    selectedImageIndex === 0 || selectedImageIndex === 1
+                      ? "text-black hover:bg-black/10"
+                      : "text-white hover:bg-white/10"
+                  }`}
                   aria-label="Следующее изображение"
                 >
                   ›
@@ -256,7 +272,11 @@ export default function ServiceBlockArchitectural() {
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.3 }}
-                  className="absolute bottom-4 left-1/2 transform -translate-x-1/2 text-white text-sm bg-black/50 px-4 py-2 rounded-full"
+                  className={`absolute bottom-4 left-1/2 transform -translate-x-1/2 text-sm px-4 py-2 rounded-full ${
+                    selectedImageIndex === 0 || selectedImageIndex === 1
+                      ? "text-black bg-white/50"
+                      : "text-white bg-black/50"
+                  }`}
                 >
                   {selectedImageIndex + 1} / {allImages.length}
                 </motion.div>
