@@ -2,19 +2,18 @@ import React, { useState, useCallback } from "react";
 import { createPortal } from "react-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import { useScrollAnimation } from "../../hooks/useScrollAnimation";
-import archConceptMain from '../../Images/Services/arch-con-main.png';
 
-import montblancMain from "../../Images/Projects/Montblanc/Montblanc-main.png"
-import montblancFirst from "../../Images/Projects/Montblanc/Montblank-first.png"
-import montblancSecond from "../../Images/Projects/Montblanc/Montblanc-second.png"
-import montblancThird from "../../Images/Projects/Montblanc/Montblanc-third.png"
+import archConceptMain from "../../Images/Projects/Archconcept/archconcept-main.jpg"
+import archConceptFirst from "../../Images/Projects/Archconcept/archconcept-first.jpg"
+import archConceptSecond from "../../Images/Projects/Archconcept/archconcept-second.png"
+import archConceptThird from "../../Images/Projects/Archconcept/archconcept-third.png"
 
 export default function ServiceBlockArchitectural() {
   const [ref, isVisible] = useScrollAnimation();
   const [selectedImageIndex, setSelectedImageIndex] = useState(null);
   const [direction, setDirection] = useState(0);
   
-  const allImages = [montblancMain, montblancFirst, montblancSecond, montblancThird];
+  const allImages = [archConceptMain, archConceptFirst, archConceptSecond, archConceptThird];
   
   const openImage = (index) => {
     setSelectedImageIndex(index);
@@ -57,7 +56,7 @@ export default function ServiceBlockArchitectural() {
 
   const mainImage = (
     <img 
-      src={montblancMain} 
+      src={archConceptMain} 
       alt="Архитектурная концепция" 
       className="w-full h-auto cursor-pointer transition-opacity hover:opacity-90"
       style={{ 
@@ -68,7 +67,7 @@ export default function ServiceBlockArchitectural() {
     />
   );
 
-  const thumbnailImages = [montblancFirst, montblancSecond, montblancThird];
+  const thumbnailImages = [archConceptFirst, archConceptSecond, archConceptThird];
   
   const thumbnails = thumbnailImages.map((img, index) => (
     <div 
