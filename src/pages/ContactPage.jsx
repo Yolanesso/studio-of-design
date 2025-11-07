@@ -18,6 +18,8 @@ export default function ContactPage() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState({ type: null, message: "" });
+  const [errors, setErrors] = useState({});
+  const [touched, setTouched] = useState({});
   const [formData, setFormData] = useState({
     name: "",
     location: "",
@@ -45,16 +47,234 @@ export default function ContactPage() {
     window.scrollTo(0, 0);
   };
 
+  // Функции валидации
+  const validateName = (name) => {
+    if (!name.trim()) {
+      return "Имя обязательно для заполнения";
+    }
+    if (name.trim().length < 2) {
+      return "Имя должно содержать минимум 2 символа";
+    }
+    if (!/^[а-яА-ЯёЁa-zA-Z\s-]+$/.test(name.trim())) {
+      return "Имя может содержать только буквы, пробелы и дефисы";
+    }
+    return "";
+  };
+
+  const validateLocation = (location) => {
+    if (!location.trim()) {
+      return "Локация обязательна для заполнения";
+    }
+    if (location.trim().length < 2) {
+      return "Локация должна содержать минимум 2 символа";
+    }
+    return "";
+  };
+
+  const validatePhone = (phone) => {
+    if (!phone.trim()) {
+      return "Телефон обязателен для заполнения";
+    }
+    // Убираем все символы кроме цифр и + для проверки
+    const cleanedPhone = phone.replace(/[\s\-\(\)]/g, "");
+    const digitsOnly = cleanedPhone.replace(/\+/g, "");
+    
+    // Проверяем количество цифр (10-11 для российских номеров)
+    if (digitsOnly.length < 10) {
+      return "Номер телефона должен содержать минимум 10 цифр";
+    }
+    if (digitsOnly.length > 11) {
+      return "Номер телефона не должен содержать более 11 цифр";
+    }
+    if (!/^\+?[0-9]+$/.test(cleanedPhone)) {
+      return "Введите корректный номер телефона (например: +7 999 123 45 67)";
+    }
+    return "";
+  };
+
+  const validateEmail = (email) => {
+    if (!email.trim()) {
+      return "Email обязателен для заполнения";
+    }
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(email.trim())) {
+      return "Введите корректный email адрес";
+    }
+    return "";
+  };
+
+  const validateMessage = (message) => {
+    if (message.trim().length > 1000) {
+      return "Сообщение не должно превышать 1000 символов";
+    }
+    return "";
+  };
+
+  const validateForm = () => {
+    const newErrors = {};
+    
+    const nameError = validateName(formData.name);
+    if (nameError) newErrors.name = nameError;
+    
+    const locationError = validateLocation(formData.location);
+    if (locationError) newErrors.location = locationError;
+    
+    const phoneError = validatePhone(formData.phone);
+    if (phoneError) newErrors.phone = phoneError;
+    
+    const emailError = validateEmail(formData.email);
+    if (emailError) newErrors.email = emailError;
+    
+    const messageError = validateMessage(formData.message);
+    if (messageError) newErrors.message = messageError;
+    
+    if (!formData.consent) {
+      newErrors.consent = "Необходимо дать согласие на обработку данных";
+    }
+
+    setErrors(newErrors);
+    return Object.keys(newErrors).length === 0;
+  };
+
   const handleInputChange = (e) => {
     const { name, value, type, checked } = e.target;
+    
+    // Специальная обработка для телефона - ограничение количества цифр
+    if (name === "phone" && type !== "checkbox") {
+      // Убираем все символы кроме цифр, +, пробелов, скобок и дефисов
+      const cleaned = value.replace(/[^\d\+\s\-\(\)]/g, "");
+      // Подсчитываем количество цифр
+      const digitsOnly = cleaned.replace(/[\s\-\(\)\+]/g, "");
+      
+      let finalValue = cleaned;
+      
+      // Ограничиваем до 11 цифр (максимум для российского номера)
+      if (digitsOnly.length > 11) {
+        // Если цифр больше 11, обрезаем до 11
+        let limitedValue = "";
+        let digitCount = 0;
+        for (let i = 0; i < cleaned.length && digitCount < 11; i++) {
+          const char = cleaned[i];
+          if (/\d/.test(char)) {
+            digitCount++;
+            limitedValue += char;
+          } else if (/[\s\-\(\)\+]/.test(char)) {
+            limitedValue += char;
+          }
+        }
+        finalValue = limitedValue;
+      }
+      
+      setFormData((prev) => ({
+        ...prev,
+        [name]: finalValue,
+      }));
+      
+      // Валидация при изменении (только для заполненных полей)
+      if (touched[name]) {
+        const error = validatePhone(finalValue);
+        setErrors((prev) => ({
+          ...prev,
+          [name]: error,
+        }));
+      }
+      return;
+    }
+    
+    // Для остальных полей
     setFormData((prev) => ({
       ...prev,
       [name]: type === "checkbox" ? checked : value,
+    }));
+
+    // Валидация при изменении (только для заполненных полей)
+    if (touched[name]) {
+      let error = "";
+      switch (name) {
+        case "name":
+          error = validateName(value);
+          break;
+        case "location":
+          error = validateLocation(value);
+          break;
+        case "email":
+          error = validateEmail(value);
+          break;
+        case "message":
+          error = validateMessage(value);
+          break;
+        case "consent":
+          error = !checked ? "Необходимо дать согласие на обработку данных" : "";
+          break;
+        default:
+          break;
+      }
+      setErrors((prev) => ({
+        ...prev,
+        [name]: error,
+      }));
+    }
+  };
+
+  const handleBlur = (e) => {
+    const { name, value, type, checked } = e.target;
+    setTouched((prev) => ({
+      ...prev,
+      [name]: true,
+    }));
+
+    // Валидация при потере фокуса
+    let error = "";
+    switch (name) {
+      case "name":
+        error = validateName(value);
+        break;
+      case "location":
+        error = validateLocation(value);
+        break;
+      case "phone":
+        error = validatePhone(value);
+        break;
+      case "email":
+        error = validateEmail(value);
+        break;
+      case "message":
+        error = validateMessage(value);
+        break;
+      case "consent":
+        error = !checked ? "Необходимо дать согласие на обработку данных" : "";
+        break;
+      default:
+        break;
+    }
+    setErrors((prev) => ({
+      ...prev,
+      [name]: error,
     }));
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    
+    // Помечаем все поля как "тронутые" для показа всех ошибок
+    setTouched({
+      name: true,
+      location: true,
+      phone: true,
+      email: true,
+      message: true,
+      consent: true,
+    });
+
+    // Валидация формы
+    if (!validateForm()) {
+      setSubmitStatus({ 
+        type: 'error', 
+        message: 'Пожалуйста, исправьте ошибки в форме' 
+      });
+      return;
+    }
+
     setIsSubmitting(true);
     setSubmitStatus({ type: null, message: "" });
 
@@ -211,10 +431,18 @@ export default function ContactPage() {
                       name="name"
                       value={formData.name}
                       onChange={handleInputChange}
+                      onBlur={handleBlur}
                       placeholder="Имя"
                       required
-                      className="w-full px-4 py-3 bg-gray-100 border border-gray-200 rounded-lg font-inter text-sm sm:text-base focus:outline-none focus:ring-2 focus:ring-gray-400 focus:border-transparent"
+                      className={`w-full px-4 py-3 bg-gray-100 border rounded-lg font-inter text-sm sm:text-base focus:outline-none focus:ring-2 focus:border-transparent ${
+                        errors.name && touched.name
+                          ? "border-red-500 focus:ring-red-400"
+                          : "border-gray-200 focus:ring-gray-400"
+                      }`}
                     />
+                    {errors.name && touched.name && (
+                      <p className="mt-1 text-xs text-red-500 font-inter">{errors.name}</p>
+                    )}
                   </div>
 
                   <div>
@@ -227,10 +455,18 @@ export default function ContactPage() {
                       name="location"
                       value={formData.location}
                       onChange={handleInputChange}
+                      onBlur={handleBlur}
                       placeholder="Локация"
                       required
-                      className="w-full px-4 py-3 bg-gray-100 border border-gray-200 rounded-lg font-inter text-sm sm:text-base focus:outline-none focus:ring-2 focus:ring-gray-400 focus:border-transparent"
+                      className={`w-full px-4 py-3 bg-gray-100 border rounded-lg font-inter text-sm sm:text-base focus:outline-none focus:ring-2 focus:border-transparent ${
+                        errors.location && touched.location
+                          ? "border-red-500 focus:ring-red-400"
+                          : "border-gray-200 focus:ring-gray-400"
+                      }`}
                     />
+                    {errors.location && touched.location && (
+                      <p className="mt-1 text-xs text-red-500 font-inter">{errors.location}</p>
+                    )}
                   </div>
 
                   <div>
@@ -243,10 +479,18 @@ export default function ContactPage() {
                       name="phone"
                       value={formData.phone}
                       onChange={handleInputChange}
-                      placeholder="Телефон"
+                      onBlur={handleBlur}
+                      placeholder="+7 999 123 45 67"
                       required
-                      className="w-full px-4 py-3 bg-gray-100 border border-gray-200 rounded-lg font-inter text-sm sm:text-base focus:outline-none focus:ring-2 focus:ring-gray-400 focus:border-transparent"
+                      className={`w-full px-4 py-3 bg-gray-100 border rounded-lg font-inter text-sm sm:text-base focus:outline-none focus:ring-2 focus:border-transparent ${
+                        errors.phone && touched.phone
+                          ? "border-red-500 focus:ring-red-400"
+                          : "border-gray-200 focus:ring-gray-400"
+                      }`}
                     />
+                    {errors.phone && touched.phone && (
+                      <p className="mt-1 text-xs text-red-500 font-inter">{errors.phone}</p>
+                    )}
                   </div>
 
                   <div>
@@ -259,26 +503,48 @@ export default function ContactPage() {
                       name="email"
                       value={formData.email}
                       onChange={handleInputChange}
-                      placeholder="Электронная почта"
+                      onBlur={handleBlur}
+                      placeholder="email@example.com"
                       required
-                      className="w-full px-4 py-3 bg-gray-100 border border-gray-200 rounded-lg font-inter text-sm sm:text-base focus:outline-none focus:ring-2 focus:ring-gray-400 focus:border-transparent"
+                      className={`w-full px-4 py-3 bg-gray-100 border rounded-lg font-inter text-sm sm:text-base focus:outline-none focus:ring-2 focus:border-transparent ${
+                        errors.email && touched.email
+                          ? "border-red-500 focus:ring-red-400"
+                          : "border-gray-200 focus:ring-gray-400"
+                      }`}
                     />
+                    {errors.email && touched.email && (
+                      <p className="mt-1 text-xs text-red-500 font-inter">{errors.email}</p>
+                    )}
                   </div>
                 </div>
 
                 <div>
-                  <label htmlFor="message" className="sr-only">
+                  <label htmlFor="message" className="block mb-2 text-sm font-inter text-gray-700">
                     Расскажите о проекте
+                    {formData.message.length > 0 && (
+                      <span className="ml-2 text-gray-500 text-xs">
+                        ({formData.message.length}/1000)
+                      </span>
+                    )}
                   </label>
                   <textarea
                     id="message"
                     name="message"
                     value={formData.message}
                     onChange={handleInputChange}
+                    onBlur={handleBlur}
                     placeholder="Расскажите о проекте"
                     rows={6}
-                    className="w-full px-4 py-3 bg-gray-100 border border-gray-200 rounded-lg font-inter text-sm sm:text-base focus:outline-none focus:ring-2 focus:ring-gray-400 focus:border-transparent resize-none"
+                    maxLength={1000}
+                    className={`w-full px-4 py-3 bg-gray-100 border rounded-lg font-inter text-sm sm:text-base focus:outline-none focus:ring-2 focus:border-transparent resize-none ${
+                        errors.message && touched.message
+                          ? "border-red-500 focus:ring-red-400"
+                          : "border-gray-200 focus:ring-gray-400"
+                      }`}
                   />
+                  {errors.message && touched.message && (
+                    <p className="mt-1 text-xs text-red-500 font-inter">{errors.message}</p>
+                  )}
                 </div>
 
                 <div className="flex items-start gap-3">
@@ -288,22 +554,33 @@ export default function ContactPage() {
                     name="consent"
                     checked={formData.consent}
                     onChange={handleInputChange}
+                    onBlur={handleBlur}
                     required
-                    className="mt-1 w-4 h-4 text-black border-gray-300 rounded focus:ring-2 focus:ring-gray-400"
+                    className={`mt-1 w-4 h-4 text-black border rounded focus:ring-2 focus:ring-gray-400 ${
+                      errors.consent && touched.consent
+                        ? "border-red-500"
+                        : "border-gray-300"
+                    }`}
                   />
-                  <label
-                    htmlFor="consent"
-                    className="text-xs sm:text-sm font-inter text-gray-700 leading-relaxed"
-                  >
-                    Отправляя эту форму, я даю согласие на обработку моих
-                    персональных данных в соответствии с условиями{" "}
-                    <a
-                      href="#"
-                      className="text-black underline hover:text-gray-700"
+                  <div className="flex-1">
+                    <label
+                      htmlFor="consent"
+                      className="text-xs sm:text-sm font-inter text-gray-700 leading-relaxed"
                     >
-                      Политика конфиденциальности
-                    </a>
-                  </label>
+                      Отправляя эту форму, я даю согласие на обработку моих
+                      персональных данных в соответствии с условиями{" "}
+                      <a
+                        href="#"
+                        className="text-black underline hover:text-gray-700"
+                      >
+                        Политика конфиденциальности
+                      </a>
+                      <span className="text-red-500">*</span>
+                    </label>
+                    {errors.consent && touched.consent && (
+                      <p className="mt-1 text-xs text-red-500 font-inter">{errors.consent}</p>
+                    )}
+                  </div>
                 </div>
 
                 {/* Сообщение о статусе отправки */}
