@@ -1,8 +1,19 @@
 import ArrowBlack from "../Icons/Arrow-black.svg";
 
 import React from "react";
+import { useNavigate } from "react-router-dom";
 
 export default function Footer({ hideTopBlock = false }) {
+  const navigate = useNavigate();
+
+  const handleNavigation = (path) => {
+    navigate(path);
+    window.scrollTo(0, 0);
+  };
+
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
   return (
     <footer>
       {!hideTopBlock && (
@@ -13,7 +24,10 @@ export default function Footer({ hideTopBlock = false }) {
           <p>Архитектурный дизайн</p>
           <p>По всему миру</p>
         </div>
-        <div className="flex items-center gap-3 sm:gap-4 md:gap-5 mt-4 2xl:mt-0">
+        <div 
+          className="flex items-center gap-3 sm:gap-4 md:gap-5 mt-4 2xl:mt-0 cursor-pointer"
+          onClick={() => handleNavigation("/contact")}
+        >
           <p className="text-left w-[150px] sm:w-[180px] md:w-[200px] lg:w-[250px] text-sm sm:text-base md:text-lg text-[#00000099]">
             Пишите нам для воплощения ваших идей
           </p>
@@ -34,30 +48,30 @@ export default function Footer({ hideTopBlock = false }) {
             Навигация
           </p>
           <div className="flex flex-col gap-2 sm:gap-3">
-            <a
-              href="#"
-              className="font-inter text-[14px] sm:text-[16px] md:text-[18px] lg:text-[20px] xl:text-[22px] text-[#00000099] hover:text-[#000000] transition-colors"
+            <button
+              onClick={() => handleNavigation("/projects")}
+              className="font-inter text-[14px] sm:text-[16px] md:text-[18px] lg:text-[20px] xl:text-[22px] text-[#00000099] hover:text-[#000000] transition-colors text-left"
             >
               Проекты
-            </a>
-            <a
-              href="#"
-              className="text-[14px] xl:text-[22px] sm:text-[16px] md:text-[18px] text-[#00000099] hover:text-[#000000] transition-colors"
+            </button>
+            <button
+              onClick={() => handleNavigation("/about")}
+              className="text-[14px] xl:text-[22px] sm:text-[16px] md:text-[18px] text-[#00000099] hover:text-[#000000] transition-colors text-left"
             >
               О нас
-            </a>
-            <a
-              href="#"
-              className="text-[14px] xl:text-[22px] sm:text-[16px] md:text-[18px] text-[#00000099] hover:text-[#000000] transition-colors"
+            </button>
+            <button
+              onClick={() => handleNavigation("/services")}
+              className="text-[14px] xl:text-[22px] sm:text-[16px] md:text-[18px] text-[#00000099] hover:text-[#000000] transition-colors text-left"
             >
               Услуги
-            </a>
-            <a
-              href="#"
-              className="text-[14px] xl:text-[22px] sm:text-[16px] md:text-[18px] text-[#00000099] hover:text-[#000000] transition-colors"
+            </button>
+            <button
+              onClick={() => handleNavigation("/contact")}
+              className="text-[14px] xl:text-[22px] sm:text-[16px] md:text-[18px] text-[#00000099] hover:text-[#000000] transition-colors text-left"
             >
               Взаимодействие
-            </a>
+            </button>
           </div>
         </div>
 
@@ -121,12 +135,12 @@ export default function Footer({ hideTopBlock = false }) {
               </a>
 
               {/* Правый элемент */}
-              <a
-                href="#"
-                className="text-[12px] sm:text-[13px] md:text-[14px] lg:text-[15px] xl:text-[16px] text-[#00000099] hover:text-[#000000] transition-colors"
+              <button
+                onClick={scrollToTop}
+                className="text-[12px] sm:text-[13px] md:text-[14px] lg:text-[15px] xl:text-[16px] text-[#00000099] hover:text-[#000000] transition-colors cursor-pointer"
               >
                 В начало ↑
-              </a>
+              </button>
             </div>
           </div>
         </div>

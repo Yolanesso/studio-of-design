@@ -74,36 +74,36 @@ export default function BurgerMenu({ isMenuOpen, toggleMenu, scrollToSection }) 
                 <button
                   onClick={() => handleNavigation("/projects")}
                   className="text-4xl sm:text-5xl md:text-6xl lg:text-[36px] font-inter font-medium transition-colors text-left leading-tight"
-                  style={{ color: '#f59e0b' }}
-                  onMouseEnter={(e) => e.target.style.color = '#d97706'}
-                  onMouseLeave={(e) => e.target.style.color = '#f59e0b'}
+                  style={{ color: '#00000099' }}
+                  onMouseEnter={(e) => e.target.style.color = '#000000'}
+                  onMouseLeave={(e) => e.target.style.color = '#00000099'}
                 >
                   Проекты
                 </button>
                 <button
                   onClick={() => handleNavigation("/about")}
                   className="text-4xl sm:text-5xl md:text-6xl lg:text-[36px] font-inter font-medium transition-colors text-left leading-tight"
-                  style={{ color: '#f59e0b' }}
-                  onMouseEnter={(e) => e.target.style.color = '#d97706'}
-                  onMouseLeave={(e) => e.target.style.color = '#f59e0b'}
+                  style={{ color: '#00000099' }}
+                  onMouseEnter={(e) => e.target.style.color = '#000000'}
+                  onMouseLeave={(e) => e.target.style.color = '#00000099'}
                 >
                   О нас
                 </button>
                 <button
                   onClick={() => handleNavigation("/services")}
                   className="text-4xl sm:text-5xl md:text-6xl lg:text-[36px] font-inter font-medium transition-colors text-left leading-tight"
-                  style={{ color: '#f59e0b' }}
-                  onMouseEnter={(e) => e.target.style.color = '#d97706'}
-                  onMouseLeave={(e) => e.target.style.color = '#f59e0b'}
+                  style={{ color: '#00000099' }}
+                  onMouseEnter={(e) => e.target.style.color = '#000000'}
+                  onMouseLeave={(e) => e.target.style.color = '#00000099'}
                 >
                   Услуги
                 </button>
                 <button
                   onClick={() => handleNavigation("/contact")}
                   className="text-4xl sm:text-5xl md:text-6xl lg:text-[36px] font-inter font-medium transition-colors text-left leading-tight"
-                  style={{ color: '#f59e0b' }}
-                  onMouseEnter={(e) => e.target.style.color = '#d97706'}
-                  onMouseLeave={(e) => e.target.style.color = '#f59e0b'}
+                  style={{ color: '#00000099' }}
+                  onMouseEnter={(e) => e.target.style.color = '#000000'}
+                  onMouseLeave={(e) => e.target.style.color = '#00000099'}
                 >
                   Взаимодействие
                 </button>
@@ -111,17 +111,19 @@ export default function BurgerMenu({ isMenuOpen, toggleMenu, scrollToSection }) 
             </div>
 
             {/* Разделитель — только на мобильных */}
-            <div className="h-px my-6 md:hidden w-full" style={{ backgroundColor: '#fde68a' }}></div>
+            <div className="h-px my-6 md:hidden w-full bg-gray-300"></div>
 
             {/* Правая колонка — Информация */}
-            <div className="flex flex-col items-start justify-start">
+            <div 
+              className="flex flex-col items-start justify-start cursor-pointer"
+              onClick={() => handleNavigation("/contact")}
+            >
               <div className="mb-8 md:mb-1">
                 <img src={ArrowBlack} alt="Arrow" />
               </div>
 
               <div 
-                className="text-lg sm:text-xl md:text-2xl lg:text-[22px] max-w-[320px] leading-relaxed font-inter"
-                style={{ color: '#d97706' }}
+                className="text-lg sm:text-xl md:text-2xl lg:text-[22px] max-w-[320px] leading-relaxed font-inter text-black"
               >
                 Пишите нам для воплощения ваших идей
               </div>

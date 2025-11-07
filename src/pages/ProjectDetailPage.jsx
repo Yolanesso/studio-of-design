@@ -121,6 +121,7 @@ export default function ProjectDetailPage() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState("");
   const [scrollProgress, setScrollProgress] = useState(0);
+  const [isNavMenuOpen, setIsNavMenuOpen] = useState(false);
 
   const project = projects.find(p => p.id === projectId);
 
@@ -187,13 +188,24 @@ export default function ProjectDetailPage() {
     const handleScroll = () => {
       const sections = ["prihozhaya", "kuhnya", "gostinaya", "vannaya", "master"];
       const scrollPosition = window.scrollY + 200;
+      const windowHeight = window.innerHeight;
+      const documentHeight = document.documentElement.scrollHeight;
+      const scrollBottom = window.scrollY + windowHeight;
 
-      // Определяем активную секцию
-      for (let i = sections.length - 1; i >= 0; i--) {
-        const element = document.getElementById(sections[i]);
-        if (element && element.offsetTop <= scrollPosition) {
-          setActiveSection(sections[i]);
-          break;
+      // Проверяем, доскроллили ли мы до конца страницы (с небольшим запасом)
+      const isAtBottom = scrollBottom >= documentHeight - 100;
+
+      // Если доскроллили до конца, устанавливаем последнюю секцию как активную
+      if (isAtBottom) {
+        setActiveSection("master");
+      } else {
+        // Определяем активную секцию
+        for (let i = sections.length - 1; i >= 0; i--) {
+          const element = document.getElementById(sections[i]);
+          if (element && element.offsetTop <= scrollPosition) {
+            setActiveSection(sections[i]);
+            break;
+          }
         }
       }
 
@@ -842,31 +854,55 @@ export default function ProjectDetailPage() {
           </div>
         </div>
 
-        {/* Навигационное меню проекта - постоянно видимое */}
-        <div className="fixed top-1/2 right-2 sm:right-4 md:right-6 lg:right-8 xl:right-10 2xl:right-12 transform -translate-y-1/2 z-40">
+        {/* Навигационное меню проекта - с возможностью открытия/закрытия */}
+        <div className="fixed bottom-4 sm:bottom-6 md:bottom-8 lg:bottom-10 xl:bottom-12 2xl:bottom-16 right-2 sm:right-4 md:right-6 lg:right-8 xl:right-10 2xl:right-12 z-40">
           <div 
-            className="bg-gray-200/85 backdrop-blur-md rounded-xl p-3 sm:p-3.5 md:p-4 shadow-2xl"
+            onClick={() => setIsNavMenuOpen(!isNavMenuOpen)}
+            className="bg-gray-200/50 backdrop-blur-md rounded-xl p-3 sm:p-3.5 md:p-4 shadow-2xl transition-all duration-300 ease-in-out cursor-pointer"
             style={{
-              backgroundColor: 'rgba(229, 231, 235, 0.85)',
+              backgroundColor: 'rgba(229, 231, 235, 0.5)',
             }}
           >
-            {/* Заголовок */}
-            <h3 className="text-base sm:text-lg md:text-xl font-inter font-medium text-gray-900 mb-1.5">
-              BALANCE 73
-            </h3>
+            {/* Заголовок с кнопкой */}
+            <div className="flex items-center justify-between mb-1.5">
+              <h3 className="text-base sm:text-lg md:text-xl font-inter font-medium text-gray-900">
+                BALANCE 73
+              </h3>
+              <div
+                className="ml-2 transition-transform duration-300 ease-in-out"
+                style={{
+                  transform: isNavMenuOpen ? 'rotate(180deg)' : 'rotate(0deg)'
+                }}
+              >
+                <img
+                  src={ArrowBlack}
+                  alt={isNavMenuOpen ? "Закрыть меню" : "Открыть меню"}
+                  className="w-4 h-4 sm:w-5 sm:h-5"
+                />
+              </div>
+            </div>
 
             {/* Разделительная линия с прогрессом */}
-            <div className="w-2/3 h-px bg-gray-300 mb-3 relative overflow-hidden">
+            <div className={`w-2/3 h-px bg-gray-300 mb-3 relative overflow-hidden transition-all duration-300 ease-in-out ${
+              isNavMenuOpen ? 'opacity-100' : 'opacity-100'
+            }`}>
               <div 
                 className="h-full bg-gray-800 transition-all duration-300 ease-out"
                 style={{ width: `${scrollProgress}%` }}
               ></div>
             </div>
 
-            {/* Список секций */}
-            <nav className="flex flex-col space-y-2">
+            {/* Список секций с анимацией */}
+            <nav className={`flex flex-col space-y-2 transition-all duration-300 ease-in-out overflow-hidden ${
+              isNavMenuOpen 
+                ? 'max-h-96 opacity-100 mt-0' 
+                : 'max-h-0 opacity-0 mt-0'
+            }`} onClick={(e) => e.stopPropagation()}>
               <button
-                onClick={() => scrollToProjectSection("prihozhaya")}
+                onClick={() => {
+                  scrollToProjectSection("prihozhaya");
+                  setIsNavMenuOpen(false);
+                }}
                 className={`text-left font-inter text-xs sm:text-xs md:text-sm text-gray-800 hover:text-gray-900 transition-colors ${
                   activeSection === "prihozhaya" ? "font-bold" : "font-normal"
                 }`}
@@ -874,7 +910,10 @@ export default function ProjectDetailPage() {
                 Визуализация ПРИХОЖАЯ
               </button>
               <button
-                onClick={() => scrollToProjectSection("kuhnya")}
+                onClick={() => {
+                  scrollToProjectSection("kuhnya");
+                  setIsNavMenuOpen(false);
+                }}
                 className={`text-left font-inter text-xs sm:text-xs md:text-sm text-gray-800 hover:text-gray-900 transition-colors ${
                   activeSection === "kuhnya" ? "font-bold" : "font-normal"
                 }`}
@@ -882,7 +921,10 @@ export default function ProjectDetailPage() {
                 Визуализация КУХНЯ – ГОСТИНАЯ
               </button>
               <button
-                onClick={() => scrollToProjectSection("gostinaya")}
+                onClick={() => {
+                  scrollToProjectSection("gostinaya");
+                  setIsNavMenuOpen(false);
+                }}
                 className={`text-left font-inter text-xs sm:text-xs md:text-sm text-gray-800 hover:text-gray-900 transition-colors ${
                   activeSection === "gostinaya" ? "font-bold" : "font-normal"
                 }`}
@@ -890,7 +932,10 @@ export default function ProjectDetailPage() {
                 Визуализация ГОСТИНАЯ ЗОНА
               </button>
               <button
-                onClick={() => scrollToProjectSection("vannaya")}
+                onClick={() => {
+                  scrollToProjectSection("vannaya");
+                  setIsNavMenuOpen(false);
+                }}
                 className={`text-left font-inter text-xs sm:text-xs md:text-sm text-gray-800 hover:text-gray-900 transition-colors ${
                   activeSection === "vannaya" ? "font-bold" : "font-normal"
                 }`}
@@ -898,7 +943,10 @@ export default function ProjectDetailPage() {
                 Визуализация ВАННАЯ КОМНАТА
               </button>
               <button
-                onClick={() => scrollToProjectSection("master")}
+                onClick={() => {
+                  scrollToProjectSection("master");
+                  setIsNavMenuOpen(false);
+                }}
                 className={`text-left font-inter text-xs sm:text-xs md:text-sm text-gray-800 hover:text-gray-900 transition-colors ${
                   activeSection === "master" ? "font-bold" : "font-normal"
                 }`}

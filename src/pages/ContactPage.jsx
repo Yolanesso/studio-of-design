@@ -16,6 +16,8 @@ import Footer from "../Components/Footer";
 export default function ContactPage() {
   const navigate = useNavigate();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState({ type: null, message: "" });
   const [formData, setFormData] = useState({
     name: "",
     location: "",
@@ -51,9 +53,55 @@ export default function ContactPage() {
     }));
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log("Form submitted:", formData);
+    setIsSubmitting(true);
+    setSubmitStatus({ type: null, message: "" });
+
+    try {
+      // URL backend сервера (можно вынести в переменную окружения)
+      const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:3001';
+      
+      const response = await fetch(`${API_URL}/api/submit-form`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      });
+
+      const data = await response.json();
+
+      if (response.ok && data.success) {
+        setSubmitStatus({ 
+          type: 'success', 
+          message: 'Заявка успешно отправлена! Мы свяжемся с вами в ближайшее время.' 
+        });
+        
+        // Очищаем форму
+        setFormData({
+          name: "",
+          location: "",
+          phone: "",
+          email: "",
+          message: "",
+          consent: false,
+        });
+      } else {
+        setSubmitStatus({ 
+          type: 'error', 
+          message: data.message || 'Произошла ошибка при отправке заявки. Попробуйте еще раз.' 
+        });
+      }
+    } catch (error) {
+      console.error('Ошибка отправки формы:', error);
+      setSubmitStatus({ 
+        type: 'error', 
+        message: 'Не удалось отправить заявку. Проверьте подключение к интернету и попробуйте еще раз.' 
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -67,8 +115,8 @@ export default function ContactPage() {
         <div className="relative z-10 flex flex-col min-h-screen">
           <div className="container mx-auto">
             <nav className="py-6 sm:py-8 md:py-10 lg:py-12">
-              <div className="flex items-center justify-between">
-                <button className="transition-opacity hover:opacity-80">
+              <div className="flex items-center gap-3 sm:gap-4 md:gap-6 lg:justify-between">
+                <button className="transition-opacity hover:opacity-80 flex-shrink-0">
                   <img
                     src={BtnLang}
                     alt="Сменить язык"
@@ -90,7 +138,7 @@ export default function ContactPage() {
                   </button>
                 </div>
 
-                <div className="flex items-center gap-2 sm:gap-3">
+                <div className="flex items-center gap-1 sm:gap-2 md:gap-3 flex-shrink-0">
                   <button className="bg-white text-gray-900 px-4 py-2 sm:px-5 sm:py-3 md:px-6 md:py-4 rounded-[27px] font-inter font-medium text-xs sm:text-sm md:text-base max-[377px]:hidden hover:bg-gray-100 transition-colors duration-200 border border-white">
                     Связаться с нами
                   </button>
@@ -256,11 +304,29 @@ export default function ContactPage() {
                   </label>
                 </div>
 
+                {/* Сообщение о статусе отправки */}
+                {submitStatus.type && (
+                  <div
+                    className={`p-4 rounded-lg font-inter text-sm ${
+                      submitStatus.type === 'success'
+                        ? 'bg-green-50 text-green-800 border border-green-200'
+                        : 'bg-red-50 text-red-800 border border-red-200'
+                    }`}
+                  >
+                    {submitStatus.message}
+                  </div>
+                )}
+
                 <button
                   type="submit"
-                  className="w-full sm:w-auto bg-black text-white px-8 py-4 rounded-lg font-inter font-medium text-sm sm:text-base hover:bg-gray-800 transition-colors duration-200"
+                  disabled={isSubmitting}
+                  className={`w-full sm:w-auto bg-black text-white px-8 py-4 rounded-lg font-inter font-medium text-sm sm:text-base transition-colors duration-200 ${
+                    isSubmitting
+                      ? 'opacity-50 cursor-not-allowed'
+                      : 'hover:bg-gray-800'
+                  }`}
                 >
-                  Отправить
+                  {isSubmitting ? 'Отправка...' : 'Отправить'}
                 </button>
               </form>
             </div>

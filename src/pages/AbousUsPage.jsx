@@ -94,6 +94,7 @@ const AnimatedWordText = ({ children, className = "", delay = 0 }) => {
 export default function AboutUsPage() {
   const navigate = useNavigate();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [activeCard, setActiveCard] = useState(null);
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
@@ -113,6 +114,10 @@ export default function AboutUsPage() {
     window.scrollTo(0, 0);
   };
 
+  const handleCardInteraction = (cardId, isActive) => {
+    setActiveCard(isActive ? cardId : null);
+  };
+
   return (
     <>
       <header
@@ -129,8 +134,8 @@ export default function AboutUsPage() {
         <div className="relative z-10 flex flex-col h-full w-full">
           <div className="container mx-auto">
             <nav className="py-4 sm:py-6 md:py-8 lg:py-10">
-              <div className="flex items-center justify-between">
-                <button className="transition-opacity hover:opacity-80">
+              <div className="flex items-center gap-3 sm:gap-4 md:gap-6 lg:justify-between">
+                <button className="transition-opacity hover:opacity-80 flex-shrink-0">
                   <img
                     src={BtnLang}
                     alt="Сменить язык"
@@ -138,7 +143,7 @@ export default function AboutUsPage() {
                   />
                 </button>
 
-                <div className="flex-1 flex flex-col items-center justify-center">
+                <div className="flex-1 flex flex-col items-center justify-center md:flex-1 lg:flex-1">
                   <button 
                     onClick={() => navigate("/")}
                     className="transition-opacity hover:opacity-80"
@@ -152,7 +157,7 @@ export default function AboutUsPage() {
                   </button>
                 </div>
 
-                <div className="flex items-center gap-2 sm:gap-3">
+                <div className="flex items-center gap-1 sm:gap-2 md:gap-3 flex-shrink-0">
                   <button 
                     onClick={() => navigate("/contact")}
                     className="bg-white text-gray-900 px-4 py-2 sm:px-5 sm:py-3 md:px-6 md:py-4 rounded-[27px] font-inter font-medium text-xs sm:text-sm md:text-base max-[377px]:hidden hover:bg-gray-100 transition-colors duration-200 border border-white"
@@ -295,14 +300,20 @@ export default function AboutUsPage() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 lg:gap-12">
             {/* Артем Копылов */}
             <AnimatedText>
-              <div className="relative group">
+              <div 
+                className="relative group"
+                onTouchStart={() => handleCardInteraction("artem", true)}
+                onTouchEnd={() => handleCardInteraction("artem", false)}
+                onMouseEnter={() => handleCardInteraction("artem", true)}
+                onMouseLeave={() => handleCardInteraction("artem", false)}
+              >
                 <div className="relative w-full aspect-[3/4] bg-gray-200 mb-4 overflow-hidden">
                   <img 
                     src={ArtemImg} 
                     alt="Артем Копылов"
-                    className="w-full h-full object-cover grayscale transition-all duration-300 group-hover:grayscale-0"
+                    className={`w-full h-full object-cover grayscale transition-all duration-300 ${activeCard === "artem" ? "grayscale-0" : "group-hover:grayscale-0"}`}
                   />
-                  <div className="absolute bottom-0 left-0 right-0 bg-black/60 backdrop-blur-sm p-4 sm:p-6 md:p-8 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                  <div className={`absolute bottom-0 left-0 right-0 bg-black/60 backdrop-blur-sm p-4 sm:p-6 md:p-8 transition-opacity duration-300 ${activeCard === "artem" ? "opacity-100" : "opacity-0 group-hover:opacity-100"}`}>
                     <div className="mb-3 sm:mb-4">
                       <p className="text-white text-sm sm:text-base md:text-lg font-inter font-medium flex items-center gap-2">
                         <span className="text-lg sm:text-xl md:text-2xl">«</span>
@@ -322,14 +333,20 @@ export default function AboutUsPage() {
 
             {/* Ангелина Магильная */}
             <AnimatedText delay={0.2}>
-              <div className="relative md:mt-16 lg:mt-24 group">
+              <div 
+                className="relative md:mt-16 lg:mt-24 group"
+                onTouchStart={() => handleCardInteraction("angelina", true)}
+                onTouchEnd={() => handleCardInteraction("angelina", false)}
+                onMouseEnter={() => handleCardInteraction("angelina", true)}
+                onMouseLeave={() => handleCardInteraction("angelina", false)}
+              >
                 <div className="relative w-full aspect-[3/4] bg-gray-200 mb-4 overflow-hidden">
                   <img 
                     src={AngelinaImg} 
                     alt="Ангелина Магильная"
-                    className="w-full h-full object-cover grayscale transition-all duration-300 group-hover:grayscale-0"
+                    className={`w-full h-full object-cover grayscale transition-all duration-300 ${activeCard === "angelina" ? "grayscale-0" : "group-hover:grayscale-0"}`}
                   />
-                  <div className="absolute bottom-0 left-0 right-0 bg-black/60 backdrop-blur-sm p-4 sm:p-6 md:p-8 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                  <div className={`absolute bottom-0 left-0 right-0 bg-black/60 backdrop-blur-sm p-4 sm:p-6 md:p-8 transition-opacity duration-300 ${activeCard === "angelina" ? "opacity-100" : "opacity-0 group-hover:opacity-100"}`}>
                     <div className="mb-3 sm:mb-4">
                       <p className="text-white text-sm sm:text-base md:text-lg font-inter font-medium">
                         Архитектор
@@ -348,14 +365,20 @@ export default function AboutUsPage() {
 
             {/* Глеб Вершушин */}
             <AnimatedText delay={0.4}>
-              <div className="relative group">
+              <div 
+                className="relative group"
+                onTouchStart={() => handleCardInteraction("gleb", true)}
+                onTouchEnd={() => handleCardInteraction("gleb", false)}
+                onMouseEnter={() => handleCardInteraction("gleb", true)}
+                onMouseLeave={() => handleCardInteraction("gleb", false)}
+              >
                 <div className="relative w-full aspect-[3/4] bg-gray-200 mb-4 overflow-hidden">
                   <img 
                     src={GlebImg} 
                     alt="Глеб Вершушин"
-                    className="w-full h-full object-cover grayscale transition-all duration-300 group-hover:grayscale-0"
+                    className={`w-full h-full object-cover grayscale transition-all duration-300 ${activeCard === "gleb" ? "grayscale-0" : "group-hover:grayscale-0"}`}
                   />
-                  <div className="absolute bottom-0 left-0 right-0 bg-black/60 backdrop-blur-sm p-4 sm:p-6 md:p-8 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                  <div className={`absolute bottom-0 left-0 right-0 bg-black/60 backdrop-blur-sm p-4 sm:p-6 md:p-8 transition-opacity duration-300 ${activeCard === "gleb" ? "opacity-100" : "opacity-0 group-hover:opacity-100"}`}>
                     <div className="mb-3 sm:mb-4">
                       <p className="text-white text-sm sm:text-base md:text-lg font-inter font-medium">
                         Архитектор
@@ -374,14 +397,20 @@ export default function AboutUsPage() {
 
             {/* Кристина Гордиенко */}
             <AnimatedText delay={0.6}>
-              <div className="relative md:mt-16 lg:mt-24 group">
+              <div 
+                className="relative md:mt-16 lg:mt-24 group"
+                onTouchStart={() => handleCardInteraction("kris", true)}
+                onTouchEnd={() => handleCardInteraction("kris", false)}
+                onMouseEnter={() => handleCardInteraction("kris", true)}
+                onMouseLeave={() => handleCardInteraction("kris", false)}
+              >
                 <div className="relative w-full aspect-[3/4] bg-gray-200 mb-4 overflow-hidden">
                   <img 
                     src={KrisImg} 
                     alt="Кристина Гордиенко"
-                    className="w-full h-full object-cover grayscale transition-all duration-300 group-hover:grayscale-0"
+                    className={`w-full h-full object-cover grayscale transition-all duration-300 ${activeCard === "kris" ? "grayscale-0" : "group-hover:grayscale-0"}`}
                   />
-                  <div className="absolute bottom-0 left-0 right-0 bg-black/60 backdrop-blur-sm p-4 sm:p-6 md:p-8 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                  <div className={`absolute bottom-0 left-0 right-0 bg-black/60 backdrop-blur-sm p-4 sm:p-6 md:p-8 transition-opacity duration-300 ${activeCard === "kris" ? "opacity-100" : "opacity-0 group-hover:opacity-100"}`}>
                     <div className="mb-3 sm:mb-4">
                       <p className="text-white text-sm sm:text-base md:text-lg font-inter font-medium">
                         Менеджер проектов
@@ -400,14 +429,20 @@ export default function AboutUsPage() {
 
             {/* Никита */}
             <AnimatedText delay={0.8}>
-              <div className="relative group">
+              <div 
+                className="relative group"
+                onTouchStart={() => handleCardInteraction("nikita", true)}
+                onTouchEnd={() => handleCardInteraction("nikita", false)}
+                onMouseEnter={() => handleCardInteraction("nikita", true)}
+                onMouseLeave={() => handleCardInteraction("nikita", false)}
+              >
                 <div className="relative w-full aspect-[3/4] bg-gray-200 mb-4 overflow-hidden">
                   <img 
                     src={NikitaImg} 
                     alt="Никита"
-                    className="w-full h-full object-cover grayscale transition-all duration-300 group-hover:grayscale-0"
+                    className={`w-full h-full object-cover grayscale transition-all duration-300 ${activeCard === "nikita" ? "grayscale-0" : "group-hover:grayscale-0"}`}
                   />
-                  <div className="absolute bottom-0 left-0 right-0 bg-black/60 backdrop-blur-sm p-4 sm:p-6 md:p-8 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                  <div className={`absolute bottom-0 left-0 right-0 bg-black/60 backdrop-blur-sm p-4 sm:p-6 md:p-8 transition-opacity duration-300 ${activeCard === "nikita" ? "opacity-100" : "opacity-0 group-hover:opacity-100"}`}>
                     <div className="mb-3 sm:mb-4">
                       <p className="text-white text-sm sm:text-base md:text-lg font-inter font-medium">
                         Дизайнер
@@ -426,14 +461,20 @@ export default function AboutUsPage() {
 
             {/* Олеся */}
             <AnimatedText delay={1.0}>
-              <div className="relative md:mt-16 lg:mt-24 group">
+              <div 
+                className="relative md:mt-16 lg:mt-24 group"
+                onTouchStart={() => handleCardInteraction("olesya", true)}
+                onTouchEnd={() => handleCardInteraction("olesya", false)}
+                onMouseEnter={() => handleCardInteraction("olesya", true)}
+                onMouseLeave={() => handleCardInteraction("olesya", false)}
+              >
                 <div className="relative w-full aspect-[3/4] bg-gray-200 mb-4 overflow-hidden">
                   <img 
                     src={OlesyaImg} 
                     alt="Олеся"
-                    className="w-full h-full object-cover grayscale transition-all duration-300 group-hover:grayscale-0"
+                    className={`w-full h-full object-cover grayscale transition-all duration-300 ${activeCard === "olesya" ? "grayscale-0" : "group-hover:grayscale-0"}`}
                   />
-                  <div className="absolute bottom-0 left-0 right-0 bg-black/60 backdrop-blur-sm p-4 sm:p-6 md:p-8 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                  <div className={`absolute bottom-0 left-0 right-0 bg-black/60 backdrop-blur-sm p-4 sm:p-6 md:p-8 transition-opacity duration-300 ${activeCard === "olesya" ? "opacity-100" : "opacity-0 group-hover:opacity-100"}`}>
                     <div className="mb-3 sm:mb-4">
                       <p className="text-white text-sm sm:text-base md:text-lg font-inter font-medium">
                         Графический дизайнер
@@ -452,14 +493,20 @@ export default function AboutUsPage() {
 
             {/* Устим */}
             <AnimatedText delay={1.2}>
-              <div className="relative group">
+              <div 
+                className="relative group"
+                onTouchStart={() => handleCardInteraction("ustim", true)}
+                onTouchEnd={() => handleCardInteraction("ustim", false)}
+                onMouseEnter={() => handleCardInteraction("ustim", true)}
+                onMouseLeave={() => handleCardInteraction("ustim", false)}
+              >
                 <div className="relative w-full aspect-[3/4] bg-gray-200 mb-4 overflow-hidden">
                   <img 
                     src={UstimImg} 
                     alt="Устим"
-                    className="w-full h-full object-cover grayscale transition-all duration-300 group-hover:grayscale-0"
+                    className={`w-full h-full object-cover grayscale transition-all duration-300 ${activeCard === "ustim" ? "grayscale-0" : "group-hover:grayscale-0"}`}
                   />
-                  <div className="absolute bottom-0 left-0 right-0 bg-black/60 backdrop-blur-sm p-4 sm:p-6 md:p-8 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                  <div className={`absolute bottom-0 left-0 right-0 bg-black/60 backdrop-blur-sm p-4 sm:p-6 md:p-8 transition-opacity duration-300 ${activeCard === "ustim" ? "opacity-100" : "opacity-0 group-hover:opacity-100"}`}>
                     <div className="mb-3 sm:mb-4">
                       <p className="text-white text-sm sm:text-base md:text-lg font-inter font-medium">
                         Руководитель строительного направления
@@ -478,14 +525,20 @@ export default function AboutUsPage() {
 
             {/* Юлиана */}
             <AnimatedText delay={1.4}>
-              <div className="relative md:mt-16 lg:mt-24 group">
+              <div 
+                className="relative md:mt-16 lg:mt-24 group"
+                onTouchStart={() => handleCardInteraction("ylyana", true)}
+                onTouchEnd={() => handleCardInteraction("ylyana", false)}
+                onMouseEnter={() => handleCardInteraction("ylyana", true)}
+                onMouseLeave={() => handleCardInteraction("ylyana", false)}
+              >
                 <div className="relative w-full aspect-[3/4] bg-gray-200 mb-4 overflow-hidden">
                   <img 
                     src={YlyanaImg} 
                     alt="Юлиана"
-                    className="w-full h-full object-cover grayscale transition-all duration-300 group-hover:grayscale-0"
+                    className={`w-full h-full object-cover grayscale transition-all duration-300 ${activeCard === "ylyana" ? "grayscale-0" : "group-hover:grayscale-0"}`}
                   />
-                  <div className="absolute bottom-0 left-0 right-0 bg-black/60 backdrop-blur-sm p-4 sm:p-6 md:p-8 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                  <div className={`absolute bottom-0 left-0 right-0 bg-black/60 backdrop-blur-sm p-4 sm:p-6 md:p-8 transition-opacity duration-300 ${activeCard === "ylyana" ? "opacity-100" : "opacity-0 group-hover:opacity-100"}`}>
                     <div className="mb-3 sm:mb-4">
                       <p className="text-white text-sm sm:text-base md:text-lg font-inter font-medium">
                         Менеджер комплектации

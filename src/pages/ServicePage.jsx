@@ -49,8 +49,8 @@ function Header() {
         <div className="relative z-10">
           <div className="container mx-auto">
             <nav className="pt-4 sm:pt-6 md:pt-8 lg:pt-10 pb-6 sm:pb-8 md:pb-10 lg:pb-16 xl:pb-20 2xl:pb-25">
-              <div className="flex items-center justify-between">
-                <button className="transition-opacity hover:opacity-80">
+              <div className="flex items-center gap-3 sm:gap-4 md:gap-6 lg:justify-between">
+                <button className="transition-opacity hover:opacity-80 flex-shrink-0">
                   <img
                     src={BtnLangBlack}
                     alt="Сменить язык"
@@ -71,7 +71,7 @@ function Header() {
                   </button>
                 </div>
 
-                <div className="flex items-center gap-2 sm:gap-3 md:gap-4">
+                <div className="flex items-center gap-1 sm:gap-2 md:gap-3 flex-shrink-0">
                   <button 
                     onClick={() => navigate("/contact")}
                     className="bg-gray-900 text-amber-50 px-4 py-2 sm:px-5 sm:py-3 md:px-6 md:py-4 rounded-[27px] font-inter font-medium text-xs sm:text-sm md:text-base max-[377px]:hidden hover:bg-gray-800 transition-colors duration-200 shadow-md"
