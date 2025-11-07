@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 
 import BulvarImg from "../Images/Projects/Bulvar.png";
@@ -119,6 +119,8 @@ export default function ProjectDetailPage() {
   const { projectId } = useParams();
   const navigate = useNavigate();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [activeSection, setActiveSection] = useState("");
+  const [scrollProgress, setScrollProgress] = useState(0);
 
   const project = projects.find(p => p.id === projectId);
 
@@ -131,6 +133,14 @@ export default function ProjectDetailPage() {
     const element = document.getElementById(sectionId);
     if (element) {
       element.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
+  const scrollToProjectSection = (sectionId) => {
+    const element = document.getElementById(sectionId);
+    if (element) {
+      element.scrollIntoView({ behavior: "smooth" });
+      setActiveSection(sectionId);
     }
   };
 
@@ -169,6 +179,44 @@ export default function ProjectDetailPage() {
 
   // Специальный дизайн для Balance73
   const isBalance73 = projectId === "balance73";
+
+  // Отслеживание активной секции и прогресса прокрутки для Balance73
+  useEffect(() => {
+    if (!isBalance73) return;
+
+    const handleScroll = () => {
+      const sections = ["prihozhaya", "kuhnya", "gostinaya", "vannaya", "master"];
+      const scrollPosition = window.scrollY + 200;
+
+      // Определяем активную секцию
+      for (let i = sections.length - 1; i >= 0; i--) {
+        const element = document.getElementById(sections[i]);
+        if (element && element.offsetTop <= scrollPosition) {
+          setActiveSection(sections[i]);
+          break;
+        }
+      }
+
+      // Вычисляем прогресс прокрутки от первой до последней секции
+      const firstSection = document.getElementById("prihozhaya");
+      const lastSection = document.getElementById("master");
+      
+      if (firstSection && lastSection) {
+        const startPosition = firstSection.offsetTop;
+        const endPosition = lastSection.offsetTop + lastSection.offsetHeight;
+        const totalHeight = endPosition - startPosition;
+        const scrollPosition = window.scrollY + window.innerHeight / 2;
+        const scrolled = scrollPosition - startPosition;
+        const progress = Math.min(100, Math.max(0, (scrolled / totalHeight) * 100));
+        setScrollProgress(progress);
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    handleScroll(); // Проверяем при загрузке
+
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, [isBalance73]);
 
   if (isBalance73) {
     return (
@@ -411,7 +459,7 @@ export default function ProjectDetailPage() {
                 </div>
 
                 {/* Текстовый блок - Прихожая */}
-                <div className="text-left">
+                <div id="prihozhaya" className="text-left">
                   <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-inter font-semibold text-black mb-4 sm:mb-6">
                     В прихожей
                   </h2>
@@ -465,7 +513,7 @@ export default function ProjectDetailPage() {
                     <img
                       src={balance73Images[9]}
                       alt="Balance73"
-                      className="w-full h-auto object-contain col-span-1 sm:col-span-2 lg:col-span-2"
+                      className="w-full h-auto object-contain"
                     />
                   </div>
                 </div>
@@ -528,13 +576,13 @@ export default function ProjectDetailPage() {
                     <img
                       src={balance73Images[18]}
                       alt="Balance73"
-                      className="w-full h-auto object-contain col-span-1 sm:col-span-2 lg:col-span-2"
+                      className="w-full h-auto object-contain"
                     />
                   </div>
                 </div>
 
                 {/* Текстовый блок - Кухонная зона */}
-                <div className="text-left">
+                <div id="kuhnya" className="text-left">
                   <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-inter font-semibold text-black mb-4 sm:mb-6">
                     Кухонная зона
                   </h2>
@@ -577,7 +625,7 @@ export default function ProjectDetailPage() {
                 </div>
 
                 {/* Текстовый блок - Гостиная зона */}
-                <div className="text-left">
+                <div id="gostinaya" className="text-left">
                   <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-inter font-semibold text-black mb-4 sm:mb-6">
                     Гостиная зона
                   </h2>
@@ -636,7 +684,7 @@ export default function ProjectDetailPage() {
                     <img
                       src={balance73Images[30]}
                       alt="Balance73"
-                      className="w-full h-auto object-contain col-span-1 sm:col-span-2 lg:col-span-2"
+                      className="w-full h-auto object-contain"
                     />
                   </div>
                 </div>
@@ -665,7 +713,7 @@ export default function ProjectDetailPage() {
                 </div>
 
                 {/* Текстовый блок - Ванная комната */}
-                <div className="text-left">
+                <div id="vannaya" className="text-left">
                   <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-inter font-semibold text-black mb-4 sm:mb-6">
                     Ванная комната
                   </h2>
@@ -709,7 +757,7 @@ export default function ProjectDetailPage() {
                     <img
                       src={balance73Images[39]}
                       alt="Balance73"
-                      className="w-full h-auto object-contain col-span-1 sm:col-span-2 lg:col-span-2"
+                      className="w-full h-auto object-contain"
                     />
                   </div>
                 </div>
@@ -739,7 +787,7 @@ export default function ProjectDetailPage() {
                 </div>
 
                 {/* Текстовый блок - Мастер-блок */}
-                <div className="text-left">
+                <div id="master" className="text-left">
                   <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-inter font-semibold text-black mb-4 sm:mb-6">
                     Мастер-блок
                   </h2>
@@ -749,6 +797,73 @@ export default function ProjectDetailPage() {
                 </div>
               </div>
             </div>
+          </div>
+        </div>
+
+        {/* Навигационное меню проекта - постоянно видимое */}
+        <div className="fixed top-1/2 right-2 sm:right-4 md:right-6 lg:right-8 xl:right-10 2xl:right-12 transform -translate-y-1/2 z-40">
+          <div 
+            className="bg-gray-200/85 backdrop-blur-md rounded-xl p-3 sm:p-3.5 md:p-4 shadow-2xl"
+            style={{
+              backgroundColor: 'rgba(229, 231, 235, 0.85)',
+            }}
+          >
+            {/* Заголовок */}
+            <h3 className="text-base sm:text-lg md:text-xl font-inter font-medium text-gray-900 mb-1.5">
+              BALANCE 73
+            </h3>
+
+            {/* Разделительная линия с прогрессом */}
+            <div className="w-2/3 h-px bg-gray-300 mb-3 relative overflow-hidden">
+              <div 
+                className="h-full bg-gray-800 transition-all duration-300 ease-out"
+                style={{ width: `${scrollProgress}%` }}
+              ></div>
+            </div>
+
+            {/* Список секций */}
+            <nav className="flex flex-col space-y-2">
+              <button
+                onClick={() => scrollToProjectSection("prihozhaya")}
+                className={`text-left font-inter text-xs sm:text-xs md:text-sm text-gray-800 hover:text-gray-900 transition-colors ${
+                  activeSection === "prihozhaya" ? "font-bold" : "font-normal"
+                }`}
+              >
+                Визуализация ПРИХОЖАЯ
+              </button>
+              <button
+                onClick={() => scrollToProjectSection("kuhnya")}
+                className={`text-left font-inter text-xs sm:text-xs md:text-sm text-gray-800 hover:text-gray-900 transition-colors ${
+                  activeSection === "kuhnya" ? "font-bold" : "font-normal"
+                }`}
+              >
+                Визуализация КУХНЯ – ГОСТИНАЯ
+              </button>
+              <button
+                onClick={() => scrollToProjectSection("gostinaya")}
+                className={`text-left font-inter text-xs sm:text-xs md:text-sm text-gray-800 hover:text-gray-900 transition-colors ${
+                  activeSection === "gostinaya" ? "font-bold" : "font-normal"
+                }`}
+              >
+                Визуализация ГОСТИНАЯ ЗОНА
+              </button>
+              <button
+                onClick={() => scrollToProjectSection("vannaya")}
+                className={`text-left font-inter text-xs sm:text-xs md:text-sm text-gray-800 hover:text-gray-900 transition-colors ${
+                  activeSection === "vannaya" ? "font-bold" : "font-normal"
+                }`}
+              >
+                Визуализация ВАННАЯ КОМНАТА
+              </button>
+              <button
+                onClick={() => scrollToProjectSection("master")}
+                className={`text-left font-inter text-xs sm:text-xs md:text-sm text-gray-800 hover:text-gray-900 transition-colors ${
+                  activeSection === "master" ? "font-bold" : "font-normal"
+                }`}
+              >
+                Визуализация МАСТЕР-БЛОК
+              </button>
+            </nav>
           </div>
         </div>
 
