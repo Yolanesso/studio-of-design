@@ -223,9 +223,9 @@ export default function HeroSection() {
                 <img
                   src={BulvarImg}
                   alt="BUL'VAR"
-                  className="w-full aspect-[4/3] object-cover mb-3 sm:mb-4 transition-all duration-300 group-hover:invert"
+                  className="w-full aspect-[4/3] object-cover mb-3 sm:mb-4 transition-all duration-700 group-hover:invert"
                 />
-                <p className="project-name uppercase text-[14px] sm:text-[15px] md:text-[16px] lg:text-[17px] xl:text-[18px] font-medium mb-1 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                <p className="project-name uppercase text-[14px] sm:text-[15px] md:text-[16px] lg:text-[17px] xl:text-[18px] font-medium mb-1">
                   bul'var
                 </p>
                 <p className="project-info uppercase text-[12px] sm:text-[13px] md:text-[14px] lg:text-[15px] xl:text-[16px] text-[#000000B2] opacity-0 group-hover:opacity-100 transition-opacity duration-300">
@@ -240,10 +240,10 @@ export default function HeroSection() {
                 <img
                   src={BalanceImg}
                   alt="Другой проект"
-                  className="w-full aspect-[4/3] object-cover mb-3 sm:mb-4 transition-all duration-300 group-hover:invert"
+                  className="w-full aspect-[4/3] object-cover mb-3 sm:mb-4 transition-all duration-700 group-hover:invert"
                   style={{ objectPosition: 'center 70%' }}
                 />
-                <p className="project-name uppercase text-[14px] sm:text-[15px] md:text-[16px] lg:text-[17px] xl:text-[18px] font-medium mb-1 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                <p className="project-name uppercase text-[14px] sm:text-[15px] md:text-[16px] lg:text-[17px] xl:text-[18px] font-medium mb-1">
                   balance
                 </p>
                 <p className="project-info uppercase text-[12px] sm:text-[13px] md:text-[14px] lg:text-[15px] xl:text-[16px] text-[#000000B2] opacity-0 group-hover:opacity-100 transition-opacity duration-300">
@@ -258,9 +258,9 @@ export default function HeroSection() {
                 <img
                   src={BeringImg}
                   alt="BUL'VAR"
-                  className="w-full aspect-[4/3] object-cover mb-3 sm:mb-4 transition-all duration-300 group-hover:invert"
+                  className="w-full aspect-[4/3] object-cover mb-3 sm:mb-4 transition-all duration-700 group-hover:invert"
                 />
-                <p className="project-name uppercase text-[14px] sm:text-[15px] md:text-[16px] lg:text-[17px] xl:text-[18px] font-medium mb-1 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                <p className="project-name uppercase text-[14px] sm:text-[15px] md:text-[16px] lg:text-[17px] xl:text-[18px] font-medium mb-1">
                   Bering
                 </p>
                 <p className="project-info uppercase text-[12px] sm:text-[13px] md:text-[14px] lg:text-[15px] xl:text-[16px] text-[#000000B2] opacity-0 group-hover:opacity-100 transition-opacity duration-300">
@@ -275,10 +275,10 @@ export default function HeroSection() {
                 <img
                   src={Balance73}
                   alt="BUL'VAR"
-                  className="w-full aspect-[4/3] object-cover mb-3 sm:mb-4 transition-all duration-300 group-hover:invert"
+                  className="w-full aspect-[4/3] object-cover mb-3 sm:mb-4 transition-all duration-700 group-hover:invert"
                   style={{ objectPosition: 'center 70%' }}
                 />
-                <p className="project-name uppercase text-[14px] sm:text-[15px] md:text-[16px] lg:text-[17px] xl:text-[18px] font-medium mb-1 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                <p className="project-name uppercase text-[14px] sm:text-[15px] md:text-[16px] lg:text-[17px] xl:text-[18px] font-medium mb-1">
                   Balance
                 </p>
                 <p className="project-info uppercase text-[12px] sm:text-[13px] md:text-[14px] lg:text-[15px] xl:text-[16px] text-[#000000B2] opacity-0 group-hover:opacity-100 transition-opacity duration-300">

@@ -6,7 +6,6 @@ import BalanceImg from "../Images/Projects/Balance/balance-project.png";
 import BeringImg from "../Images/Projects/Bering/bering-project.png";
 import Balance73 from "../Images/Projects/Balance73.png";
 
-// Balance73 фотографии - все из папки "01. День"
 import Balance73_01 from "../Projects/BALANCE 73/01. День/010000.png";
 import Balance73_02 from "../Projects/BALANCE 73/01. День/020000.png";
 import Balance73_03 from "../Projects/BALANCE 73/01. День/030000.png";
@@ -387,7 +386,7 @@ export default function ProjectDetailPage() {
         <div className="bg-white">
           <div className="container mx-auto px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16 2xl:px-[140px] py-8 sm:py-12 md:py-16 lg:py-20 2xl:py-28">
             <div className="flex flex-col items-center">
-              <div className="w-full max-w-7xl space-y-12 sm:space-y-16 md:space-y-20 lg:space-y-24">
+              <div className="w-full max-w-7xl space-y-8">
                 {/* Крупное полноширинное изображение */}
                 <div className="w-full">
                   <img
@@ -402,17 +401,17 @@ export default function ProjectDetailPage() {
                   <img
                     src={balance73Images[1]}
                     alt="Balance73"
-                    className="w-full h-auto object-cover"
+                    className="w-full h-auto object-contain"
                   />
                   <img
                     src={balance73Images[2]}
                     alt="Balance73"
-                    className="w-full h-auto object-cover"
+                    className="w-full h-auto object-contain"
                   />
                 </div>
 
                 {/* Текстовый блок - Прихожая */}
-                <div className="max-w-4xl mx-auto text-left">
+                <div className="text-left">
                   <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-inter font-semibold text-black mb-4 sm:mb-6">
                     В прихожей
                   </h2>
@@ -432,43 +431,41 @@ export default function ProjectDetailPage() {
                 </div>
 
                 {/* Пирамидка 1: 3 уровня (1-2-3) */}
-                <div className="flex flex-col items-center">
-                  <div className="flex justify-center mb-4 sm:mb-6 md:mb-8">
-                    <div className="w-full sm:w-2/3 lg:w-1/2">
-                      <img
-                        src={balance73Images[4]}
-                        alt="Balance73"
-                        className="w-full h-auto object-cover"
-                      />
-                    </div>
+                <div className="flex flex-col items-center space-y-8">
+                  <div className="w-full">
+                    <img
+                      src={balance73Images[4]}
+                      alt="Balance73"
+                      className="w-full h-auto object-cover"
+                    />
                   </div>
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6 md:gap-8 mb-4 sm:mb-6 md:mb-8">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6 md:gap-8 w-full">
                     <img
                       src={balance73Images[5]}
                       alt="Balance73"
-                      className="w-full h-auto object-cover"
+                      className="w-full h-auto object-contain"
                     />
                     <img
                       src={balance73Images[6]}
                       alt="Balance73"
-                      className="w-full h-auto object-cover"
+                      className="w-full h-auto object-contain"
                     />
                   </div>
-                  <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 md:gap-8">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 md:gap-8 w-full">
                     <img
                       src={balance73Images[7]}
                       alt="Balance73"
-                      className="w-full h-auto object-cover"
+                      className="w-full h-auto object-contain"
                     />
                     <img
                       src={balance73Images[8]}
                       alt="Balance73"
-                      className="w-full h-auto object-cover"
+                      className="w-full h-auto object-contain"
                     />
                     <img
                       src={balance73Images[9]}
                       alt="Balance73"
-                      className="w-full h-auto object-cover"
+                      className="w-full h-auto object-contain col-span-1 sm:col-span-2 lg:col-span-2"
                     />
                   </div>
                 </div>
@@ -487,59 +484,57 @@ export default function ProjectDetailPage() {
                   <img
                     src={balance73Images[11]}
                     alt="Balance73"
-                    className="w-full h-auto object-cover"
+                    className="w-full h-auto object-contain"
                   />
                   <img
                     src={balance73Images[12]}
                     alt="Balance73"
-                    className="w-full h-auto object-cover"
+                    className="w-full h-auto object-contain"
                   />
                 </div>
 
                 {/* Пирамидка 2: 3 уровня (1-2-3) */}
-                <div className="flex flex-col items-center">
-                  <div className="flex justify-center mb-4 sm:mb-6 md:mb-8">
-                    <div className="w-full sm:w-2/3 lg:w-1/2">
-                      <img
-                        src={balance73Images[13]}
-                        alt="Balance73"
-                        className="w-full h-auto object-cover"
-                      />
-                    </div>
+                <div className="flex flex-col items-center space-y-8">
+                  <div className="w-full">
+                    <img
+                      src={balance73Images[13]}
+                      alt="Balance73"
+                      className="w-full h-auto object-cover"
+                    />
                   </div>
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6 md:gap-8 mb-4 sm:mb-6 md:mb-8">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6 md:gap-8 w-full">
                     <img
                       src={balance73Images[14]}
                       alt="Balance73"
-                      className="w-full h-auto object-cover"
+                      className="w-full h-auto object-contain"
                     />
                     <img
                       src={balance73Images[15]}
                       alt="Balance73"
-                      className="w-full h-auto object-cover"
+                      className="w-full h-auto object-contain"
                     />
                   </div>
-                  <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 md:gap-8">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 md:gap-8 w-full">
                     <img
                       src={balance73Images[16]}
                       alt="Balance73"
-                      className="w-full h-auto object-cover"
+                      className="w-full h-auto object-contain"
                     />
                     <img
                       src={balance73Images[17]}
                       alt="Balance73"
-                      className="w-full h-auto object-cover"
+                      className="w-full h-auto object-contain"
                     />
                     <img
                       src={balance73Images[18]}
                       alt="Balance73"
-                      className="w-full h-auto object-cover"
+                      className="w-full h-auto object-contain col-span-1 sm:col-span-2 lg:col-span-2"
                     />
                   </div>
                 </div>
 
                 {/* Текстовый блок - Кухонная зона */}
-                <div className="max-w-4xl mx-auto text-left">
+                <div className="text-left">
                   <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-inter font-semibold text-black mb-4 sm:mb-6">
                     Кухонная зона
                   </h2>
@@ -563,30 +558,26 @@ export default function ProjectDetailPage() {
                   <img
                     src={balance73Images[20]}
                     alt="Balance73"
-                    className="w-full h-auto object-cover"
+                    className="w-full h-auto object-contain"
                   />
                   <img
                     src={balance73Images[21]}
+                    alt="Balance73"
+                    className="w-full h-auto object-contain"
+                  />
+                </div>
+
+                {/* Пирамидка 3: 3 уровня (1-2-3) - последние фотографии гостиной */}
+                <div className="w-full">
+                  <img
+                    src={balance73Images[22]}
                     alt="Balance73"
                     className="w-full h-auto object-cover"
                   />
                 </div>
 
-                {/* Пирамидка 3: 3 уровня (1-2-3) - последние фотографии гостиной */}
-                <div className="flex flex-col items-center">
-                  <div className="flex justify-center mb-4 sm:mb-6 md:mb-8">
-                    <div className="w-full sm:w-2/3 lg:w-1/2">
-                      <img
-                        src={balance73Images[22]}
-                        alt="Balance73"
-                        className="w-full h-auto object-cover"
-                      />
-                    </div>
-                  </div>
-                </div>
-
                 {/* Текстовый блок - Гостиная зона */}
-                <div className="max-w-4xl mx-auto text-left">
+                <div className="text-left">
                   <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-inter font-semibold text-black mb-4 sm:mb-6">
                     Гостиная зона
                   </h2>
@@ -601,53 +592,51 @@ export default function ProjectDetailPage() {
                   <img
                     src={balance73Images[23]}
                     alt="Balance73"
-                    className="w-full h-auto object-cover"
+                    className="w-full h-auto object-contain"
                   />
                   <img
                     src={balance73Images[24]}
                     alt="Balance73"
-                    className="w-full h-auto object-cover"
+                    className="w-full h-auto object-contain"
                   />
                 </div>
 
                 {/* Пирамидка 4: 3 уровня (1-2-3) */}
-                <div className="flex flex-col items-center">
-                  <div className="flex justify-center mb-4 sm:mb-6 md:mb-8">
-                    <div className="w-full sm:w-2/3 lg:w-1/2">
-                      <img
-                        src={balance73Images[25]}
-                        alt="Balance73"
-                        className="w-full h-auto object-cover"
-                      />
-                    </div>
+                <div className="flex flex-col items-center space-y-8">
+                  <div className="w-full">
+                    <img
+                      src={balance73Images[25]}
+                      alt="Balance73"
+                      className="w-full h-auto object-cover"
+                    />
                   </div>
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6 md:gap-8 mb-4 sm:mb-6 md:mb-8">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6 md:gap-8 w-full">
                     <img
                       src={balance73Images[26]}
                       alt="Balance73"
-                      className="w-full h-auto object-cover"
+                      className="w-full h-auto object-contain"
                     />
                     <img
                       src={balance73Images[27]}
                       alt="Balance73"
-                      className="w-full h-auto object-cover"
+                      className="w-full h-auto object-contain"
                     />
                   </div>
-                  <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 md:gap-8">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 md:gap-8 w-full">
                     <img
                       src={balance73Images[28]}
                       alt="Balance73"
-                      className="w-full h-auto object-cover"
+                      className="w-full h-auto object-contain"
                     />
                     <img
                       src={balance73Images[29]}
                       alt="Balance73"
-                      className="w-full h-auto object-cover"
+                      className="w-full h-auto object-contain"
                     />
                     <img
                       src={balance73Images[30]}
                       alt="Balance73"
-                      className="w-full h-auto object-cover"
+                      className="w-full h-auto object-contain col-span-1 sm:col-span-2 lg:col-span-2"
                     />
                   </div>
                 </div>
@@ -666,17 +655,17 @@ export default function ProjectDetailPage() {
                   <img
                     src={balance73Images[32]}
                     alt="Balance73"
-                    className="w-full h-auto object-cover"
+                    className="w-full h-auto object-contain"
                   />
                   <img
                     src={balance73Images[33]}
                     alt="Balance73"
-                    className="w-full h-auto object-cover"
+                    className="w-full h-auto object-contain"
                   />
                 </div>
 
                 {/* Текстовый блок - Ванная комната */}
-                <div className="max-w-4xl mx-auto text-left">
+                <div className="text-left">
                   <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-inter font-semibold text-black mb-4 sm:mb-6">
                     Ванная комната
                   </h2>
@@ -686,43 +675,41 @@ export default function ProjectDetailPage() {
                 </div>
 
                 {/* Пирамидка 5: 3 уровня (1-2-3) */}
-                <div className="flex flex-col items-center">
-                  <div className="flex justify-center mb-4 sm:mb-6 md:mb-8">
-                    <div className="w-full sm:w-2/3 lg:w-1/2">
-                      <img
-                        src={balance73Images[34]}
-                        alt="Balance73"
-                        className="w-full h-auto object-cover"
-                      />
-                    </div>
+                <div className="flex flex-col items-center space-y-8">
+                  <div className="w-full">
+                    <img
+                      src={balance73Images[34]}
+                      alt="Balance73"
+                      className="w-full h-auto object-cover"
+                    />
                   </div>
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6 md:gap-8 mb-4 sm:mb-6 md:mb-8">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6 md:gap-8 w-full">
                     <img
                       src={balance73Images[35]}
                       alt="Balance73"
-                      className="w-full h-auto object-cover"
+                      className="w-full h-auto object-contain"
                     />
                     <img
                       src={balance73Images[36]}
                       alt="Balance73"
-                      className="w-full h-auto object-cover"
+                      className="w-full h-auto object-contain"
                     />
                   </div>
-                  <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 md:gap-8">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 md:gap-8 w-full">
                     <img
                       src={balance73Images[37]}
                       alt="Balance73"
-                      className="w-full h-auto object-cover"
+                      className="w-full h-auto object-contain"
                     />
                     <img
                       src={balance73Images[38]}
                       alt="Balance73"
-                      className="w-full h-auto object-cover"
+                      className="w-full h-auto object-contain"
                     />
                     <img
                       src={balance73Images[39]}
                       alt="Balance73"
-                      className="w-full h-auto object-cover"
+                      className="w-full h-auto object-contain col-span-1 sm:col-span-2 lg:col-span-2"
                     />
                   </div>
                 </div>
@@ -742,17 +729,17 @@ export default function ProjectDetailPage() {
                   <img
                     src={balance73Images[41]}
                     alt="Balance73"
-                    className="w-full h-auto object-cover"
+                    className="w-full h-auto object-contain"
                   />
                   <img
                     src={balance73Images[42]}
                     alt="Balance73"
-                    className="w-full h-auto object-cover"
+                    className="w-full h-auto object-contain"
                   />
                 </div>
 
                 {/* Текстовый блок - Мастер-блок */}
-                <div className="max-w-4xl mx-auto text-left">
+                <div className="text-left">
                   <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-inter font-semibold text-black mb-4 sm:mb-6">
                     Мастер-блок
                   </h2>
