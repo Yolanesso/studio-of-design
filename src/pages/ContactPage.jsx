@@ -59,10 +59,12 @@ export default function ContactPage() {
     setSubmitStatus({ type: null, message: "" });
 
     try {
-      // URL backend сервера (можно вынести в переменную окружения)
-      const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:3001';
+      // URL для Vercel (использует относительный путь для serverless функции)
+      // В production это будет /api/submit-form, в dev можно использовать localhost
+      const API_URL = import.meta.env.VITE_API_URL || (import.meta.env.DEV ? 'http://localhost:3001' : '');
+      const endpoint = API_URL ? `${API_URL}/api/submit-form` : '/api/submit-form';
       
-      const response = await fetch(`${API_URL}/api/submit-form`, {
+      const response = await fetch(endpoint, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
