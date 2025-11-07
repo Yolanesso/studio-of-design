@@ -441,6 +441,8 @@ export default function ProjectDetailPage() {
                     src={balance73Images[0]}
                     alt="Balance73"
                     className="w-full h-auto object-cover"
+                    loading="eager"
+                    decoding="async"
                   />
                 </div>
 
@@ -450,11 +452,15 @@ export default function ProjectDetailPage() {
                     src={balance73Images[1]}
                     alt="Balance73"
                     className="w-full h-auto object-contain"
+                    loading="eager"
+                    decoding="async"
                   />
                   <img
                     src={balance73Images[2]}
                     alt="Balance73"
                     className="w-full h-auto object-contain"
+                    loading="lazy"
+                    decoding="async"
                   />
                 </div>
 
@@ -475,6 +481,8 @@ export default function ProjectDetailPage() {
                     src={balance73Images[3]}
                     alt="Balance73"
                     className="w-full h-auto object-cover"
+                    loading="lazy"
+                    decoding="async"
                   />
                 </div>
 
@@ -485,6 +493,8 @@ export default function ProjectDetailPage() {
                       src={balance73Images[4]}
                       alt="Balance73"
                       className="w-full h-auto object-cover"
+                      loading="lazy"
+                      decoding="async"
                     />
                   </div>
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6 md:gap-8 w-full">
@@ -492,11 +502,15 @@ export default function ProjectDetailPage() {
                       src={balance73Images[5]}
                       alt="Balance73"
                       className="w-full h-auto object-contain"
+                      loading="lazy"
+                      decoding="async"
                     />
                     <img
                       src={balance73Images[6]}
                       alt="Balance73"
                       className="w-full h-auto object-contain"
+                      loading="lazy"
+                      decoding="async"
                     />
                   </div>
                   <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 md:gap-8 w-full">
@@ -504,16 +518,22 @@ export default function ProjectDetailPage() {
                       src={balance73Images[7]}
                       alt="Balance73"
                       className="w-full h-auto object-contain"
+                      loading="lazy"
+                      decoding="async"
                     />
                     <img
                       src={balance73Images[8]}
                       alt="Balance73"
                       className="w-full h-auto object-contain"
+                      loading="lazy"
+                      decoding="async"
                     />
                     <img
                       src={balance73Images[9]}
                       alt="Balance73"
                       className="w-full h-auto object-contain"
+                      loading="lazy"
+                      decoding="async"
                     />
                   </div>
                 </div>
@@ -524,6 +544,8 @@ export default function ProjectDetailPage() {
                     src={balance73Images[10]}
                     alt="Balance73"
                     className="w-full h-auto object-cover"
+                    loading="lazy"
+                    decoding="async"
                   />
                 </div>
 
@@ -538,6 +560,8 @@ export default function ProjectDetailPage() {
                     src={balance73Images[12]}
                     alt="Balance73"
                     className="w-full h-auto object-contain"
+                    loading="lazy"
+                    decoding="async"
                   />
                 </div>
 
@@ -598,6 +622,8 @@ export default function ProjectDetailPage() {
                     src={balance73Images[19]}
                     alt="Balance73"
                     className="w-full h-auto object-cover"
+                    loading="lazy"
+                    decoding="async"
                   />
                 </div>
 
@@ -621,6 +647,8 @@ export default function ProjectDetailPage() {
                     src={balance73Images[22]}
                     alt="Balance73"
                     className="w-full h-auto object-cover"
+                    loading="lazy"
+                    decoding="async"
                   />
                 </div>
 
@@ -695,6 +723,8 @@ export default function ProjectDetailPage() {
                     src={balance73Images[31]}
                     alt="Balance73"
                     className="w-full h-auto object-cover"
+                    loading="lazy"
+                    decoding="async"
                   />
                 </div>
 
@@ -709,6 +739,8 @@ export default function ProjectDetailPage() {
                     src={balance73Images[33]}
                     alt="Balance73"
                     className="w-full h-auto object-contain"
+                    loading="lazy"
+                    decoding="async"
                   />
                 </div>
 
@@ -748,16 +780,22 @@ export default function ProjectDetailPage() {
                       src={balance73Images[37]}
                       alt="Balance73"
                       className="w-full h-auto object-contain"
+                      loading="lazy"
+                      decoding="async"
                     />
                     <img
                       src={balance73Images[38]}
                       alt="Balance73"
                       className="w-full h-auto object-contain"
+                      loading="lazy"
+                      decoding="async"
                     />
                     <img
                       src={balance73Images[39]}
                       alt="Balance73"
                       className="w-full h-auto object-contain"
+                      loading="lazy"
+                      decoding="async"
                     />
                   </div>
                 </div>
@@ -769,6 +807,8 @@ export default function ProjectDetailPage() {
                     src={balance73Images[40]}
                     alt="Balance73"
                     className="w-full h-auto object-cover"
+                    loading="lazy"
+                    decoding="async"
                   />
                 </div>
 
@@ -783,6 +823,8 @@ export default function ProjectDetailPage() {
                     src={balance73Images[42]}
                     alt="Balance73"
                     className="w-full h-auto object-contain"
+                    loading="lazy"
+                    decoding="async"
                   />
                 </div>
 
