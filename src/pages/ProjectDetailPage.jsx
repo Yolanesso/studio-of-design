@@ -63,7 +63,8 @@ import Dushevaya_31 from "../Projects/BALANCE 73/01. День/07. Душевая
 import Dushevaya_32 from "../Projects/BALANCE 73/01. День/07. Душевая/320000.png";
 import Dushevaya_33 from "../Projects/BALANCE 73/01. День/07. Душевая/330000.png";
 
-// Массивы изображений по блокам
+
+// Массивы изображений по блокам - BALANCE 73
 const prihozhayaImages = [Prihozhaya_01, Prihozhaya_02, Prihozhaya_05];
 const kuhnyaImages = [Kuhnya_03, Kuhnya_04, Kuhnya_06, Kuhnya_07, Kuhnya_08, Kuhnya_09, Kuhnya_10, Kuhnya_11, Kuhnya_12, Kuhnya_13, Kuhnya_14, Kuhnya_15];
 const gostinayaImages = [Gostinaya_16, Gostinaya_17, Gostinaya_18, Gostinaya_19, Gostinaya_20, Gostinaya_21, Gostinaya_22, Gostinaya_23];
@@ -76,6 +77,7 @@ const masterImages = [
   // Душевая
   Dushevaya_30, Dushevaya_31, Dushevaya_32, Dushevaya_33
 ];
+
 
 
 import BtnLangBlack from "../Icons/btn lang-black.svg";

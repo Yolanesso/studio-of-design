@@ -5,6 +5,7 @@ import ContactPage from "./pages/ContactPage";
 import AboutPage from "./pages/AbousUsPage";
 import ProjectPage from "./pages/ProjectPage";
 import ProjectDetailPage from "./pages/ProjectDetailPage";
+import Bulvar109Page from "./pages/ProjectsPages/Bulvar109Page";
 
 export function App() {
   return (
@@ -15,6 +16,7 @@ export function App() {
         <Route path="/contact" element={<ContactPage />} />
         <Route path="/about" element={<AboutPage />} />
         <Route path="/projects" element={<ProjectPage />} />
+        <Route path="/projects/bulvar" element={<Bulvar109Page />} />
         <Route path="/projects/:projectId" element={<ProjectDetailPage />} />
       </Routes>
     </Router>
