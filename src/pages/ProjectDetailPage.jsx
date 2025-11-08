@@ -69,12 +69,12 @@ const kuhnyaImages = [Kuhnya_03, Kuhnya_04, Kuhnya_06, Kuhnya_07, Kuhnya_08, Kuh
 const gostinayaImages = [Gostinaya_16, Gostinaya_17, Gostinaya_18, Gostinaya_19, Gostinaya_20, Gostinaya_21, Gostinaya_22, Gostinaya_23];
 const vannayaImages = [Vannaya_24, Vannaya_25, Vannaya_26, Vannaya_27, Vannaya_28, Vannaya_29];
 const masterImages = [
+  // Спальня
+  Spalnya_37, Spalnya_38, Spalnya_39, Spalnya_40, Spalnya_41, Spalnya_42, Spalnya_43,
   // Гардеробная
   Garderobnaya_34, Garderobnaya_35, Garderobnaya_36,
   // Душевая
-  Dushevaya_30, Dushevaya_31, Dushevaya_32, Dushevaya_33,
-  // Спальня
-  Spalnya_37, Spalnya_38, Spalnya_39, Spalnya_40, Spalnya_41, Spalnya_42, Spalnya_43
+  Dushevaya_30, Dushevaya_31, Dushevaya_32, Dushevaya_33
 ];
 
 
@@ -794,79 +794,10 @@ export default function ProjectDetailPage() {
                 </div>
 
                 {/* Фотографии мастер-блока */}
-                {/* Крупное полноширинное изображение - Гардеробная */}
-                <div className="w-full">
-                  <img
-                    src={masterImages[0]}
-                    alt="Balance73 - Мастер-блок (Гардеробная)"
-                    className="w-full h-auto object-cover"
-                    loading="lazy"
-                    decoding="async"
-                  />
-                </div>
-
-                {/* Просто 2 фотографии - Гардеробная */}
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6 md:gap-8">
-                  <img
-                    src={masterImages[1]}
-                    alt="Balance73 - Мастер-блок (Гардеробная)"
-                    className="w-full h-auto object-contain"
-                    loading="lazy"
-                    decoding="async"
-                  />
-                  <img
-                    src={masterImages[2]}
-                    alt="Balance73 - Мастер-блок (Гардеробная)"
-                    className="w-full h-auto object-contain"
-                    loading="lazy"
-                    decoding="async"
-                  />
-                </div>
-
-                {/* Крупное полноширинное изображение - Душевая */}
-                <div className="w-full">
-                  <img
-                    src={masterImages[3]}
-                    alt="Balance73 - Мастер-блок (Душевая)"
-                    className="w-full h-auto object-cover"
-                    loading="lazy"
-                    decoding="async"
-                  />
-                </div>
-
-                {/* Пирамидка 5: 3 уровня (1-2-3) - Душевая */}
-                <div className="flex flex-col items-center space-y-8">
-                  <div className="w-full">
-                    <img
-                      src={masterImages[4]}
-                      alt="Balance73 - Мастер-блок (Душевая)"
-                      className="w-full h-auto object-cover"
-                      loading="lazy"
-                      decoding="async"
-                    />
-                  </div>
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6 md:gap-8 w-full">
-                    <img
-                      src={masterImages[5]}
-                      alt="Balance73 - Мастер-блок (Душевая)"
-                      className="w-full h-auto object-contain"
-                      loading="lazy"
-                      decoding="async"
-                    />
-                    <img
-                      src={masterImages[6]}
-                      alt="Balance73 - Мастер-блок (Душевая)"
-                      className="w-full h-auto object-contain"
-                      loading="lazy"
-                      decoding="async"
-                    />
-                  </div>
-                </div>
-
                 {/* Крупное полноширинное изображение - Спальня */}
                 <div className="w-full">
                   <img
-                    src={masterImages[7]}
+                    src={masterImages[0]}
                     alt="Balance73 - Мастер-блок (Спальня)"
                     className="w-full h-auto object-cover"
                     loading="lazy"
@@ -877,14 +808,14 @@ export default function ProjectDetailPage() {
                 {/* Просто 2 фотографии - Спальня */}
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6 md:gap-8">
                   <img
-                    src={masterImages[8]}
+                    src={masterImages[1]}
                     alt="Balance73 - Мастер-блок (Спальня)"
                     className="w-full h-auto object-contain"
                     loading="lazy"
                     decoding="async"
                   />
                   <img
-                    src={masterImages[9]}
+                    src={masterImages[2]}
                     alt="Balance73 - Мастер-блок (Спальня)"
                     className="w-full h-auto object-contain"
                     loading="lazy"
@@ -896,7 +827,7 @@ export default function ProjectDetailPage() {
                 <div className="flex flex-col items-center space-y-8">
                   <div className="w-full">
                     <img
-                      src={masterImages[10]}
+                      src={masterImages[3]}
                       alt="Balance73 - Мастер-блок (Спальня)"
                       className="w-full h-auto object-cover"
                       loading="lazy"
@@ -905,14 +836,14 @@ export default function ProjectDetailPage() {
                   </div>
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6 md:gap-8 w-full">
                     <img
-                      src={masterImages[11]}
+                      src={masterImages[4]}
                       alt="Balance73 - Мастер-блок (Спальня)"
                       className="w-full h-auto object-contain"
                       loading="lazy"
                       decoding="async"
                     />
                     <img
-                      src={masterImages[12]}
+                      src={masterImages[5]}
                       alt="Balance73 - Мастер-блок (Спальня)"
                       className="w-full h-auto object-contain"
                       loading="lazy"
@@ -921,9 +852,78 @@ export default function ProjectDetailPage() {
                   </div>
                   <div className="w-full">
                     <img
-                      src={masterImages[13]}
+                      src={masterImages[6]}
                       alt="Balance73 - Мастер-блок (Спальня)"
                       className="w-full h-auto object-cover"
+                      loading="lazy"
+                      decoding="async"
+                    />
+                  </div>
+                </div>
+
+                {/* Крупное полноширинное изображение - Гардеробная */}
+                <div className="w-full">
+                  <img
+                    src={masterImages[7]}
+                    alt="Balance73 - Мастер-блок (Гардеробная)"
+                    className="w-full h-auto object-cover"
+                    loading="lazy"
+                    decoding="async"
+                  />
+                </div>
+
+                {/* Просто 2 фотографии - Гардеробная */}
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6 md:gap-8">
+                  <img
+                    src={masterImages[8]}
+                    alt="Balance73 - Мастер-блок (Гардеробная)"
+                    className="w-full h-auto object-contain"
+                    loading="lazy"
+                    decoding="async"
+                  />
+                  <img
+                    src={masterImages[9]}
+                    alt="Balance73 - Мастер-блок (Гардеробная)"
+                    className="w-full h-auto object-contain"
+                    loading="lazy"
+                    decoding="async"
+                  />
+                </div>
+
+                {/* Крупное полноширинное изображение - Душевая */}
+                <div className="w-full">
+                  <img
+                    src={masterImages[10]}
+                    alt="Balance73 - Мастер-блок (Душевая)"
+                    className="w-full h-auto object-cover"
+                    loading="lazy"
+                    decoding="async"
+                  />
+                </div>
+
+                {/* Пирамидка 5: 3 уровня (1-2-3) - Душевая */}
+                <div className="flex flex-col items-center space-y-8">
+                  <div className="w-full">
+                    <img
+                      src={masterImages[11]}
+                      alt="Balance73 - Мастер-блок (Душевая)"
+                      className="w-full h-auto object-cover"
+                      loading="lazy"
+                      decoding="async"
+                    />
+                  </div>
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6 md:gap-8 w-full">
+                    <img
+                      src={masterImages[12]}
+                      alt="Balance73 - Мастер-блок (Душевая)"
+                      className="w-full h-auto object-contain"
+                      loading="lazy"
+                      decoding="async"
+                    />
+                    <img
+                      src={masterImages[13]}
+                      alt="Balance73 - Мастер-блок (Душевая)"
+                      className="w-full h-auto object-contain"
                       loading="lazy"
                       decoding="async"
                     />
