@@ -6,63 +6,77 @@ import BalanceImg from "../Images/Projects/Balance/balance-project.png";
 import BeringImg from "../Images/Projects/Bering/bering-project.png";
 import Balance73 from "../Images/Projects/Balance73.png";
 
-import Balance73_01 from "../Projects/BALANCE 73/01. День/010000.png";
-import Balance73_02 from "../Projects/BALANCE 73/01. День/020000.png";
-import Balance73_03 from "../Projects/BALANCE 73/01. День/030000.png";
-import Balance73_04 from "../Projects/BALANCE 73/01. День/040000.png";
-import Balance73_05 from "../Projects/BALANCE 73/01. День/050000.png";
-import Balance73_06 from "../Projects/BALANCE 73/01. День/060000.png";
-import Balance73_07 from "../Projects/BALANCE 73/01. День/070000.png";
-import Balance73_08 from "../Projects/BALANCE 73/01. День/080000.png";
-import Balance73_09 from "../Projects/BALANCE 73/01. День/090000.png";
-import Balance73_10 from "../Projects/BALANCE 73/01. День/100000.png";
-import Balance73_11 from "../Projects/BALANCE 73/01. День/110000.png";
-import Balance73_12 from "../Projects/BALANCE 73/01. День/120000.png";
-import Balance73_13 from "../Projects/BALANCE 73/01. День/130000.png";
-import Balance73_14 from "../Projects/BALANCE 73/01. День/140000.png";
-import Balance73_15 from "../Projects/BALANCE 73/01. День/150000.png";
-import Balance73_16 from "../Projects/BALANCE 73/01. День/160000.png";
-import Balance73_17 from "../Projects/BALANCE 73/01. День/170000.png";
-import Balance73_18 from "../Projects/BALANCE 73/01. День/180000.png";
-import Balance73_19 from "../Projects/BALANCE 73/01. День/190000.png";
-import Balance73_20 from "../Projects/BALANCE 73/01. День/200000.png";
-import Balance73_21 from "../Projects/BALANCE 73/01. День/210000.png";
-import Balance73_22 from "../Projects/BALANCE 73/01. День/220000.png";
-import Balance73_23 from "../Projects/BALANCE 73/01. День/230000.png";
-import Balance73_24 from "../Projects/BALANCE 73/01. День/240000.png";
-import Balance73_25 from "../Projects/BALANCE 73/01. День/250000.png";
-import Balance73_26 from "../Projects/BALANCE 73/01. День/260000.png";
-import Balance73_27 from "../Projects/BALANCE 73/01. День/270000.png";
-import Balance73_28 from "../Projects/BALANCE 73/01. День/280000.png";
-import Balance73_29 from "../Projects/BALANCE 73/01. День/290000.png";
-import Balance73_30 from "../Projects/BALANCE 73/01. День/300000.png";
-import Balance73_31 from "../Projects/BALANCE 73/01. День/310000.png";
-import Balance73_32 from "../Projects/BALANCE 73/01. День/320000.png";
-import Balance73_33 from "../Projects/BALANCE 73/01. День/330000.png";
-import Balance73_34 from "../Projects/BALANCE 73/01. День/340000.png";
-import Balance73_35 from "../Projects/BALANCE 73/01. День/350000.png";
-import Balance73_36 from "../Projects/BALANCE 73/01. День/360000.png";
-import Balance73_37 from "../Projects/BALANCE 73/01. День/370000.png";
-import Balance73_38 from "../Projects/BALANCE 73/01. День/380000.png";
-import Balance73_39 from "../Projects/BALANCE 73/01. День/390000.png";
-import Balance73_40 from "../Projects/BALANCE 73/01. День/400000.png";
-import Balance73_41 from "../Projects/BALANCE 73/01. День/410000.png";
-import Balance73_42 from "../Projects/BALANCE 73/01. День/420000.png";
-import Balance73_43 from "../Projects/BALANCE 73/01. День/430000.png";
-import Balance73_44 from "../Projects/BALANCE 73/01. День/440000.png";
-import Balance73_45 from "../Projects/BALANCE 73/01. День/450000.png";
+// Прихожая
+import Prihozhaya_01 from "../Projects/BALANCE 73/01. День/01. Прихожая/010000.png";
+import Prihozhaya_02 from "../Projects/BALANCE 73/01. День/01. Прихожая/020000.png";
+import Prihozhaya_05 from "../Projects/BALANCE 73/01. День/01. Прихожая/050000.png";
 
-const balance73Images = [
-  Balance73_01, Balance73_02, Balance73_03, Balance73_04, Balance73_05,
-  Balance73_06, Balance73_07, Balance73_08, Balance73_09, Balance73_10,
-  Balance73_11, Balance73_12, Balance73_13, Balance73_14, Balance73_15,
-  Balance73_16, Balance73_17, Balance73_18, Balance73_19, Balance73_20,
-  Balance73_21, Balance73_22, Balance73_23, Balance73_24, Balance73_25,
-  Balance73_26, Balance73_27, Balance73_28, Balance73_29, Balance73_30,
-  Balance73_31, Balance73_32, Balance73_33, Balance73_34, Balance73_35,
-  Balance73_36, Balance73_37, Balance73_38, Balance73_39, Balance73_40,
-  Balance73_41, Balance73_42, Balance73_43, Balance73_44, Balance73_45
+// Кухонная зона
+import Kuhnya_03 from "../Projects/BALANCE 73/01. День/02. Кухонная зона/030000.png";
+import Kuhnya_04 from "../Projects/BALANCE 73/01. День/02. Кухонная зона/040000.png";
+import Kuhnya_06 from "../Projects/BALANCE 73/01. День/02. Кухонная зона/060000.png";
+import Kuhnya_07 from "../Projects/BALANCE 73/01. День/02. Кухонная зона/070000.png";
+import Kuhnya_08 from "../Projects/BALANCE 73/01. День/02. Кухонная зона/080000.png";
+import Kuhnya_09 from "../Projects/BALANCE 73/01. День/02. Кухонная зона/090000.png";
+import Kuhnya_10 from "../Projects/BALANCE 73/01. День/02. Кухонная зона/100000.png";
+import Kuhnya_11 from "../Projects/BALANCE 73/01. День/02. Кухонная зона/110000.png";
+import Kuhnya_12 from "../Projects/BALANCE 73/01. День/02. Кухонная зона/120000.png";
+import Kuhnya_13 from "../Projects/BALANCE 73/01. День/02. Кухонная зона/130000.png";
+import Kuhnya_14 from "../Projects/BALANCE 73/01. День/02. Кухонная зона/140000.png";
+import Kuhnya_15 from "../Projects/BALANCE 73/01. День/02. Кухонная зона/150000.png";
+
+// Гостиная зона
+import Gostinaya_16 from "../Projects/BALANCE 73/01. День/03. Гостиная зона/160000.png";
+import Gostinaya_17 from "../Projects/BALANCE 73/01. День/03. Гостиная зона/170000.png";
+import Gostinaya_18 from "../Projects/BALANCE 73/01. День/03. Гостиная зона/180000.png";
+import Gostinaya_19 from "../Projects/BALANCE 73/01. День/03. Гостиная зона/190000.png";
+import Gostinaya_20 from "../Projects/BALANCE 73/01. День/03. Гостиная зона/200000.png";
+import Gostinaya_21 from "../Projects/BALANCE 73/01. День/03. Гостиная зона/210000.png";
+import Gostinaya_22 from "../Projects/BALANCE 73/01. День/03. Гостиная зона/220000.png";
+import Gostinaya_23 from "../Projects/BALANCE 73/01. День/03. Гостиная зона/230000.png";
+
+// Ванная комната
+import Vannaya_24 from "../Projects/BALANCE 73/01. День/04. Ванная комната/240000.png";
+import Vannaya_25 from "../Projects/BALANCE 73/01. День/04. Ванная комната/250000.png";
+import Vannaya_26 from "../Projects/BALANCE 73/01. День/04. Ванная комната/260000.png";
+import Vannaya_27 from "../Projects/BALANCE 73/01. День/04. Ванная комната/270000.png";
+import Vannaya_28 from "../Projects/BALANCE 73/01. День/04. Ванная комната/280000.png";
+import Vannaya_29 from "../Projects/BALANCE 73/01. День/04. Ванная комната/290000.png";
+
+// Мастер-блок - Спальня
+import Spalnya_37 from "../Projects/BALANCE 73/01. День/05. Спальня/370000.png";
+import Spalnya_38 from "../Projects/BALANCE 73/01. День/05. Спальня/380000.png";
+import Spalnya_39 from "../Projects/BALANCE 73/01. День/05. Спальня/390000.png";
+import Spalnya_40 from "../Projects/BALANCE 73/01. День/05. Спальня/400000.png";
+import Spalnya_41 from "../Projects/BALANCE 73/01. День/05. Спальня/410000.png";
+import Spalnya_42 from "../Projects/BALANCE 73/01. День/05. Спальня/420000.png";
+import Spalnya_43 from "../Projects/BALANCE 73/01. День/05. Спальня/430000.png";
+
+// Мастер-блок - Гардеробная
+import Garderobnaya_34 from "../Projects/BALANCE 73/01. День/06. Гардеробная/340000.png";
+import Garderobnaya_35 from "../Projects/BALANCE 73/01. День/06. Гардеробная/350000.png";
+import Garderobnaya_36 from "../Projects/BALANCE 73/01. День/06. Гардеробная/360000.png";
+
+// Мастер-блок - Душевая
+import Dushevaya_30 from "../Projects/BALANCE 73/01. День/07. Душевая/300000.png";
+import Dushevaya_31 from "../Projects/BALANCE 73/01. День/07. Душевая/310000.png";
+import Dushevaya_32 from "../Projects/BALANCE 73/01. День/07. Душевая/320000.png";
+import Dushevaya_33 from "../Projects/BALANCE 73/01. День/07. Душевая/330000.png";
+
+// Массивы изображений по блокам
+const prihozhayaImages = [Prihozhaya_01, Prihozhaya_02, Prihozhaya_05];
+const kuhnyaImages = [Kuhnya_03, Kuhnya_04, Kuhnya_06, Kuhnya_07, Kuhnya_08, Kuhnya_09, Kuhnya_10, Kuhnya_11, Kuhnya_12, Kuhnya_13, Kuhnya_14, Kuhnya_15];
+const gostinayaImages = [Gostinaya_16, Gostinaya_17, Gostinaya_18, Gostinaya_19, Gostinaya_20, Gostinaya_21, Gostinaya_22, Gostinaya_23];
+const vannayaImages = [Vannaya_24, Vannaya_25, Vannaya_26, Vannaya_27, Vannaya_28, Vannaya_29];
+const masterImages = [
+  // Гардеробная
+  Garderobnaya_34, Garderobnaya_35, Garderobnaya_36,
+  // Душевая
+  Dushevaya_30, Dushevaya_31, Dushevaya_32, Dushevaya_33,
+  // Спальня
+  Spalnya_37, Spalnya_38, Spalnya_39, Spalnya_40, Spalnya_41, Spalnya_42, Spalnya_43
 ];
+
 
 import BtnLangBlack from "../Icons/btn lang-black.svg";
 import BtnLangWhite from "../Icons/btn-lang.svg";
@@ -447,35 +461,6 @@ export default function ProjectDetailPage() {
           <div className="container mx-auto px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16 2xl:px-[140px] py-8 sm:py-12 md:py-16 lg:py-20 2xl:py-28">
             <div className="flex flex-col items-center">
               <div className="w-full max-w-7xl space-y-8">
-                {/* Крупное полноширинное изображение */}
-                <div className="w-full">
-                  <img
-                    src={balance73Images[0]}
-                    alt="Balance73"
-                    className="w-full h-auto object-cover"
-                    loading="eager"
-                    decoding="async"
-                  />
-                </div>
-
-                {/* Просто 2 фотографии */}
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6 md:gap-8">
-                  <img
-                    src={balance73Images[1]}
-                    alt="Balance73"
-                    className="w-full h-auto object-contain"
-                    loading="eager"
-                    decoding="async"
-                  />
-                  <img
-                    src={balance73Images[2]}
-                    alt="Balance73"
-                    className="w-full h-auto object-contain"
-                    loading="lazy"
-                    decoding="async"
-                  />
-                </div>
-
                 {/* Текстовый блок - Прихожая */}
                 <div id="prihozhaya" className="text-left">
                   <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-inter font-semibold text-black mb-4 sm:mb-6">
@@ -486,135 +471,33 @@ export default function ProjectDetailPage() {
                   </p>
                 </div>
 
-                {/* Фотографии кухни - до 150000.png */}
-                {/* Крупное полноширинное изображение */}
+                {/* Крупное полноширинное изображение - Прихожая */}
                 <div className="w-full">
                   <img
-                    src={balance73Images[3]}
-                    alt="Balance73"
+                    src={prihozhayaImages[0]}
+                    alt="Balance73 - Прихожая"
                     className="w-full h-auto object-cover"
-                    loading="lazy"
+                    loading="eager"
                     decoding="async"
                   />
                 </div>
 
-                {/* Пирамидка 1: 3 уровня (1-2-3) */}
-                <div className="flex flex-col items-center space-y-8">
-                  <div className="w-full">
-                    <img
-                      src={balance73Images[4]}
-                      alt="Balance73"
-                      className="w-full h-auto object-cover"
-                      loading="lazy"
-                      decoding="async"
-                    />
-                  </div>
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6 md:gap-8 w-full">
-                    <img
-                      src={balance73Images[5]}
-                      alt="Balance73"
-                      className="w-full h-auto object-contain"
-                      loading="lazy"
-                      decoding="async"
-                    />
-                    <img
-                      src={balance73Images[6]}
-                      alt="Balance73"
-                      className="w-full h-auto object-contain"
-                      loading="lazy"
-                      decoding="async"
-                    />
-                  </div>
-                  <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 md:gap-8 w-full">
-                    <img
-                      src={balance73Images[7]}
-                      alt="Balance73"
-                      className="w-full h-auto object-contain"
-                      loading="lazy"
-                      decoding="async"
-                    />
-                    <img
-                      src={balance73Images[8]}
-                      alt="Balance73"
-                      className="w-full h-auto object-contain"
-                      loading="lazy"
-                      decoding="async"
-                    />
-                    <img
-                      src={balance73Images[9]}
-                      alt="Balance73"
-                      className="w-full h-auto object-contain"
-                      loading="lazy"
-                      decoding="async"
-                    />
-                  </div>
-                </div>
-
-                {/* Крупное полноширинное изображение */}
-                <div className="w-full">
-                  <img
-                    src={balance73Images[10]}
-                    alt="Balance73"
-                    className="w-full h-auto object-cover"
-                    loading="lazy"
-                    decoding="async"
-                  />
-                </div>
-
-                {/* Просто 2 фотографии */}
+                {/* Просто 2 фотографии - Прихожая */}
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6 md:gap-8">
                   <img
-                    src={balance73Images[11]}
-                    alt="Balance73"
+                    src={prihozhayaImages[1]}
+                    alt="Balance73 - Прихожая"  
                     className="w-full h-auto object-contain"
+                    loading="eager"
+                    decoding="async"
                   />
                   <img
-                    src={balance73Images[12]}
-                    alt="Balance73"
+                    src={prihozhayaImages[2]}
+                    alt="Balance73 - Прихожая"
                     className="w-full h-auto object-contain"
                     loading="lazy"
                     decoding="async"
                   />
-                </div>
-
-                {/* Пирамидка 2: 3 уровня (1-2-3) */}
-                <div className="flex flex-col items-center space-y-8">
-                  <div className="w-full">
-                    <img
-                      src={balance73Images[13]}
-                      alt="Balance73"
-                      className="w-full h-auto object-cover"
-                    />
-                  </div>
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6 md:gap-8 w-full">
-                    <img
-                      src={balance73Images[14]}
-                      alt="Balance73"
-                      className="w-full h-auto object-contain"
-                    />
-                    <img
-                      src={balance73Images[15]}
-                      alt="Balance73"
-                      className="w-full h-auto object-contain"
-                    />
-                  </div>
-                  <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 md:gap-8 w-full">
-                    <img
-                      src={balance73Images[16]}
-                      alt="Balance73"
-                      className="w-full h-auto object-contain"
-                    />
-                    <img
-                      src={balance73Images[17]}
-                      alt="Balance73"
-                      className="w-full h-auto object-contain"
-                    />
-                    <img
-                      src={balance73Images[18]}
-                      alt="Balance73"
-                      className="w-full h-auto object-contain"
-                    />
-                  </div>
                 </div>
 
                 {/* Текстовый блок - Кухонная зона */}
@@ -627,12 +510,75 @@ export default function ProjectDetailPage() {
                   </p>
                 </div>
 
-                {/* Фотографии гостиной - после кухни */}
+                {/* Фотографии кухни */}
                 {/* Крупное полноширинное изображение */}
                 <div className="w-full">
                   <img
-                    src={balance73Images[19]}
-                    alt="Balance73"
+                    src={kuhnyaImages[0]}
+                    alt="Balance73 - Кухонная зона"
+                    className="w-full h-auto object-cover"
+                    loading="lazy"
+                    decoding="async"
+                  />
+                </div>
+
+                {/* Пирамидка 1: 3 уровня (1-2-3) */}
+                <div className="flex flex-col items-center space-y-8">
+                  <div className="w-full">
+                    <img
+                      src={kuhnyaImages[1]}
+                      alt="Balance73 - Кухонная зона"
+                      className="w-full h-auto object-cover"
+                      loading="lazy"
+                      decoding="async"
+                    />
+                  </div>
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6 md:gap-8 w-full">
+                    <img
+                      src={kuhnyaImages[2]}
+                      alt="Balance73 - Кухонная зона"
+                      className="w-full h-auto object-contain"
+                      loading="lazy"
+                      decoding="async"
+                    />
+                    <img
+                      src={kuhnyaImages[3]}
+                      alt="Balance73 - Кухонная зона"
+                      className="w-full h-auto object-contain"
+                      loading="lazy"
+                      decoding="async"
+                    />
+                  </div>
+                  <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 md:gap-8 w-full">
+                    <img
+                      src={kuhnyaImages[4]}
+                      alt="Balance73 - Кухонная зона"
+                      className="w-full h-auto object-contain"
+                      loading="lazy"
+                      decoding="async"
+                    />
+                    <img
+                      src={kuhnyaImages[5]}
+                      alt="Balance73 - Кухонная зона"
+                      className="w-full h-auto object-contain"
+                      loading="lazy"
+                      decoding="async"
+                    />
+                    <img
+                      src={kuhnyaImages[6]}
+                      alt="Balance73 - Кухонная зона"
+                      className="w-full h-auto object-contain"
+                      loading="lazy"
+                      decoding="async"
+                    />
+                  </div>
+                </div>
+
+                {/* Крупное полноширинное изображение */}
+                <div className="w-full">
+                  <img
+                    src={kuhnyaImages[7]}
+                    alt="Balance73 - Кухонная зона"
                     className="w-full h-auto object-cover"
                     loading="lazy"
                     decoding="async"
@@ -642,26 +588,41 @@ export default function ProjectDetailPage() {
                 {/* Просто 2 фотографии */}
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6 md:gap-8">
                   <img
-                    src={balance73Images[20]}
-                    alt="Balance73"
+                    src={kuhnyaImages[8]}
+                    alt="Balance73 - Кухонная зона"
                     className="w-full h-auto object-contain"
-                  />
-                  <img
-                    src={balance73Images[21]}
-                    alt="Balance73"
-                    className="w-full h-auto object-contain"
-                  />
-                </div>
-
-                {/* Пирамидка 3: 3 уровня (1-2-3) - последние фотографии гостиной */}
-                <div className="w-full">
-                  <img
-                    src={balance73Images[22]}
-                    alt="Balance73"
-                    className="w-full h-auto object-cover"
                     loading="lazy"
                     decoding="async"
                   />
+                  <img
+                    src={kuhnyaImages[9]}
+                    alt="Balance73 - Кухонная зона"
+                    className="w-full h-auto object-contain"
+                    loading="lazy"
+                    decoding="async"
+                  />
+                </div>
+
+                {/* Пирамидка 2: 3 уровня (1-2-3) */}
+                <div className="flex flex-col items-center space-y-8">
+                  <div className="w-full">
+                    <img
+                      src={kuhnyaImages[10]}
+                      alt="Balance73 - Кухонная зона"
+                      className="w-full h-auto object-cover"
+                      loading="lazy"
+                      decoding="async"
+                    />
+                  </div>
+                  <div className="w-full">
+                    <img
+                      src={kuhnyaImages[11]}
+                      alt="Balance73 - Кухонная зона"
+                      className="w-full h-auto object-cover"
+                      loading="lazy"
+                      decoding="async"
+                    />
+                  </div>
                 </div>
 
                 {/* Текстовый блок - Гостиная зона */}
@@ -674,66 +635,12 @@ export default function ProjectDetailPage() {
                   </p>
                 </div>
 
-                {/* Фотографии ванной комнаты - начиная с 240000.png (balance73Images[23]) */}
-                {/* Просто 2 фотографии */}
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6 md:gap-8">
-                  <img
-                    src={balance73Images[23]}
-                    alt="Balance73"
-                    className="w-full h-auto object-contain"
-                  />
-                  <img
-                    src={balance73Images[24]}
-                    alt="Balance73"
-                    className="w-full h-auto object-contain"
-                  />
-                </div>
-
-                {/* Пирамидка 4: 3 уровня (1-2-3) */}
-                <div className="flex flex-col items-center space-y-8">
-                  <div className="w-full">
-                    <img
-                      src={balance73Images[25]}
-                      alt="Balance73"
-                      className="w-full h-auto object-cover"
-                    />
-                  </div>
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6 md:gap-8 w-full">
-                    <img
-                      src={balance73Images[26]}
-                      alt="Balance73"
-                      className="w-full h-auto object-contain"
-                    />
-                    <img
-                      src={balance73Images[27]}
-                      alt="Balance73"
-                      className="w-full h-auto object-contain"
-                    />
-                  </div>
-                  <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 md:gap-8 w-full">
-                    <img
-                      src={balance73Images[28]}
-                      alt="Balance73"
-                      className="w-full h-auto object-contain"
-                    />
-                    <img
-                      src={balance73Images[29]}
-                      alt="Balance73"
-                      className="w-full h-auto object-contain"
-                    />
-                    <img
-                      src={balance73Images[30]}
-                      alt="Balance73"
-                      className="w-full h-auto object-contain"
-                    />
-                  </div>
-                </div>
-
+                {/* Фотографии гостиной */}
                 {/* Крупное полноширинное изображение */}
                 <div className="w-full">
                   <img
-                    src={balance73Images[31]}
-                    alt="Balance73"
+                    src={gostinayaImages[0]}
+                    alt="Balance73 - Гостиная зона"
                     className="w-full h-auto object-cover"
                     loading="lazy"
                     decoding="async"
@@ -743,17 +650,70 @@ export default function ProjectDetailPage() {
                 {/* Просто 2 фотографии */}
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6 md:gap-8">
                   <img
-                    src={balance73Images[32]}
-                    alt="Balance73"
-                    className="w-full h-auto object-contain"
-                  />
-                  <img
-                    src={balance73Images[33]}
-                    alt="Balance73"
+                    src={gostinayaImages[1]}
+                    alt="Balance73 - Гостиная зона"
                     className="w-full h-auto object-contain"
                     loading="lazy"
                     decoding="async"
                   />
+                  <img
+                    src={gostinayaImages[2]}
+                    alt="Balance73 - Гостиная зона"
+                    className="w-full h-auto object-contain"
+                    loading="lazy"
+                    decoding="async"
+                  />
+                </div>
+
+                {/* Пирамидка 3: 3 уровня (1-2-3) - последние фотографии гостиной */}
+                <div className="w-full">
+                  <img
+                    src={gostinayaImages[3]}
+                    alt="Balance73 - Гостиная зона"
+                    className="w-full h-auto object-cover"
+                    loading="lazy"
+                    decoding="async"
+                  />
+                </div>
+
+                {/* Просто 2 фотографии */}
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6 md:gap-8">
+                  <img
+                    src={gostinayaImages[4]}
+                    alt="Balance73 - Гостиная зона"
+                    className="w-full h-auto object-contain"
+                    loading="lazy"
+                    decoding="async"
+                  />
+                  <img
+                    src={gostinayaImages[5]}
+                    alt="Balance73 - Гостиная зона"
+                    className="w-full h-auto object-contain"
+                    loading="lazy"
+                    decoding="async"
+                  />
+                </div>
+
+                {/* Пирамидка 3: 3 уровня (1-2-3) */}
+                <div className="flex flex-col items-center space-y-8">
+                  <div className="w-full">
+                    <img
+                      src={gostinayaImages[6]}
+                      alt="Balance73 - Гостиная зона"
+                      className="w-full h-auto object-cover"
+                      loading="lazy"
+                      decoding="async"
+                    />
+                  </div>
+                  <div className="w-full">
+                    <img
+                      src={gostinayaImages[7]}
+                      alt="Balance73 - Гостиная зона"
+                      className="w-full h-auto object-cover"
+                      loading="lazy"
+                      decoding="async"
+                    />
+                  </div>
                 </div>
 
                 {/* Текстовый блок - Ванная комната */}
@@ -766,78 +726,61 @@ export default function ProjectDetailPage() {
                   </p>
                 </div>
 
-                {/* Пирамидка 5: 3 уровня (1-2-3) */}
+                {/* Фотографии ванной комнаты */}
+                {/* Просто 2 фотографии */}
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6 md:gap-8">
+                  <img
+                    src={vannayaImages[0]}
+                    alt="Balance73 - Ванная комната"
+                    className="w-full h-auto object-contain"
+                    loading="lazy"
+                    decoding="async"
+                  />
+                  <img
+                    src={vannayaImages[1]}
+                    alt="Balance73 - Ванная комната"
+                    className="w-full h-auto object-contain"
+                    loading="lazy"
+                    decoding="async"
+                  />
+                </div>
+
+                {/* Пирамидка 4: 3 уровня (1-2-3) */}
                 <div className="flex flex-col items-center space-y-8">
                   <div className="w-full">
                     <img
-                      src={balance73Images[34]}
-                      alt="Balance73"
+                      src={vannayaImages[2]}
+                      alt="Balance73 - Ванная комната"
                       className="w-full h-auto object-cover"
+                      loading="lazy"
+                      decoding="async"
                     />
                   </div>
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6 md:gap-8 w-full">
                     <img
-                      src={balance73Images[35]}
-                      alt="Balance73"
-                      className="w-full h-auto object-contain"
-                    />
-                    <img
-                      src={balance73Images[36]}
-                      alt="Balance73"
-                      className="w-full h-auto object-contain"
-                    />
-                  </div>
-                  <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 md:gap-8 w-full">
-                    <img
-                      src={balance73Images[37]}
-                      alt="Balance73"
+                      src={vannayaImages[3]}
+                      alt="Balance73 - Ванная комната"
                       className="w-full h-auto object-contain"
                       loading="lazy"
                       decoding="async"
                     />
                     <img
-                      src={balance73Images[38]}
-                      alt="Balance73"
-                      className="w-full h-auto object-contain"
-                      loading="lazy"
-                      decoding="async"
-                    />
-                    <img
-                      src={balance73Images[39]}
-                      alt="Balance73"
+                      src={vannayaImages[4]}
+                      alt="Balance73 - Ванная комната"
                       className="w-full h-auto object-contain"
                       loading="lazy"
                       decoding="async"
                     />
                   </div>
-                </div>
-
-                {/* Фотографии мастер-блока */}
-                {/* Крупное полноширинное изображение */}
-                <div className="w-full">
-                  <img
-                    src={balance73Images[40]}
-                    alt="Balance73"
-                    className="w-full h-auto object-cover"
-                    loading="lazy"
-                    decoding="async"
-                  />
-                </div>
-
-                {/* Просто 2 фотографии */}
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6 md:gap-8">
-                  <img
-                    src={balance73Images[41]}
-                    alt="Balance73"
-                    className="w-full h-auto object-contain"
-                  />
-                  <img
-                    src={balance73Images[42]}
-                    alt="Balance73"
-                    className="w-full h-auto object-contain"
-                    loading="lazy"
-                    decoding="async"
-                  />
+                  <div className="w-full">
+                    <img
+                      src={vannayaImages[5]}
+                      alt="Balance73 - Ванная комната"
+                      className="w-full h-auto object-cover"
+                      loading="lazy"
+                      decoding="async"
+                    />
+                  </div>
                 </div>
 
                 {/* Текстовый блок - Мастер-блок */}
@@ -848,6 +791,143 @@ export default function ProjectDetailPage() {
                   <p className="text-base sm:text-lg md:text-xl font-inter text-black leading-relaxed">
                     состоит из 3-х помещений – гардеробной комнаты, спальни и душевой. Применением такого приема при проектировании пространства позволяет нам отделить приватную зону об общественной для большего комфорта проживающих.
                   </p>
+                </div>
+
+                {/* Фотографии мастер-блока */}
+                {/* Крупное полноширинное изображение - Гардеробная */}
+                <div className="w-full">
+                  <img
+                    src={masterImages[0]}
+                    alt="Balance73 - Мастер-блок (Гардеробная)"
+                    className="w-full h-auto object-cover"
+                    loading="lazy"
+                    decoding="async"
+                  />
+                </div>
+
+                {/* Просто 2 фотографии - Гардеробная */}
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6 md:gap-8">
+                  <img
+                    src={masterImages[1]}
+                    alt="Balance73 - Мастер-блок (Гардеробная)"
+                    className="w-full h-auto object-contain"
+                    loading="lazy"
+                    decoding="async"
+                  />
+                  <img
+                    src={masterImages[2]}
+                    alt="Balance73 - Мастер-блок (Гардеробная)"
+                    className="w-full h-auto object-contain"
+                    loading="lazy"
+                    decoding="async"
+                  />
+                </div>
+
+                {/* Крупное полноширинное изображение - Душевая */}
+                <div className="w-full">
+                  <img
+                    src={masterImages[3]}
+                    alt="Balance73 - Мастер-блок (Душевая)"
+                    className="w-full h-auto object-cover"
+                    loading="lazy"
+                    decoding="async"
+                  />
+                </div>
+
+                {/* Пирамидка 5: 3 уровня (1-2-3) - Душевая */}
+                <div className="flex flex-col items-center space-y-8">
+                  <div className="w-full">
+                    <img
+                      src={masterImages[4]}
+                      alt="Balance73 - Мастер-блок (Душевая)"
+                      className="w-full h-auto object-cover"
+                      loading="lazy"
+                      decoding="async"
+                    />
+                  </div>
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6 md:gap-8 w-full">
+                    <img
+                      src={masterImages[5]}
+                      alt="Balance73 - Мастер-блок (Душевая)"
+                      className="w-full h-auto object-contain"
+                      loading="lazy"
+                      decoding="async"
+                    />
+                    <img
+                      src={masterImages[6]}
+                      alt="Balance73 - Мастер-блок (Душевая)"
+                      className="w-full h-auto object-contain"
+                      loading="lazy"
+                      decoding="async"
+                    />
+                  </div>
+                </div>
+
+                {/* Крупное полноширинное изображение - Спальня */}
+                <div className="w-full">
+                  <img
+                    src={masterImages[7]}
+                    alt="Balance73 - Мастер-блок (Спальня)"
+                    className="w-full h-auto object-cover"
+                    loading="lazy"
+                    decoding="async"
+                  />
+                </div>
+
+                {/* Просто 2 фотографии - Спальня */}
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6 md:gap-8">
+                  <img
+                    src={masterImages[8]}
+                    alt="Balance73 - Мастер-блок (Спальня)"
+                    className="w-full h-auto object-contain"
+                    loading="lazy"
+                    decoding="async"
+                  />
+                  <img
+                    src={masterImages[9]}
+                    alt="Balance73 - Мастер-блок (Спальня)"
+                    className="w-full h-auto object-contain"
+                    loading="lazy"
+                    decoding="async"
+                  />
+                </div>
+
+                {/* Пирамидка 5: 3 уровня (1-2-3) - Спальня */}
+                <div className="flex flex-col items-center space-y-8">
+                  <div className="w-full">
+                    <img
+                      src={masterImages[10]}
+                      alt="Balance73 - Мастер-блок (Спальня)"
+                      className="w-full h-auto object-cover"
+                      loading="lazy"
+                      decoding="async"
+                    />
+                  </div>
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6 md:gap-8 w-full">
+                    <img
+                      src={masterImages[11]}
+                      alt="Balance73 - Мастер-блок (Спальня)"
+                      className="w-full h-auto object-contain"
+                      loading="lazy"
+                      decoding="async"
+                    />
+                    <img
+                      src={masterImages[12]}
+                      alt="Balance73 - Мастер-блок (Спальня)"
+                      className="w-full h-auto object-contain"
+                      loading="lazy"
+                      decoding="async"
+                    />
+                  </div>
+                  <div className="w-full">
+                    <img
+                      src={masterImages[13]}
+                      alt="Balance73 - Мастер-блок (Спальня)"
+                      className="w-full h-auto object-cover"
+                      loading="lazy"
+                      decoding="async"
+                    />
+                  </div>
                 </div>
               </div>
             </div>
