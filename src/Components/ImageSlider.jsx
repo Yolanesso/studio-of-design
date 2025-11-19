@@ -156,12 +156,6 @@ export default function ImageSlider({ lightImage, darkImage, alt, className = ""
         </div>
       </div>
       
-      <div className="absolute top-3 left-3 bg-black/60 text-white px-2.5 py-1 rounded text-xs font-medium pointer-events-none backdrop-blur-sm">
-        Светлый
-      </div>
-      <div className="absolute top-3 right-3 bg-black/60 text-white px-2.5 py-1 rounded text-xs font-medium pointer-events-none backdrop-blur-sm">
-        Темный
-      </div>
     </div>
   );
 }

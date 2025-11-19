@@ -405,7 +405,7 @@ export default function Bulvar109Page() {
                 BESTUZHEVSKIJ<br />BUL'VAR 109</h1>
             </div>
 
-            <div className="flex flex-col sm:flex-row gap-6 sm:gap-8 md:gap-12 lg:gap-16">
+            <div className="flex flex-col gap-6 md:gap-8 pt-8 lg:pt-0">
               <div>
                 <p className="text-white text-sm sm:text-base md:text-lg font-inter mb-2" style={{ color: 'rgba(255, 255, 255, 0.7)' }}>
                   Объект
@@ -420,7 +420,7 @@ export default function Bulvar109Page() {
                   Местоположение
                 </p>
                 <p className="text-white text-base sm:text-lg md:text-xl lg:text-2xl font-inter font-medium">
-                  {project.location}
+                  {project.location}, Россия
                 </p>
               </div>
 
@@ -479,8 +479,8 @@ export default function Bulvar109Page() {
                 />
               </div>
 
-              {/* Две фотографии - Прихожая */}
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4 md:gap-6 lg:gap-8 items-center">
+              {/* Изображение и слайдер - Прихожая */}
+              <div className="w-full">
                 <img
                   src={bulvarPrihozhayaImages[3]}
                   alt="Bestuzhevskij Bulvar 109 - Прихожая"
@@ -488,15 +488,15 @@ export default function Bulvar109Page() {
                   loading="lazy"
                   decoding="async"
                 />
-                {/* Слайдер для пары 050000 и 050001 */}
-                <div className="w-full">
-                  <ImageSlider
-                    lightImage={bulvarPrihozhayaImages[4]}
-                    darkImage={bulvarPrihozhayaImages[5]}
-                    alt="Bestuzhevskij Bulvar 109 - Прихожая"
-                    className="w-full h-auto"
-                  />
-                </div>
+              </div>
+              {/* Слайдер для пары 050000 и 050001 */}
+              <div className="w-full">
+                <ImageSlider
+                  lightImage={bulvarPrihozhayaImages[4]}
+                  darkImage={bulvarPrihozhayaImages[5]}
+                  alt="Bestuzhevskij Bulvar 109 - Прихожая"
+                  className="w-full h-auto"
+                />
               </div>
 
               {/* Последнее изображение - Прихожая */}
@@ -529,16 +529,19 @@ export default function Bulvar109Page() {
                 />
               </div>
 
-              {/* Две фотографии - слайдер 080000/080001 и обычное изображение */}
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4 md:gap-6 lg:gap-8 items-center">
+              {/* Слайдер 080000/080001 */}
+              <div className="w-full">
                 <ImageSlider
                   lightImage={bulvarKuhnyaImages[2]}
                   darkImage={bulvarKuhnyaImages[3]}
                   alt="Bestuzhevskij Bulvar 109 - Кухонная зона"
                   className="w-full h-auto"
                 />
+              </div>
+              {/* Обычное изображение */}
+              <div className="w-full">
                 <img
-                  src={bulvarKuhnyaImages[4]}
+                  src={bulvarKuhnyaImages[15]}
                   alt="Bestuzhevskij Bulvar 109 - Кухонная зона"
                   className="w-full h-auto object-contain"
                   loading="lazy"
@@ -627,7 +630,7 @@ export default function Bulvar109Page() {
               {/* Полноширинное изображение */}
               <div className="w-full">
                 <img
-                  src={bulvarKuhnyaImages[15]}
+                  src={bulvarKuhnyaImages[4]}
                   alt="Bestuzhevskij Bulvar 109 - Кухонная зона"
                   className="w-full h-auto object-cover"
                   loading="lazy"
@@ -760,14 +763,16 @@ export default function Bulvar109Page() {
                 />
               </div>
 
-              {/* Две фотографии - слайдеры */}
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4 md:gap-6 lg:gap-8 items-center">
+              {/* Слайды отображаются последовательно */}
+              <div className="w-full">
                 <ImageSlider
                   lightImage={bulvarGostinayaImages[8]}
                   darkImage={bulvarGostinayaImages[9]}
                   alt="Bestuzhevskij Bulvar 109 - Гостиная"
                   className="w-full h-auto"
                 />
+              </div>
+              <div className="w-full">
                 <ImageSlider
                   lightImage={bulvarGostinayaImages[10]}
                   darkImage={bulvarGostinayaImages[11]}
@@ -836,19 +841,38 @@ export default function Bulvar109Page() {
                 />
               </div>
 
-              {/* Две фотографии - слайдер 370000/370001 и слайдер 380000/380001 */}
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6 md:gap-8">
-                <ImageSlider
-                  lightImage={bulvarSpalnyaImages[2]}
-                  darkImage={bulvarSpalnyaImages[3]}
+              {/* Эти изображения показываем в одной строке */}
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4 md:gap-6 lg:gap-8 items-center">
+                <img
+                  src={bulvarSpalnyaImages[2]}
                   alt="Bestuzhevskij Bulvar 109 - Спальня"
-                  className="w-full h-auto"
+                  className="w-full h-auto object-contain"
+                  loading="lazy"
+                  decoding="async"
                 />
-                <ImageSlider
-                  lightImage={bulvarSpalnyaImages[4]}
-                  darkImage={bulvarSpalnyaImages[5]}
+                <img
+                  src={bulvarSpalnyaImages[3]}
+                  alt="Bestузhevskij Bulvar 109 - Спальня"
+                  className="w-full h-auto object-contain"
+                  loading="lazy"
+                  decoding="async"
+                />
+              </div>
+              {/* Следующие изображения показываем в одной строке */}
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4 md:gap-6 lg:gap-8 items-center">
+                <img
+                  src={bulvarSpalnyaImages[4]}
                   alt="Bestuzhevskij Bulvar 109 - Спальня"
-                  className="w-full h-auto"
+                  className="w-full h-auto object-contain"
+                  loading="lazy"
+                  decoding="async"
+                />
+                <img
+                  src={bulvarSpalnyaImages[5]}
+                  alt="Bestuzhevskij Bulvar 109 - Спальня"
+                  className="w-full h-auto object-contain"
+                  loading="lazy"
+                  decoding="async"
                 />
               </div>
 
@@ -922,14 +946,16 @@ export default function Bulvar109Page() {
               </div>
 
               {/* Фотографии ванной */}
-              {/* Две фотографии - слайдеры */}
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4 md:gap-6 lg:gap-8 items-center">
+              {/* Слайдеры отображаются по одному */}
+              <div className="w-full">
                 <ImageSlider
                   lightImage={bulvarVannayaImages[0]}
                   darkImage={bulvarVannayaImages[1]}
                   alt="Bestuzhevskij Bulvar 109 - Ванная"
                   className="w-full h-auto"
                 />
+              </div>
+              <div className="w-full">
                 <ImageSlider
                   lightImage={bulvarVannayaImages[2]}
                   darkImage={bulvarVannayaImages[3]}
@@ -948,14 +974,17 @@ export default function Bulvar109Page() {
                 />
               </div>
 
-              {/* Две фотографии - слайдер 480000/480001 и обычное изображение */}
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6 md:gap-8">
+              {/* Слайдер 480000/480001 */}
+              <div className="w-full">
                 <ImageSlider
                   lightImage={bulvarVannayaImages[6]}
                   darkImage={bulvarVannayaImages[7]}
                   alt="Bestuzhevskij Bulvar 109 - Ванная"
                   className="w-full h-auto"
                 />
+              </div>
+              {/* Обычное изображение */}
+              <div className="w-full">
                 <img
                   src={bulvarVannayaImages[8]}
                   alt="Bestuzhevskij Bulvar 109 - Ванная"
@@ -965,14 +994,16 @@ export default function Bulvar109Page() {
                 />
               </div>
 
-              {/* Две фотографии - слайдеры */}
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4 md:gap-6 lg:gap-8 items-center">
+              {/* Слайдеры отображаются последовательно */}
+              <div className="w-full">
                 <ImageSlider
                   lightImage={bulvarVannayaImages[9]}
                   darkImage={bulvarVannayaImages[10]}
                   alt="Bestuzhevskij Bulvar 109 - Ванная"
                   className="w-full h-auto"
                 />
+              </div>
+              <div className="w-full">
                 <ImageSlider
                   lightImage={bulvarVannayaImages[11]}
                   darkImage={bulvarVannayaImages[12]}
