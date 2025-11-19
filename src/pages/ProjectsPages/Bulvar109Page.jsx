@@ -958,16 +958,16 @@ export default function Bulvar109Page() {
               <div className="w-full">
                 <ImageSlider
                   lightImage={bulvarVannayaImages[2]}
-                  darkImage={bulvarVannayaImages[3]}
+                  darkImage={bulvarVannayaImages[4]}
                   alt="Bestuzhevskij Bulvar 109 - Ванная"
                   className="w-full h-auto"
                 />
               </div>
 
-              {/* Слайдер для пары 470000 и 470001 */}
+              {/* Слайдер для пары 460001 и 470001 */}
               <div className="w-full">
                 <ImageSlider
-                  lightImage={bulvarVannayaImages[4]}
+                  lightImage={bulvarVannayaImages[3]}
                   darkImage={bulvarVannayaImages[5]}
                   alt="Bestuzhevskij Bulvar 109 - Ванная"
                   className="w-full h-auto"
