@@ -489,14 +489,14 @@ export default function Bulvar109Page() {
                   decoding="async"
                 />
               </div>
-              {/* Слайдер для пары 050000 и 050001 */}
-              <div className="w-full">
-                <ImageSlider
-                  lightImage={bulvarPrihozhayaImages[4]}
-                  darkImage={bulvarPrihozhayaImages[5]}
-                  alt="Bestuzhevskij Bulvar 109 - Прихожая"
-                  className="w-full h-auto"
-                />
+                {/* Слайдер для пары 050000 и 050001 */}
+                <div className="w-full">
+                  <ImageSlider
+                    lightImage={bulvarPrihozhayaImages[4]}
+                    darkImage={bulvarPrihozhayaImages[5]}
+                    alt="Bestuzhevskij Bulvar 109 - Прихожая"
+                    className="w-full h-auto"
+                  />
               </div>
 
               {/* Последнее изображение - Прихожая */}

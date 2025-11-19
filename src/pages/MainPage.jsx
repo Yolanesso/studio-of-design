@@ -283,6 +283,29 @@ export default function HeroSection() {
 
               <motion.div 
                 className="project-item group cursor-pointer"
+                onClick={() => navigate("/projects/aeron")}
+                initial={{ opacity: 0, y: 50 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-100px" }}
+                transition={{ duration: 0.6, delay: 0.15 }}
+              >
+                <motion.img
+                  src={Aeron}
+                  alt="AERON 110"
+                  className="w-full aspect-[4/3] object-cover mb-3 sm:mb-4 min-[1920px]:mb-5 transition-all duration-700 group-hover:invert"
+                  whileHover={{ scale: 1.02 }}
+                  transition={{ duration: 0.3 }}
+                />
+                <p className="project-name uppercase text-[14px] sm:text-[15px] md:text-[16px] lg:text-[17px] xl:text-[18px] min-[1920px]:text-[20px] font-medium mb-1">
+                  AERON
+                </p>
+                <p className="project-info uppercase text-[12px] sm:text-[13px] md:text-[14px] lg:text-[15px] xl:text-[16px] min-[1920px]:text-[18px] text-[#000000B2] opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                  Новосибирск, Россия / 110 м<sup>2</sup> / 2025
+                </p>
+              </motion.div>
+
+              <motion.div 
+                className="project-item group cursor-pointer"
                 onClick={() => navigate("/projects/balance")}
                 initial={{ opacity: 0, y: 50 }}
                 whileInView={{ opacity: 1, y: 0 }}

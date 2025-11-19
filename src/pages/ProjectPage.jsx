@@ -5,6 +5,7 @@ import BulvarImg from "../Images/Projects/Bulvar.png";
 import BalanceImg from "../Images/Projects/Balance/balance-project.png";
 import BeringImg from "../Images/Projects/Bering/bering-project.png";
 import Balance73 from "../Images/Projects/Balance73.png";
+import AeronImg from "../Images/Projects/Aeron.png";
 
 import BtnLangBlack from "../Icons/btn lang-black.svg";
 import Logo from "../Icons/logo-black.svg";
@@ -23,6 +24,15 @@ const projects = [
     location: "Новосибирск",
     area: "109",
     year: "2024",
+    objectPosition: "center"
+  },
+  {
+    id: "aeron",
+    name: "aeron",
+    image: AeronImg,
+    location: "Новосибирск",
+    area: "110",
+    year: "2025",
     objectPosition: "center"
   },
   {
@@ -89,6 +99,16 @@ export default function ProjectPage() {
   };
 
   const handleProjectClick = (projectId) => {
+    if (projectId === "bulvar") {
+      navigate("/projects/bulvar");
+      return;
+    }
+
+    if (projectId === "aeron") {
+      navigate("/projects/aeron");
+      return;
+    }
+
     navigate(`/projects/${projectId}`);
   };
 
