@@ -3,6 +3,9 @@ import { useNavigate } from "react-router-dom";
 
 import MontblancImg from "../../Images/Projects/Montblanc/Montblanc-main.png";
 
+// Планировка
+import MontblancPlan from "../../Projects/MONTBLANC_88/ea4d98187437653.6588f6406729f.webp";
+
 // MONTBLANC_88 - Прихожая
 import Montblanc_Prihozhaya_01 from "../../Projects/MONTBLANC_88/01. Прихожая/010000.png";
 import Montblanc_Prihozhaya_02 from "../../Projects/MONTBLANC_88/01. Прихожая/020000.png";
@@ -373,6 +376,22 @@ export default function MontblancPage() {
               </div>
             </div>
           </div>
+
+          {/* Планировка на темном фоне */}
+          <div className="mt-8 sm:mt-12 md:mt-16 lg:mt-20 bg-black -mx-4 sm:-mx-6 md:-mx-8 lg:-mx-12 xl:-mx-16 2xl:-mx-[140px] px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16 2xl:px-[140px] py-8 sm:py-12 md:py-16 lg:py-20">
+            <div className="bg-white inline-block" style={{ borderRadius: '8px', overflow: 'hidden', padding: '2px' }}>
+              <div style={{ overflow: 'hidden', borderRadius: '6px' }}>
+                <img
+                  src={MontblancPlan}
+                  alt="MONTBLANC 88 - Планировка"
+                  className="w-full h-auto object-contain"
+                  style={{ filter: 'invert(1)', display: 'block', margin: '-1px' }}
+                  loading="lazy"
+                  decoding="async"
+                />
+              </div>
+            </div>
+          </div>
         </div>
       </div>
 
@@ -381,6 +400,52 @@ export default function MontblancPage() {
         <div className="container mx-auto px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16 2xl:px-[140px] py-8 sm:py-12 md:py-16 lg:py-20 2xl:py-28">
           <div className="flex flex-col items-center">
             <div className="w-full max-w-7xl space-y-6 sm:space-y-8 md:space-y-10 lg:space-y-8">
+              {/* Описание проекта */}
+              <div className="text-left">
+                <p className="text-base sm:text-lg md:text-xl font-inter text-black leading-relaxed">
+                  Квартира в ЖК "MONTBLANC RESIDENCE" была спроектирована для молодой семьи, для которых эстетика и минималистичность пространства – основа комфортного проживания.{" "}
+                  <span 
+                    className="inline-block transition-all duration-500 ease-in-out blur-sm hover:blur-none cursor-pointer"
+                    style={{ filter: 'blur(4px)' }}
+                    onMouseEnter={(e) => {
+                      e.target.style.filter = 'blur(0px)';
+                    }}
+                    onMouseLeave={(e) => {
+                      e.target.style.filter = 'blur(4px)';
+                    }}
+                  >
+                    Уникальное пространство
+                  </span>
+                  {" "}вобрало в себя эстетику минимализма, стремительное развитие современного мира и использование различных натуральных материалов. Все элементы здесь{" "}
+                  <span 
+                    className="inline-block transition-all duration-500 ease-in-out blur-sm hover:blur-none cursor-pointer"
+                    style={{ filter: 'blur(4px)' }}
+                    onMouseEnter={(e) => {
+                      e.target.style.filter = 'blur(0px)';
+                    }}
+                    onMouseLeave={(e) => {
+                      e.target.style.filter = 'blur(4px)';
+                    }}
+                  >
+                    взаимосвязаны
+                  </span>
+                  {" "}и создают гармоничное и функциональное пространство, способствующее комфорту и вдохновению. Светлые оттенки превалируют в интерьере, создавая атмосферу света и простора. Шпон и натуральный мрамор, используемые в отделке мебели, создают контраст со светлыми тональностями и придают пространству{" "}
+                  <span 
+                    className="inline-block transition-all duration-500 ease-in-out blur-sm hover:blur-none cursor-pointer"
+                    style={{ filter: 'blur(4px)' }}
+                    onMouseEnter={(e) => {
+                      e.target.style.filter = 'blur(0px)';
+                    }}
+                    onMouseLeave={(e) => {
+                      e.target.style.filter = 'blur(4px)';
+                    }}
+                  >
+                    естественность и теплоту
+                  </span>
+                  . Функциональность планировки и архитектура жилого комплекса позволили дизайнеру создать то самое пространство, которое каждый день радует и наполняет живущих в нем людей.
+                </p>
+              </div>
+
               {/* Текстовый блок - Прихожая */}
               <div id="prihozhaya" className="text-left">
                 <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-inter font-semibold text-black mb-3 sm:mb-4 md:mb-5 lg:mb-6">
