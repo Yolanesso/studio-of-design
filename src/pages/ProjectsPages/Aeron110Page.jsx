@@ -86,8 +86,8 @@ const aeronKuhnyaImages = [
   Aeron_Kuhnya_04,
   Aeron_Kuhnya_05,
   Aeron_Kuhnya_06,
-  Aeron_Kuhnya_08, // 350001
   Aeron_Kuhnya_07, // 350000
+  Aeron_Kuhnya_08, // 350001
   Aeron_Kuhnya_09,
   Aeron_Kuhnya_10,
   Aeron_Kuhnya_11,
