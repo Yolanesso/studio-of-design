@@ -6,6 +6,7 @@ import BalanceImg from "../Images/Projects/Balance/balance-project.png";
 import BeringImg from "../Images/Projects/Bering/bering-project.png";
 import Balance73 from "../Images/Projects/Balance73.png";
 import AeronImg from "../Images/Projects/Aeron.png";
+import MontblancImg from "../Images/Projects/Montblanc/Montblanc-main.png";
 
 import BtnLangBlack from "../Icons/btn lang-black.svg";
 import Logo from "../Icons/logo-black.svg";
@@ -61,6 +62,15 @@ const projects = [
     area: "73",
     year: "2024",
     objectPosition: "center 70%"
+  },
+  {
+    id: "montblanc",
+    name: "montblanc",
+    image: MontblancImg,
+    location: "Новосибирск",
+    area: "88",
+    year: "2024",
+    objectPosition: "center"
   }
 ];
 
@@ -106,6 +116,11 @@ export default function ProjectPage() {
 
     if (projectId === "aeron") {
       navigate("/projects/aeron");
+      return;
+    }
+
+    if (projectId === "montblanc") {
+      navigate("/projects/montblanc");
       return;
     }
 

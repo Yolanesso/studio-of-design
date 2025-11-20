@@ -16,6 +16,7 @@ import BalanceImg from "../Images/Projects/Balance/balance-project.png";
 import Aeron from "../Images/Projects/Aeron.png";
 import Balance73 from "../Images/Projects/Balance73.png";
 import Mission from "../Images/Mission.png";
+import MontblancImg from "../Images/Projects/Montblanc/Montblanc-main.png";
 
 import BeringImg from "../Images/Projects/Bering/bering-project.png"
 
@@ -372,6 +373,29 @@ export default function HeroSection() {
                 </p>
                 <p className="project-info uppercase text-[12px] sm:text-[13px] md:text-[14px] lg:text-[15px] xl:text-[16px] min-[1920px]:text-[18px] text-[#000000B2] opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                   Новосибирск / 73 м<sup>2</sup> / 2024
+                </p>
+              </motion.div>
+
+              <motion.div 
+                className="project-item group cursor-pointer"
+                onClick={() => navigate("/projects/montblanc")}
+                initial={{ opacity: 0, y: 50 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-100px" }}
+                transition={{ duration: 0.6, delay: 0.5 }}
+              >
+                <motion.img
+                  src={MontblancImg}
+                  alt="MONTBLANC 88"
+                  className="w-full aspect-[4/3] object-cover mb-3 sm:mb-4 min-[1920px]:mb-5 transition-all duration-700 group-hover:invert"
+                  whileHover={{ scale: 1.02 }}
+                  transition={{ duration: 0.3 }}
+                />
+                <p className="project-name uppercase text-[14px] sm:text-[15px] md:text-[16px] lg:text-[17px] xl:text-[18px] min-[1920px]:text-[20px] font-medium mb-1">
+                  montblanc
+                </p>
+                <p className="project-info uppercase text-[12px] sm:text-[13px] md:text-[14px] lg:text-[15px] xl:text-[16px] min-[1920px]:text-[18px] text-[#000000B2] opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                  Новосибирск, Россия / 88 м<sup>2</sup> / 2024
                 </p>
               </motion.div>
             </div>
