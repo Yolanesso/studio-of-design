@@ -19,6 +19,7 @@ import Mission from "../Images/Mission.png";
 import MontblancImg from "../Images/Projects/Montblanc/Montblanc-main.png";
 import BeringImg from "../Images/Projects/Bering/bering-project.png";
 import CHRNSHImg from "../Projects/CHRNSH_45.15/010000.png";
+import MO68Img from "../Projects/MO68_94/01. Прихожая/010000.png";
 
 import Footer from "../Components/Footer";
 import BurgerMenu from "../Components/BurgerMenu";
@@ -245,7 +246,7 @@ export default function HeroSection() {
         <div className="projects__container">
           <div className="flex flex-col">
             <h1 
-              className="projects-title font-inter mb-4 sm:mb-6 md:mb-8 lg:mb-10 xl:mb-12 2xl:mb-14 min-[1920px]:mb-16 flex-shrink-0 text-[48px] sm:text-[64px] md:text-[80px] lg:text-[90px] xl:text-[96px] 2xl:text-[96px] min-[1920px]:text-[120px]"
+              className="projects-title font-inter mb-4 sm:mb-6 md:mb-8 lg:mb-10 xl:mb-12 2xl:mb-14 min-[1920px]:mb-16 flex-shrink-0 text-[48px] sm:text-[64px] md:text-[80px] lg:text-[90px] xl:text-[96px] 2xl:text-[96px] min-[1920px]:text-[120px] cursor-pointer relative inline-block"
               style={{
                 fontFamily: 'Inter',
                 fontWeight: 400,
@@ -253,19 +254,62 @@ export default function HeroSection() {
                 lineHeight: '100%',
                 letterSpacing: '0%'
               }}
+              onClick={() => navigate("/projects")}
+              onMouseEnter={(e) => {
+                const underline = e.currentTarget.querySelector('.projects-underline');
+                if (underline) {
+                  underline.style.width = '100%';
+                }
+              }}
+              onMouseLeave={(e) => {
+                const underline = e.currentTarget.querySelector('.projects-underline');
+                if (underline) {
+                  underline.style.width = '0%';
+                }
+              }}
             >
-              <span className="block">Проекты</span>
-              <span className="block ml-2">/</span>
+              <span className="inline-block relative">
+                Проекты
+                <span 
+                  className="projects-underline absolute bottom-0 left-2 sm:left-3 md:left-4 h-[1px] sm:h-[1.5px] md:h-[2px] bg-black transition-all duration-500 ease-out"
+                  style={{ width: '0%' }}
+                ></span>
+              </span>
+              <span className="inline-block ml-2">/</span>
             </h1>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-5 md:gap-6 lg:gap-8 xl:gap-10 2xl:gap-12 min-[1920px]:gap-14 w-full">
+              <motion.div 
+                className="project-item group cursor-pointer"
+                onClick={() => navigate("/projects/balance")}
+                initial={{ opacity: 0, y: 50 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-100px" }}
+                transition={{ duration: 0.6, delay: 0.1 }}
+              >
+                <motion.img
+                  src={BalanceImg}
+                  alt="Balance 98"
+                  className="w-full aspect-[4/3] object-cover mb-3 sm:mb-4 min-[1920px]:mb-5 transition-all duration-700 group-hover:invert"
+                  style={{ objectPosition: 'center 70%' }}
+                  whileHover={{ scale: 1.02 }}
+                  transition={{ duration: 0.3 }}
+                />
+                <p className="project-name uppercase text-[14px] sm:text-[15px] md:text-[16px] lg:text-[17px] xl:text-[18px] min-[1920px]:text-[20px] font-medium mb-1">
+                  balance
+                </p>
+                <p className="project-info uppercase text-[12px] sm:text-[13px] md:text-[14px] lg:text-[15px] xl:text-[16px] min-[1920px]:text-[18px] text-[#000000B2] opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                  Новосибирск, Россия / 98 м<sup>2</sup> / 2025
+                </p>
+              </motion.div>
+
               <motion.div 
                 className="project-item group cursor-pointer"
                 onClick={() => navigate("/projects/bulvar")}
                 initial={{ opacity: 0, y: 50 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-100px" }}
-                transition={{ duration: 0.6, delay: 0.1 }}
+                transition={{ duration: 0.6, delay: 0.2 }}
               >
                 <motion.img
                   src={BulvarImg}
@@ -284,53 +328,6 @@ export default function HeroSection() {
 
               <motion.div 
                 className="project-item group cursor-pointer"
-                onClick={() => navigate("/projects/aeron")}
-                initial={{ opacity: 0, y: 50 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: "-100px" }}
-                transition={{ duration: 0.6, delay: 0.15 }}
-              >
-                <motion.img
-                  src={Aeron}
-                  alt="AERON 110"
-                  className="w-full aspect-[4/3] object-cover mb-3 sm:mb-4 min-[1920px]:mb-5 transition-all duration-700 group-hover:invert"
-                  whileHover={{ scale: 1.02 }}
-                  transition={{ duration: 0.3 }}
-                />
-                <p className="project-name uppercase text-[14px] sm:text-[15px] md:text-[16px] lg:text-[17px] xl:text-[18px] min-[1920px]:text-[20px] font-medium mb-1">
-                  AERON
-                </p>
-                <p className="project-info uppercase text-[12px] sm:text-[13px] md:text-[14px] lg:text-[15px] xl:text-[16px] min-[1920px]:text-[18px] text-[#000000B2] opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                  Новосибирск, Россия / 110 м<sup>2</sup> / 2025
-                </p>
-              </motion.div>
-
-              <motion.div 
-                className="project-item group cursor-pointer"
-                onClick={() => navigate("/projects/balance")}
-                initial={{ opacity: 0, y: 50 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: "-100px" }}
-                transition={{ duration: 0.6, delay: 0.2 }}
-              >
-                <motion.img
-                  src={BalanceImg}
-                  alt="Другой проект"
-                  className="w-full aspect-[4/3] object-cover mb-3 sm:mb-4 min-[1920px]:mb-5 transition-all duration-700 group-hover:invert"
-                  style={{ objectPosition: 'center 70%' }}
-                  whileHover={{ scale: 1.02 }}
-                  transition={{ duration: 0.3 }}
-                />
-                <p className="project-name uppercase text-[14px] sm:text-[15px] md:text-[16px] lg:text-[17px] xl:text-[18px] min-[1920px]:text-[20px] font-medium mb-1">
-                  balance
-                </p>
-                <p className="project-info uppercase text-[12px] sm:text-[13px] md:text-[14px] lg:text-[15px] xl:text-[16px] min-[1920px]:text-[18px] text-[#000000B2] opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                  Новосибирск, Россия / 98 м<sup>2</sup> / 2025
-                </p>
-              </motion.div>
-
-              <motion.div 
-                className="project-item group cursor-pointer"
                 onClick={() => navigate("/projects/bering")}
                 initial={{ opacity: 0, y: 50 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -339,7 +336,7 @@ export default function HeroSection() {
               >
                 <motion.img
                   src={BeringImg}
-                  alt="BUL'VAR"
+                  alt="Bering 109"
                   className="w-full aspect-[4/3] object-cover mb-3 sm:mb-4 min-[1920px]:mb-5 transition-all duration-700 group-hover:invert"
                   whileHover={{ scale: 1.02 }}
                   transition={{ duration: 0.3 }}
@@ -348,31 +345,7 @@ export default function HeroSection() {
                   Bering
                 </p>
                 <p className="project-info uppercase text-[12px] sm:text-[13px] md:text-[14px] lg:text-[15px] xl:text-[16px] min-[1920px]:text-[18px] text-[#000000B2] opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                  Новосибирск / 110 м<sup>2</sup> / 2025
-                </p>
-              </motion.div>
-
-              <motion.div 
-                className="project-item group cursor-pointer"
-                onClick={() => navigate("/projects/balance73")}
-                initial={{ opacity: 0, y: 50 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: "-100px" }}
-                transition={{ duration: 0.6, delay: 0.4 }}
-              >
-                <motion.img
-                  src={Balance73}
-                  alt="BUL'VAR"
-                  className="w-full aspect-[4/3] object-cover mb-3 sm:mb-4 min-[1920px]:mb-5 transition-all duration-700 group-hover:invert"
-                  style={{ objectPosition: 'center 70%' }}
-                  whileHover={{ scale: 1.02 }}
-                  transition={{ duration: 0.3 }}
-                />
-                <p className="project-name uppercase text-[14px] sm:text-[15px] md:text-[16px] lg:text-[17px] xl:text-[18px] min-[1920px]:text-[20px] font-medium mb-1">
-                  Balance
-                </p>
-                <p className="project-info uppercase text-[12px] sm:text-[13px] md:text-[14px] lg:text-[15px] xl:text-[16px] min-[1920px]:text-[18px] text-[#000000B2] opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                  Новосибирск / 73 м<sup>2</sup> / 2024
+                  Новосибирск, Россия / 109 м<sup>2</sup> / 2025
                 </p>
               </motion.div>
 
@@ -382,7 +355,7 @@ export default function HeroSection() {
                 initial={{ opacity: 0, y: 50 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-100px" }}
-                transition={{ duration: 0.6, delay: 0.5 }}
+                transition={{ duration: 0.6, delay: 0.4 }}
               >
                 <motion.img
                   src={MontblancImg}
@@ -396,29 +369,6 @@ export default function HeroSection() {
                 </p>
                 <p className="project-info uppercase text-[12px] sm:text-[13px] md:text-[14px] lg:text-[15px] xl:text-[16px] min-[1920px]:text-[18px] text-[#000000B2] opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                   Новосибирск, Россия / 88 м<sup>2</sup> / 2024
-                </p>
-              </motion.div>
-
-              <motion.div 
-                className="project-item group cursor-pointer"
-                onClick={() => navigate("/projects/chrnsh")}
-                initial={{ opacity: 0, y: 50 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: "-100px" }}
-                transition={{ duration: 0.6, delay: 0.6 }}
-              >
-                <motion.img
-                  src={CHRNSHImg}
-                  alt="CHRNSH 45.15"
-                  className="w-full aspect-[4/3] object-cover mb-3 sm:mb-4 min-[1920px]:mb-5 transition-all duration-700 group-hover:invert"
-                  whileHover={{ scale: 1.02 }}
-                  transition={{ duration: 0.3 }}
-                />
-                <p className="project-name uppercase text-[14px] sm:text-[15px] md:text-[16px] lg:text-[17px] xl:text-[18px] min-[1920px]:text-[20px] font-medium mb-1">
-                  CHRNSH
-                </p>
-                <p className="project-info uppercase text-[12px] sm:text-[13px] md:text-[14px] lg:text-[15px] xl:text-[16px] min-[1920px]:text-[18px] text-[#000000B2] opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                  Новосибирск, Россия / 45.15 м<sup>2</sup> / 2024
                 </p>
               </motion.div>
             </div>

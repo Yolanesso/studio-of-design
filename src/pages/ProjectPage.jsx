@@ -8,6 +8,7 @@ import Balance73 from "../Images/Projects/Balance73.png";
 import AeronImg from "../Images/Projects/Aeron.png";
 import MontblancImg from "../Images/Projects/Montblanc/Montblanc-main.png";
 import CHRNSHImg from "../Projects/CHRNSH_45.15/010000.png";
+import MO68Img from "../Projects/MO68_94/01. Прихожая/010000.png";
 
 import BtnLangBlack from "../Icons/btn lang-black.svg";
 import Logo from "../Icons/logo-black.svg";
@@ -81,6 +82,15 @@ const projects = [
     area: "45.15",
     year: "2024",
     objectPosition: "center"
+  },
+  {
+    id: "mo68",
+    name: "MO68",
+    image: MO68Img,
+    location: "Новосибирск",
+    area: "94",
+    year: "2024",
+    objectPosition: "center"
   }
 ];
 
@@ -146,6 +156,11 @@ export default function ProjectPage() {
 
     if (projectId === "chrnsh") {
       navigate("/projects/chrnsh");
+      return;
+    }
+
+    if (projectId === "mo68") {
+      navigate("/projects/mo68");
       return;
     }
 

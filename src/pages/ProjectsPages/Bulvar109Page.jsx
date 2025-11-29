@@ -420,7 +420,7 @@ export default function Bulvar109Page() {
                   Местоположение
                 </p>
                 <p className="text-white text-base sm:text-lg md:text-xl lg:text-2xl font-inter font-medium">
-                  {project.location}, Россия
+                  {project.location}
                 </p>
               </div>
 
