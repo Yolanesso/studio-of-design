@@ -389,7 +389,7 @@ export default function MO68Page() {
               <div className="flex flex-col lg:flex-row items-start lg:items-end justify-between gap-6 lg:gap-12">
                 <div className="flex-1">
                   <h1 className="text-white text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl 2xl:text-[120px] font-inter font-light mb-4 sm:mb-6 md:mb-8 lg:mb-10 xl:mb-12 min-[1920px]:mb-16">
-                MO68 94</h1>
+                MO68</h1>
                 </div>
 
                 <div className="flex flex-col gap-6 md:gap-8 pt-8 lg:pt-0">
