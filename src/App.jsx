@@ -8,6 +8,7 @@ import ProjectDetailPage from "./pages/ProjectDetailPage";
 import Bulvar109Page from "./pages/ProjectsPages/Bulvar109Page";
 import Aeron110Page from "./pages/ProjectsPages/Aeron110Page";
 import MontblancPage from "./pages/ProjectsPages/MontblancPage";
+import BeringPage from "./pages/ProjectsPages/BeringPage";
 
 export function App() {
   return (
@@ -21,6 +22,7 @@ export function App() {
         <Route path="/projects/bulvar" element={<Bulvar109Page />} />
         <Route path="/projects/aeron" element={<Aeron110Page />} />
         <Route path="/projects/montblanc" element={<MontblancPage />} />
+        <Route path="/projects/bering" element={<BeringPage />} />
         <Route path="/projects/:projectId" element={<ProjectDetailPage />} />
       </Routes>
     </Router>

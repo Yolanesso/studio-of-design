@@ -309,29 +309,27 @@ export default function MontblancPage() {
                         <button
                           onClick={() => handleNavigation("/contact")}
                           className="text-4xl sm:text-5xl md:text-6xl lg:text-[36px] font-inter font-medium transition-colors text-left leading-tight"
-                      style={{ color: '#00000099' }}
-                      onMouseEnter={(e) => e.target.style.color = '#000000'}
-                      onMouseLeave={(e) => e.target.style.color = '#00000099'}
-                    >
-                      Контакты
+                          style={{ color: "#00000099" }}
+                          onMouseEnter={(e) => (e.target.style.color = "#000000")}
+                          onMouseLeave={(e) => (e.target.style.color = "#00000099")}
+                        >
+                          Взаимодействие
                         </button>
                       </div>
                     </div>
 
-                <div className="flex flex-col items-start justify-start gap-8 md:gap-10">
-                  <div className="flex flex-col gap-6 md:gap-8">
-                    <p className="text-base sm:text-lg md:text-xl font-inter text-[#000000B2] leading-relaxed">
-                      Пишите нам для воплощения ваших идей
-                    </p>
-                    <button
-                      onClick={() => handleNavigation("/contact")}
-                      className="text-4xl sm:text-5xl md:text-6xl lg:text-[36px] font-inter font-medium transition-colors text-left leading-tight"
+                    <div className="h-px my-6 md:hidden w-full" style={{ backgroundColor: '#e5e7eb' }}></div>
+
+                    <div className="flex flex-col items-start justify-start">
+                      <div className="mb-8 md:mb-1">
+                        <img src={ArrowBlack} alt="Arrow" />
+                      </div>
+
+                      <div 
+                        className="text-lg sm:text-xl md:text-2xl lg:text-[22px] max-w-[320px] leading-relaxed font-inter"
                         style={{ color: '#00000099', marginTop: '20px' }}
-                      onMouseEnter={(e) => e.target.style.color = '#000000'}
-                      onMouseLeave={(e) => e.target.style.color = '#00000099'}
                       >
-                      Связаться с нами
-                    </button>
+                        Пишите нам для воплощения ваших идей
                       </div>
                     </div>
                   </div>

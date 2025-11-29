@@ -124,6 +124,11 @@ export default function ProjectPage() {
       return;
     }
 
+    if (projectId === "bering") {
+      navigate("/projects/bering");
+      return;
+    }
+
     navigate(`/projects/${projectId}`);
   };
 
