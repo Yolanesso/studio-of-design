@@ -129,6 +129,11 @@ export default function ProjectPage() {
       return;
     }
 
+    if (projectId === "balance") {
+      navigate("/projects/balance");
+      return;
+    }
+
     navigate(`/projects/${projectId}`);
   };
 
