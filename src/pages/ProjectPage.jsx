@@ -7,6 +7,7 @@ import BeringImg from "../Images/Projects/Bering/bering-project.png";
 import Balance73 from "../Images/Projects/Balance73.png";
 import AeronImg from "../Images/Projects/Aeron.png";
 import MontblancImg from "../Images/Projects/Montblanc/Montblanc-main.png";
+import CHRNSHImg from "../Projects/CHRNSH_45.15/010000.png";
 
 import BtnLangBlack from "../Icons/btn lang-black.svg";
 import Logo from "../Icons/logo-black.svg";
@@ -71,6 +72,15 @@ const projects = [
     area: "88",
     year: "2024",
     objectPosition: "center"
+  },
+  {
+    id: "chrnsh",
+    name: "CHRNSH",
+    image: CHRNSHImg,
+    location: "Новосибирск",
+    area: "45.15",
+    year: "2024",
+    objectPosition: "center"
   }
 ];
 
@@ -131,6 +141,11 @@ export default function ProjectPage() {
 
     if (projectId === "balance") {
       navigate("/projects/balance");
+      return;
+    }
+
+    if (projectId === "chrnsh") {
+      navigate("/projects/chrnsh");
       return;
     }
 

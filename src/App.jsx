@@ -10,6 +10,7 @@ import Aeron110Page from "./pages/ProjectsPages/Aeron110Page";
 import MontblancPage from "./pages/ProjectsPages/MontblancPage";
 import BeringPage from "./pages/ProjectsPages/BeringPage";
 import Balance98Page from "./pages/ProjectsPages/Balance98Page";
+import CHRNSHPage from "./pages/ProjectsPages/CHRNSHPage";
 
 export function App() {
   return (
@@ -25,6 +26,7 @@ export function App() {
         <Route path="/projects/montblanc" element={<MontblancPage />} />
         <Route path="/projects/bering" element={<BeringPage />} />
         <Route path="/projects/balance" element={<Balance98Page />} />
+        <Route path="/projects/chrnsh" element={<CHRNSHPage />} />
         <Route path="/projects/:projectId" element={<ProjectDetailPage />} />
       </Routes>
     </Router>
