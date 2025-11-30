@@ -570,7 +570,8 @@ export default function ContactPage() {
                       Отправляя эту форму, я даю согласие на обработку моих
                       персональных данных в соответствии с условиями{" "}
                       <a
-                        href="#"
+                        href="/Documents/OTHR_Политика_обработки_персональных_данных.docx"
+                        download
                         className="text-black underline hover:text-gray-700"
                       >
                         Политика конфиденциальности

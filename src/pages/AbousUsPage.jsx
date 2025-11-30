@@ -282,21 +282,6 @@ export default function AboutUsPage() {
 
       <section className="bg-white py-12 sm:py-16 md:py-20 lg:py-24 xl:py-32">
         <div className="container mx-auto px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16 2xl:px-[140px]">
-          <div className="max-w-4xl space-y-8 md:space-y-12 lg:space-y-16 mb-12 md:mb-16 lg:mb-20">
-            <AnimatedWordText
-              className="text-[32px] sm:text-[40px] md:text-[48px] lg:text-[56px] xl:text-[64px] 2xl:text-[72px] font-inter font-medium text-black leading-[1.1] mb-6 md:mb-8"
-            >
-              Вы выбираете партнёров, которые слышат, чувствуют и умеют воплощать.
-            </AnimatedWordText>
-            
-            <AnimatedWordText
-              className="text-base sm:text-lg md:text-xl lg:text-2xl font-inter text-black leading-relaxed"
-              delay={0.2}
-            >
-              С нами вы проходите путь от первых идей до пространства, в котором хочется жить, творить и быть собой. Пространства, в котором каждая деталь говорит о вас — и работает на вас.
-            </AnimatedWordText>
-          </div>
-
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 lg:gap-12">
             {/* Артем Копылов */}
             <AnimatedText>

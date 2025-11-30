@@ -128,7 +128,8 @@ export default function Footer({ hideTopBlock = false }) {
             {/* Центральный элемент с правым */}
             <div className="flex flex-col sm:flex-row gap-4 sm:gap-6 md:gap-8 lg:gap-10 xl:gap-[111px] items-center">
               <a
-                href="#"
+                href="/Documents/OTHR_Политика_обработки_персональных_данных.docx"
+                download
                 className="text-[12px] sm:text-[13px] md:text-[14px] lg:text-[15px] xl:text-[16px] text-[#00000099] hover:text-[#000000] transition-colors text-center sm:text-left"
               >
                 Политика конфиденциальности
