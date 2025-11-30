@@ -10,9 +10,11 @@ import Balance73 from "../Images/Projects/Balance73.png";
 import Prihozhaya_01 from "../Projects/BALANCE 73/01. День/01. Прихожая/010000.png";
 import Prihozhaya_02 from "../Projects/BALANCE 73/01. День/01. Прихожая/020000.png";
 import Prihozhaya_05 from "../Projects/BALANCE 73/01. День/01. Прихожая/050000.png";
+import Prihozhaya_05_Alt from "../Projects/BALANCE 73/050000.png";
 
 // Кухонная зона
 import Kuhnya_03 from "../Projects/BALANCE 73/01. День/02. Кухонная зона/030000.png";
+import Kuhnya_03_Alt from "../Projects/BALANCE 73/030000.png";
 import Kuhnya_04 from "../Projects/BALANCE 73/01. День/02. Кухонная зона/040000.png";
 import Kuhnya_06 from "../Projects/BALANCE 73/01. День/02. Кухонная зона/060000.png";
 import Kuhnya_07 from "../Projects/BALANCE 73/01. День/02. Кухонная зона/070000.png";
@@ -21,8 +23,10 @@ import Kuhnya_09 from "../Projects/BALANCE 73/01. День/02. Кухонная 
 import Kuhnya_10 from "../Projects/BALANCE 73/01. День/02. Кухонная зона/100000.png";
 import Kuhnya_11 from "../Projects/BALANCE 73/01. День/02. Кухонная зона/110000.png";
 import Kuhnya_12 from "../Projects/BALANCE 73/01. День/02. Кухонная зона/120000.png";
+import Kuhnya_12_Alt from "../Projects/BALANCE 73/120000.png";
 import Kuhnya_13 from "../Projects/BALANCE 73/01. День/02. Кухонная зона/130000.png";
 import Kuhnya_14 from "../Projects/BALANCE 73/01. День/02. Кухонная зона/140000.png";
+import Kuhnya_14_Alt from "../Projects/BALANCE 73/140000.png";
 import Kuhnya_15 from "../Projects/BALANCE 73/01. День/02. Кухонная зона/150000.png";
 
 // Гостиная зона
@@ -45,12 +49,15 @@ import Vannaya_29 from "../Projects/BALANCE 73/01. День/04. Ванная к�
 
 // Мастер-блок - Спальня
 import Spalnya_37 from "../Projects/BALANCE 73/01. День/05. Спальня/370000.png";
+import Spalnya_37_Alt from "../Projects/BALANCE 73/370000.png";
 import Spalnya_38 from "../Projects/BALANCE 73/01. День/05. Спальня/380000.png";
 import Spalnya_39 from "../Projects/BALANCE 73/01. День/05. Спальня/390000.png";
+import Spalnya_39_Alt from "../Projects/BALANCE 73/390000.png";
 import Spalnya_40 from "../Projects/BALANCE 73/01. День/05. Спальня/400000.png";
 import Spalnya_41 from "../Projects/BALANCE 73/01. День/05. Спальня/410000.png";
 import Spalnya_42 from "../Projects/BALANCE 73/01. День/05. Спальня/420000.png";
 import Spalnya_43 from "../Projects/BALANCE 73/01. День/05. Спальня/430000.png";
+import Spalnya_43_Alt from "../Projects/BALANCE 73/430000.png";
 
 // Мастер-блок - Гардеробная
 import Garderobnaya_34 from "../Projects/BALANCE 73/01. День/06. Гардеробная/340000.png";
@@ -485,18 +492,21 @@ export default function ProjectDetailPage() {
                   />
                 </div>
 
-                {/* Просто 2 фотографии - Прихожая */}
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6 md:gap-8">
+                {/* Слайдер для 050000 - Прихожая */}
+                <div className="w-full">
+                  <ImageSlider
+                    lightImage={prihozhayaImages[2]}
+                    darkImage={Prihozhaya_05_Alt}
+                    alt="Balance73 - Прихожая"
+                    className="w-full h-auto"
+                  />
+                </div>
+
+                {/* Одиночная фотография - Прихожая */}
+                <div className="w-full">
                   <img
                     src={prihozhayaImages[1]}
                     alt="Balance73 - Прихожая"  
-                    className="w-full h-auto object-contain"
-                    loading="eager"
-                    decoding="async"
-                  />
-                  <img
-                    src={prihozhayaImages[2]}
-                    alt="Balance73 - Прихожая"
                     className="w-full h-auto object-contain"
                     loading="lazy"
                     decoding="async"
@@ -514,10 +524,20 @@ export default function ProjectDetailPage() {
                 </div>
 
                 {/* Фотографии кухни */}
-                {/* Крупное полноширинное изображение */}
+                {/* Слайдер для 030000 - Кухонная зона */}
+                <div className="w-full">
+                  <ImageSlider
+                    lightImage={kuhnyaImages[0]}
+                    darkImage={Kuhnya_03_Alt}
+                    alt="Balance73 - Кухонная зона"
+                    className="w-full h-auto"
+                  />
+                </div>
+
+                {/* Одиночная фотография - Кухонная зона */}
                 <div className="w-full">
                   <img
-                    src={kuhnyaImages[0]}
+                    src={kuhnyaImages[1]}
                     alt="Balance73 - Кухонная зона"
                     className="w-full h-auto object-cover"
                     loading="lazy"
@@ -527,15 +547,6 @@ export default function ProjectDetailPage() {
 
                 {/* Пирамидка 1: 3 уровня (1-2-3) */}
                 <div className="flex flex-col items-center space-y-8">
-                  <div className="w-full">
-                    <img
-                      src={kuhnyaImages[1]}
-                      alt="Balance73 - Кухонная зона"
-                      className="w-full h-auto object-cover"
-                      loading="lazy"
-                      decoding="async"
-                    />
-                  </div>
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6 md:gap-8 w-full">
                     <img
                       src={kuhnyaImages[2]}
@@ -588,15 +599,18 @@ export default function ProjectDetailPage() {
                   />
                 </div>
 
-                {/* Просто 2 фотографии */}
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6 md:gap-8">
-                  <img
-                    src={kuhnyaImages[8]}
+                {/* Слайдер для 120000 - Кухонная зона */}
+                <div className="w-full">
+                  <ImageSlider
+                    lightImage={kuhnyaImages[8]}
+                    darkImage={Kuhnya_12_Alt}
                     alt="Balance73 - Кухонная зона"
-                    className="w-full h-auto object-contain"
-                    loading="lazy"
-                    decoding="async"
+                    className="w-full h-auto"
                   />
+                </div>
+
+                {/* Одиночная фотография - Кухонная зона */}
+                <div className="w-full">
                   <img
                     src={kuhnyaImages[9]}
                     alt="Balance73 - Кухонная зона"
@@ -606,26 +620,25 @@ export default function ProjectDetailPage() {
                   />
                 </div>
 
-                {/* Пирамидка 2: 3 уровня (1-2-3) */}
-                <div className="flex flex-col items-center space-y-8">
-                  <div className="w-full">
-                    <img
-                      src={kuhnyaImages[10]}
-                      alt="Balance73 - Кухонная зона"
-                      className="w-full h-auto object-cover"
-                      loading="lazy"
-                      decoding="async"
-                    />
-                  </div>
-                  <div className="w-full">
-                    <img
-                      src={kuhnyaImages[11]}
-                      alt="Balance73 - Кухонная зона"
-                      className="w-full h-auto object-cover"
-                      loading="lazy"
-                      decoding="async"
-                    />
-                  </div>
+                {/* Слайдер для 140000 - Кухонная зона */}
+                <div className="w-full">
+                  <ImageSlider
+                    lightImage={kuhnyaImages[10]}
+                    darkImage={Kuhnya_14_Alt}
+                    alt="Balance73 - Кухонная зона"
+                    className="w-full h-auto"
+                  />
+                </div>
+
+                {/* Одиночная фотография - Кухонная зона */}
+                <div className="w-full">
+                  <img
+                    src={kuhnyaImages[11]}
+                    alt="Balance73 - Кухонная зона"
+                    className="w-full h-auto object-cover"
+                    loading="lazy"
+                    decoding="async"
+                  />
                 </div>
 
                 {/* Текстовый блок - Гостиная зона */}
@@ -797,28 +810,20 @@ export default function ProjectDetailPage() {
                 </div>
 
                 {/* Фотографии мастер-блока */}
-                {/* Крупное полноширинное изображение - Спальня */}
+                {/* Слайдер для 370000 - Спальня */}
                 <div className="w-full">
-                  <img
-                    src={masterImages[0]}
+                  <ImageSlider
+                    lightImage={masterImages[0]}
+                    darkImage={Spalnya_37_Alt}
                     alt="Balance73 - Мастер-блок (Спальня)"
-                    className="w-full h-auto object-cover"
-                    loading="lazy"
-                    decoding="async"
+                    className="w-full h-auto"
                   />
                 </div>
 
-                {/* Просто 2 фотографии - Спальня */}
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6 md:gap-8">
+                {/* Одиночная фотография - Спальня */}
+                <div className="w-full">
                   <img
                     src={masterImages[1]}
-                    alt="Balance73 - Мастер-блок (Спальня)"
-                    className="w-full h-auto object-contain"
-                    loading="lazy"
-                    decoding="async"
-                  />
-                  <img
-                    src={masterImages[2]}
                     alt="Balance73 - Мастер-блок (Спальня)"
                     className="w-full h-auto object-contain"
                     loading="lazy"
@@ -828,15 +833,16 @@ export default function ProjectDetailPage() {
 
                 {/* Пирамидка 5: 3 уровня (1-2-3) - Спальня */}
                 <div className="flex flex-col items-center space-y-8">
+                  {/* Слайдер для 390000 - Спальня */}
                   <div className="w-full">
-                    <img
-                      src={masterImages[3]}
+                    <ImageSlider
+                      lightImage={Spalnya_39}
+                      darkImage={Spalnya_39_Alt}
                       alt="Balance73 - Мастер-блок (Спальня)"
-                      className="w-full h-auto object-cover"
-                      loading="lazy"
-                      decoding="async"
+                      className="w-full h-auto"
                     />
                   </div>
+                  
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6 md:gap-8 w-full">
                     <img
                       src={masterImages[4]}
@@ -853,13 +859,13 @@ export default function ProjectDetailPage() {
                       decoding="async"
                     />
                   </div>
+                  {/* Слайдер для 430000 - Спальня */}
                   <div className="w-full">
-                    <img
-                      src={masterImages[6]}
+                    <ImageSlider
+                      lightImage={Spalnya_43}
+                      darkImage={Spalnya_43_Alt}
                       alt="Balance73 - Мастер-блок (Спальня)"
-                      className="w-full h-auto object-cover"
-                      loading="lazy"
-                      decoding="async"
+                      className="w-full h-auto"
                     />
                   </div>
                 </div>

@@ -3,6 +3,9 @@ import { useNavigate } from "react-router-dom";
 
 import BeringImg from "../../Images/Projects/Bering/bering-project.png";
 
+// Планировка
+import Bering_Plan from "../../Projects/BERING_109/doc_2025-11-30_20-48-03.gif";
+
 // BERING_109 - Прихожая
 import Bering_Prihozhaya_01 from "../../Projects/BERING_109/Day/01. Прихожая/010000.png";
 import Bering_Prihozhaya_02 from "../../Projects/BERING_109/Day/01. Прихожая/020000.png";
@@ -450,12 +453,12 @@ export default function BeringPage() {
             </div>
           </div>
 
-          {/* GIF из Behance */}
-          <div className="container mx-auto px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16 2xl:px-[140px] mt-8 sm:mt-12 md:mt-16 lg:mt-20">
-            <div className="w-full max-w-4xl mx-auto bg-black relative">
+          {/* Планировка на темном фоне */}
+          <div className="mt-8 sm:mt-12 md:mt-16 lg:mt-20 bg-black -mx-4 sm:-mx-6 md:-mx-8 lg:-mx-12 xl:-mx-16 2xl:-mx-[140px] px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16 2xl:px-[140px] py-8 sm:py-12 md:py-16 lg:py-20 overflow-hidden">
+            <div className="container mx-auto max-w-[1800px]">
               <img
-                src="https://mir-s3-cdn-cf.behance.net/project_modules/fs/13158f237576915.69034761bc835.gif"
-                alt="BERING 109 - Анимация"
+                src={Bering_Plan}
+                alt="BERING 109 - Планировка"
                 className="w-full h-auto object-contain"
                 loading="lazy"
                 decoding="async"
