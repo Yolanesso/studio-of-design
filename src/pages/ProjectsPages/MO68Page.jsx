@@ -330,7 +330,7 @@ export default function MO68Page() {
                     <div className="flex flex-col items-start justify-start gap-8 md:gap-10">
                       <div className="flex flex-col gap-6 md:gap-8">
                         <button
-                          onClick={() => handleNavigation("/")}
+                          onClick={() => handleNavigation("/projects")}
                           className="text-4xl sm:text-5xl md:text-6xl lg:text-[36px] font-inter font-medium transition-colors text-left leading-tight"
                       style={{ color: '#00000099' }}
                       onMouseEnter={(e) => e.target.style.color = '#000000'}

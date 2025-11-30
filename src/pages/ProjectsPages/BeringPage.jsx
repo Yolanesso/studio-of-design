@@ -358,7 +358,7 @@ export default function BeringPage() {
                     <div className="flex flex-col items-start justify-start gap-8 md:gap-10">
                       <div className="flex flex-col gap-6 md:gap-8">
                         <button
-                          onClick={() => handleNavigation("/")}
+                          onClick={() => handleNavigation("/projects")}
                           className="text-4xl sm:text-5xl md:text-6xl lg:text-[36px] font-inter font-medium transition-colors text-left leading-tight"
                       style={{ color: '#00000099' }}
                       onMouseEnter={(e) => e.target.style.color = '#000000'}
@@ -1113,29 +1113,21 @@ export default function BeringPage() {
               </div>
 
               {/* Фотографии ванной */}
-              {/* Две фотографии */}
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4 md:gap-6 lg:gap-8 items-center">
-                <img
-                  src={beringVannayaImages[0]}
+              {/* Слайдер для 300000 и 300001 */}
+              <div className="w-full">
+                <ImageSlider
+                  lightImage={beringVannayaImages[0]}
+                  darkImage={beringVannayaImages[1]}
                   alt="BERING 109 - Ванная комната"
-                  className="w-full h-auto object-contain"
-                  loading="lazy"
-                  decoding="async"
-                />
-                <img
-                  src={beringVannayaImages[1]}
-                  alt="BERING 109 - Ванная комната"
-                  className="w-full h-auto object-contain"
-                  loading="lazy"
-                  decoding="async"
+                  className="w-full h-auto"
                 />
               </div>
 
-              {/* Слайдер для 310000 и 340001 */}
+              {/* Слайдер для 340000 и 340001 */}
               <div className="w-full">
                 <ImageSlider
-                  lightImage={Bering_Vannaya_07}
-                  darkImage={beringVannayaImages[2]}
+                  lightImage={Bering_Vannaya_06}
+                  darkImage={Bering_Vannaya_07}
                   alt="BERING 109 - Ванная комната"
                   className="w-full h-auto"
                 />
