@@ -225,7 +225,7 @@ export default function ProjectPage() {
 
         {/* Бургер-меню */}
         <div
-          className={`fixed inset-0 z-40 transition-all duration-500 ease-out transform ${
+          className={`fixed inset-0 z-40 transition-all duration-700 ease-[cubic-bezier(0.4,0,0.2,1)] transform ${
             isMenuOpen
               ? "opacity-100 translate-y-0 visible"
               : "opacity-0 -translate-y-full invisible pointer-events-none"

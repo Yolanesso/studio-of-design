@@ -86,7 +86,7 @@ export default function Header() {
 
       {/* Бургер-меню - вынесено за пределы header для правильного позиционирования */}
       <div
-        className={`burger-menu-overlay fixed top-0 left-0 right-0 bottom-0 z-[9999] transition-transform duration-500 ease-out ${
+        className={`burger-menu-overlay fixed top-0 left-0 right-0 bottom-0 z-[9999] transition-transform duration-700 ease-[cubic-bezier(0.4,0,0.2,1)] ${
           isMenuOpen
             ? "translate-y-0"
             : "-translate-y-full pointer-events-none"
