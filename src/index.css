@@ -30,3 +30,72 @@ body.menu-open {
   background-color: #ffffff !important;
   opacity: 1 !important;
 }
+
+/* Легкая анимация для линии слайдера - движение между тремя частями */
+@keyframes slider-pulse {
+  0% {
+    transform: translateX(calc(-50% - 450px));
+  }
+  33.33% {
+    transform: translateX(-50%);
+  }
+  66.66% {
+    transform: translateX(calc(-50% + 450px));
+  }
+  100% {
+    transform: translateX(calc(-50% - 450px));
+  }
+}
+
+/* Адаптивная анимация для планшетов */
+@keyframes slider-pulse-tablet {
+  0% {
+    transform: translateX(calc(-50% - 200px));
+  }
+  33.33% {
+    transform: translateX(-50%);
+  }
+  66.66% {
+    transform: translateX(calc(-50% + 200px));
+  }
+  100% {
+    transform: translateX(calc(-50% - 200px));
+  }
+}
+
+/* Адаптивная анимация для телефонов */
+@keyframes slider-pulse-mobile {
+  0% {
+    transform: translateX(calc(-50% - 120px));
+  }
+  33.33% {
+    transform: translateX(-50%);
+  }
+  66.66% {
+    transform: translateX(calc(-50% + 120px));
+  }
+  100% {
+    transform: translateX(calc(-50% - 120px));
+  }
+}
+
+/* Применение адаптивных анимаций */
+.slider-line {
+  transform: translateX(-50%);
+}
+
+.slider-animated {
+  animation: slider-pulse 2s ease-in-out infinite;
+}
+
+@media (max-width: 768px) {
+  .slider-animated {
+    animation: slider-pulse-mobile 2s ease-in-out infinite;
+  }
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+  .slider-animated {
+    animation: slider-pulse-tablet 2s ease-in-out infinite;
+  }
+}

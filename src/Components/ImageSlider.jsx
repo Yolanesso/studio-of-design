@@ -3,8 +3,10 @@ import React, { useState, useRef, useEffect, useCallback } from 'react';
 export default function ImageSlider({ lightImage, darkImage, alt, className = "" }) {
   const [sliderPosition, setSliderPosition] = useState(50);
   const [isDragging, setIsDragging] = useState(false);
+  const [hasBeenMoved, setHasBeenMoved] = useState(false);
   const containerRef = useRef(null);
   const imageRef = useRef(null);
+  const directionRef = useRef(1);
 
   // Проверка на наличие изображений
   if (!lightImage || !darkImage) {
@@ -30,6 +32,7 @@ export default function ImageSlider({ lightImage, darkImage, alt, className = ""
   const handleMouseDown = useCallback((e) => {
     e.preventDefault();
     setIsDragging(true);
+    setHasBeenMoved(true);
     updateSliderPosition(e.clientX);
   }, [updateSliderPosition]);
 
@@ -47,6 +50,7 @@ export default function ImageSlider({ lightImage, darkImage, alt, className = ""
   const handleTouchStart = useCallback((e) => {
     e.preventDefault();
     setIsDragging(true);
+    setHasBeenMoved(true);
     const touch = e.touches[0];
     updateSliderPosition(touch.clientX);
   }, [updateSliderPosition]);
@@ -101,6 +105,34 @@ export default function ImageSlider({ lightImage, darkImage, alt, className = ""
     };
   }, [darkImage]);
 
+  // Автоматическое изменение позиции слайдера во время анимации
+  useEffect(() => {
+    if (hasBeenMoved || isDragging) return;
+
+    const min = 15;
+    const max = 85;
+    const step = 2;
+
+    const interval = setInterval(() => {
+      setSliderPosition((prev) => {
+        const newPosition = prev + (step * directionRef.current);
+        
+        if (newPosition >= max) {
+          directionRef.current = -1;
+          return max;
+        }
+        if (newPosition <= min) {
+          directionRef.current = 1;
+          return min;
+        }
+        
+        return newPosition;
+      });
+    }, 80); // Обновление каждые 80мс для плавности
+
+    return () => clearInterval(interval);
+  }, [hasBeenMoved, isDragging]);
+
   return (
     <div 
       ref={containerRef}
@@ -124,6 +156,7 @@ export default function ImageSlider({ lightImage, darkImage, alt, className = ""
         className="absolute top-0 left-0 w-full overflow-hidden pointer-events-none"
         style={{
           clipPath: `inset(0 ${100 - sliderPosition}% 0 0)`,
+          transition: isDragging ? 'none' : 'clip-path 0.2s ease-out',
         }}
       >
         <img
@@ -138,8 +171,8 @@ export default function ImageSlider({ lightImage, darkImage, alt, className = ""
         className="slider-line absolute top-0 w-0.5 bg-white z-20 pointer-events-none"
         style={{
           left: `${sliderPosition}%`,
-          transform: 'translateX(-50%)',
           boxShadow: '0 0 10px rgba(0, 0, 0, 0.5)',
+          transition: isDragging ? 'none' : 'left 0.2s ease-out',
         }}
       >
         <div
