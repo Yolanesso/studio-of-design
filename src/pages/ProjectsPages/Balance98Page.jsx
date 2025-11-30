@@ -434,19 +434,19 @@ export default function Balance98Page() {
               </div>
 
               {/* Фотографии прихожей */}
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4 md:gap-6 lg:gap-8 items-center">
+              <img
+                src={balancePrihozhayaImages[1]}
+                alt="BALANCE 98 - Прихожая"
+                className="w-full h-auto object-contain mb-3 sm:mb-4 md:mb-6 lg:mb-8"
+                loading="lazy"
+                decoding="async"
+              />
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-3 sm:gap-4 md:gap-6 lg:gap-8 items-center">
                 <img
                   src={balancePrihozhayaImages[0]}
                   alt="BALANCE 98 - Прихожая"
                   className="w-full h-auto object-contain"
                   loading="eager"
-                  decoding="async"
-                />
-                <img
-                  src={balancePrihozhayaImages[1]}
-                  alt="BALANCE 98 - Прихожая"
-                  className="w-full h-auto object-contain"
-                  loading="lazy"
                   decoding="async"
                 />
                 <img
@@ -778,15 +778,14 @@ export default function Balance98Page() {
                 />
               </div>
 
-              {/* Слайдер для 340000 и 340001 */}
-              <div className="w-full">
-                <ImageSlider
-                  lightImage={balanceSpalnyaImages[3]}
-                  darkImage={Balance_Spalnya_Night_04}
-                  alt="BALANCE 98 - Спальня"
-                  className="w-full h-auto"
-                />
-              </div>
+              {/* Изображение 340001 (dark) */}
+              <img
+                src={Balance_Spalnya_Night_04}
+                alt="BALANCE 98 - Спальня"
+                className="w-full h-auto object-contain"
+                loading="lazy"
+                decoding="async"
+              />
 
               {/* Слайдер для 350000 и 350001 */}
               <div className="w-full">

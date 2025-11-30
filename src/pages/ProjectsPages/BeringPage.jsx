@@ -92,6 +92,7 @@ import Bering_Vannaya_03 from "../../Projects/BERING_109/Day/09. Ванная к
 import Bering_Vannaya_04 from "../../Projects/BERING_109/Day/09. Ванная комната/320000.png";
 import Bering_Vannaya_05 from "../../Projects/BERING_109/Day/09. Ванная комната/330000.png";
 import Bering_Vannaya_06 from "../../Projects/BERING_109/Day/09. Ванная комната/340000.png";
+import Bering_Vannaya_07 from "../../Projects/BERING_109/Day/09. Ванная комната/340001.png";
 import Bering_Vannaya_08 from "../../Projects/BERING_109/Day/09. Ванная комната/350000.png";
 import Bering_Vannaya_09 from "../../Projects/BERING_109/Day/09. Ванная комната/360000.png";
 import Bering_Vannaya_10 from "../../Projects/BERING_109/Day/09. Ванная комната/370000.png";
@@ -451,7 +452,7 @@ export default function BeringPage() {
 
           {/* GIF из Behance */}
           <div className="container mx-auto px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16 2xl:px-[140px] mt-8 sm:mt-12 md:mt-16 lg:mt-20">
-            <div className="w-full max-w-4xl mx-auto">
+            <div className="w-full max-w-4xl mx-auto bg-black relative">
               <img
                 src="https://mir-s3-cdn-cf.behance.net/project_modules/fs/13158f237576915.69034761bc835.gif"
                 alt="BERING 109 - Анимация"
@@ -666,14 +667,14 @@ export default function BeringPage() {
                   decoding="async"
                 />
                 <img
-                  src={beringKuhnyaImages[4]}
+                  src={beringKuhnyaImages[5]}
                   alt="BERING 109 - Кухонная зона"
                   className="w-full h-auto object-contain"
                   loading="lazy"
                   decoding="async"
                 />
                 <img
-                  src={beringKuhnyaImages[5]}
+                  src={beringKuhnyaImages[4]}
                   alt="BERING 109 - Кухонная зона"
                   className="w-full h-auto object-contain"
                   loading="lazy"
@@ -869,21 +870,13 @@ export default function BeringPage() {
                 />
               </div>
 
-              {/* Две фотографии */}
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4 md:gap-6 lg:gap-8 items-center">
-                <img
-                  src={beringDushevayaImages[1]}
+              {/* Слайдер для 240000 и 240001 */}
+              <div className="w-full">
+                <ImageSlider
+                  lightImage={beringDushevayaImages[2]}
+                  darkImage={beringDushevayaImages[1]}
                   alt="BERING 109 - Душевая комната"
-                  className="w-full h-auto object-contain"
-                  loading="lazy"
-                  decoding="async"
-                />
-                <img
-                  src={beringDushevayaImages[2]}
-                  alt="BERING 109 - Душевая комната"
-                  className="w-full h-auto object-contain"
-                  loading="lazy"
-                  decoding="async"
+                  className="w-full h-auto"
                 />
               </div>
 
@@ -1135,21 +1128,13 @@ export default function BeringPage() {
                 />
               </div>
 
-              {/* Две фотографии - 310000 */}
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4 md:gap-6 lg:gap-8 items-center">
-                <img
-                  src={beringVannayaImages[2]}
+              {/* Слайдер для 310000 и 340001 */}
+              <div className="w-full">
+                <ImageSlider
+                  lightImage={Bering_Vannaya_07}
+                  darkImage={beringVannayaImages[2]}
                   alt="BERING 109 - Ванная комната"
-                  className="w-full h-auto object-contain"
-                  loading="lazy"
-                  decoding="async"
-                />
-                <img
-                  src={Bering_Vannaya_Night_03}
-                  alt="BERING 109 - Ванная комната"
-                  className="w-full h-auto object-contain"
-                  loading="lazy"
-                  decoding="async"
+                  className="w-full h-auto"
                 />
               </div>
 
@@ -1174,16 +1159,6 @@ export default function BeringPage() {
                 />
               </div>
 
-              {/* Полноширинное изображение */}
-              <div className="w-full">
-                <img
-                  src={beringVannayaImages[5]}
-                  alt="BERING 109 - Ванная комната"
-                  className="w-full h-auto object-cover"
-                  loading="lazy"
-                  decoding="async"
-                />
-              </div>
 
               {/* Слайдер для 350000 */}
               <div className="w-full">

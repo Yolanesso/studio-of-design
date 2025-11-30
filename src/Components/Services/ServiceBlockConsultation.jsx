@@ -62,7 +62,8 @@ export default function ServiceBlockConsultation() {
       className="w-full h-auto cursor-pointer transition-opacity hover:opacity-90"
       style={{ 
         aspectRatio: '650/350',
-        objectFit: 'cover'
+        objectFit: 'cover',
+        objectPosition: 'center 85%'
       }}
       onClick={() => openImage(0)}
     />

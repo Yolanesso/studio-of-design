@@ -90,6 +90,7 @@ import BtnClose from "../Icons/btn-close.svg";
 import ArrowBlack from "../Icons/Arrow-black.svg";
 
 import Footer from "../Components/Footer";
+import ImageSlider from "../Components/ImageSlider";
 
 // База данных проектов
 const projects = [
@@ -99,7 +100,7 @@ const projects = [
     image: BulvarImg,
     location: "Новосибирск, Россия",
     area: "109",
-    year: "2024",
+    year: "2025",
     objectPosition: "center"
   },
   {
@@ -108,7 +109,7 @@ const projects = [
     image: BalanceImg,
     location: "Новосибирск, Россия",
     area: "98",
-    year: "2025",
+    year: "2024",
     objectPosition: "center 70%"
   },
   {

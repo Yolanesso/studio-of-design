@@ -12,6 +12,7 @@ import "../css/fonts.css";
 import Arrow from "../Icons/Arrow.svg";
 
 import BulvarImg from "../Images/Projects/Bulvar.png";
+import BulvarNewImg from "../Projects/BESTUZHEVSKIJ BUL'VAR_109/02. Кухонная зона/130000.png";
 import BalanceImg from "../Images/Projects/Balance/balance-project.png";
 import Aeron from "../Images/Projects/Aeron.png";
 import Balance73 from "../Images/Projects/Balance73.png";
@@ -212,7 +213,7 @@ export default function HeroSection() {
         className=" font-[400] studio py-8 sm:py-12 md:py-16 lg:py-24 2xl:py-40 min-[1920px]:py-48 px-4 sm:px-6 md:px-8 lg:px-[100px] xl:px-[150px] 2xl:px-[250px] min-[1920px]:px-[300px]"
       >
         <motion.h1 
-          className="studio-title font-inter mb-4 sm:mb-6 md:mb-8 lg:mb-12 2xl:mb-16 min-[1920px]:mb-20 text-[48px] sm:text-[64px] md:text-[80px] lg:text-[90px] xl:text-[96px] 2xl:text-[96px] min-[1920px]:text-[120px]"
+          className="studio-title font-inter mb-4 sm:mb-6 md:mb-8 lg:mb-12 2xl:mb-16 min-[1920px]:mb-20 text-[48px] sm:text-[64px] md:text-[80px] lg:text-[90px] xl:text-[96px] 2xl:text-[96px] min-[1920px]:text-[120px] cursor-pointer relative inline-block"
           style={{
             fontFamily: 'Inter',
             fontWeight: 400,
@@ -221,8 +222,28 @@ export default function HeroSection() {
             letterSpacing: '0%',
             y: studioY
           }}
+          onClick={() => navigate("/about")}
+          onMouseEnter={(e) => {
+            const underline = e.currentTarget.querySelector('.studio-underline');
+            if (underline) {
+              underline.style.width = '100%';
+            }
+          }}
+          onMouseLeave={(e) => {
+            const underline = e.currentTarget.querySelector('.studio-underline');
+            if (underline) {
+              underline.style.width = '0%';
+            }
+          }}
         >
-          Студия /
+          <span className="inline-block relative">
+            Студия
+            <span 
+              className="studio-underline absolute -bottom-2 sm:-bottom-3 md:-bottom-4 left-0 h-[1px] sm:h-[1.5px] md:h-[2px] bg-black transition-all duration-500 ease-out"
+              style={{ width: '0%' }}
+            ></span>
+          </span>
+          <span className="inline-block ml-2">/</span>
         </motion.h1>
         <motion.div
           style={{ y: studioY }}
@@ -271,7 +292,7 @@ export default function HeroSection() {
               <span className="inline-block relative">
                 Проекты
                 <span 
-                  className="projects-underline absolute bottom-0 left-2 sm:left-3 md:left-4 h-[1px] sm:h-[1.5px] md:h-[2px] bg-black transition-all duration-500 ease-out"
+                  className="projects-underline absolute -bottom-2 sm:-bottom-3 md:-bottom-4 left-0 h-[1px] sm:h-[1.5px] md:h-[2px] bg-black transition-all duration-500 ease-out"
                   style={{ width: '0%' }}
                 ></span>
               </span>
@@ -299,7 +320,7 @@ export default function HeroSection() {
                   balance
                 </p>
                 <p className="project-info uppercase text-[12px] sm:text-[13px] md:text-[14px] lg:text-[15px] xl:text-[16px] min-[1920px]:text-[18px] text-[#000000B2] opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                  Новосибирск, Россия / 98 м<sup>2</sup> / 2025
+                  Новосибирск, Россия / 98 м<sup>2</sup> / 2024
                 </p>
               </motion.div>
 
@@ -312,9 +333,10 @@ export default function HeroSection() {
                 transition={{ duration: 0.6, delay: 0.2 }}
               >
                 <motion.img
-                  src={BulvarImg}
+                  src={BulvarNewImg}
                   alt="BUL'VAR"
                   className="w-full aspect-[4/3] object-cover mb-3 sm:mb-4 min-[1920px]:mb-5 transition-all duration-700 group-hover:invert"
+                  style={{ objectPosition: 'center 80%' }}
                   whileHover={{ scale: 1.02 }}
                   transition={{ duration: 0.3 }}
                 />
@@ -322,7 +344,7 @@ export default function HeroSection() {
                   bul'var
                 </p>
                 <p className="project-info uppercase text-[12px] sm:text-[13px] md:text-[14px] lg:text-[15px] xl:text-[16px] min-[1920px]:text-[18px] text-[#000000B2] opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                  Новосибирск, Россия / 109 м<sup>2</sup> / 2024
+                  Новосибирск, Россия / 109 м<sup>2</sup> / 2025
                 </p>
               </motion.div>
 
@@ -368,7 +390,7 @@ export default function HeroSection() {
                   montblanc
                 </p>
                 <p className="project-info uppercase text-[12px] sm:text-[13px] md:text-[14px] lg:text-[15px] xl:text-[16px] min-[1920px]:text-[18px] text-[#000000B2] opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                  Новосибирск, Россия / 88 м<sup>2</sup> / 2024
+                  Новосибирск, Россия / 88 м<sup>2</sup> / 2023
                 </p>
               </motion.div>
             </div>

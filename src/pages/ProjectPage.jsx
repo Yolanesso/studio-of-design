@@ -2,13 +2,14 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 import BulvarImg from "../Images/Projects/Bulvar.png";
+import BulvarNewImg from "../Projects/BESTUZHEVSKIJ BUL'VAR_109/02. Кухонная зона/130000.png";
 import BalanceImg from "../Images/Projects/Balance/balance-project.png";
 import BeringImg from "../Images/Projects/Bering/bering-project.png";
 import Balance73 from "../Images/Projects/Balance73.png";
 import AeronImg from "../Images/Projects/Aeron.png";
 import MontblancImg from "../Images/Projects/Montblanc/Montblanc-main.png";
-import CHRNSHImg from "../Projects/CHRNSH_45.15/010000.png";
-import MO68Img from "../Projects/MO68_94/01. Прихожая/010000.png";
+import CHRNSHImg from "../Projects/CHRNSH_45.15/060000.png";
+import MO68Img from "../Projects/MO68_94/03. Кухонная зона/130000.png";
 
 import BtnLangBlack from "../Icons/btn lang-black.svg";
 import Logo from "../Icons/logo-black.svg";
@@ -23,11 +24,11 @@ const projects = [
   {
     id: "bulvar",
     name: "bul'var",
-    image: BulvarImg,
+    image: BulvarNewImg,
     location: "Новосибирск",
     area: "109",
-    year: "2024",
-    objectPosition: "center"
+    year: "2025",
+    objectPosition: "center 80%"
   },
   {
     id: "aeron",
@@ -35,8 +36,8 @@ const projects = [
     image: AeronImg,
     location: "Новосибирск",
     area: "110",
-    year: "2025",
-    objectPosition: "center"
+    year: "2024",
+    objectPosition: "center 70%"
   },
   {
     id: "balance",
@@ -44,7 +45,7 @@ const projects = [
     image: BalanceImg,
     location: "Новосибирск",
     area: "98",
-    year: "2025",
+    year: "2024",
     objectPosition: "center 70%"
   },
   {
@@ -63,7 +64,7 @@ const projects = [
     location: "Новосибирск",
     area: "73",
     year: "2024",
-    objectPosition: "center 70%"
+    objectPosition: "center 80%"
   },
   {
     id: "montblanc",
@@ -71,7 +72,7 @@ const projects = [
     image: MontblancImg,
     location: "Новосибирск",
     area: "88",
-    year: "2024",
+    year: "2023",
     objectPosition: "center"
   },
   {
@@ -80,8 +81,8 @@ const projects = [
     image: CHRNSHImg,
     location: "Новосибирск",
     area: "45.15",
-    year: "2024",
-    objectPosition: "center"
+    year: "2025",
+    objectPosition: "left center"
   },
   {
     id: "mo68",
@@ -89,8 +90,8 @@ const projects = [
     image: MO68Img,
     location: "Новосибирск",
     area: "94",
-    year: "2024",
-    objectPosition: "center"
+    year: "2025",
+    objectPosition: "center 80%"
   }
 ];
 

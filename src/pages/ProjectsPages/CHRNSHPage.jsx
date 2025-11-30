@@ -4,6 +4,9 @@ import { useNavigate } from "react-router-dom";
 // CHRNSH_45.15 - используем первое изображение как главное
 import CHRNSH_Main from "../../Projects/CHRNSH_45.15/010000.png";
 
+// Планировка
+import CHRNSH_Plan from "../../Projects/CHRNSH_45.15/CHRNSH_45.15 ПЛАНИРОВКА.png";
+
 // CHRNSH_45.15 - Все изображения
 import CHRNSH_01 from "../../Projects/CHRNSH_45.15/010000.png";
 import CHRNSH_02 from "../../Projects/CHRNSH_45.15/020000.png";
@@ -57,7 +60,7 @@ export default function CHRNSHPage() {
     image: CHRNSH_Main,
     location: "Новосибирск, Россия",
     area: "45.15",
-    year: "2024",
+    year: "2025",
     objectPosition: "center"
   };
 
@@ -285,6 +288,20 @@ export default function CHRNSHPage() {
                     </p>
               </div>
             </div>
+          </div>
+        </div>
+
+        {/* Планировка на темном фоне */}
+        <div className="mt-8 sm:mt-12 md:mt-16 lg:mt-20 bg-black -mx-4 sm:-mx-6 md:-mx-8 lg:-mx-12 xl:-mx-16 2xl:-mx-[140px] px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16 2xl:px-[140px] py-8 sm:py-12 md:py-16 lg:py-20 overflow-hidden">
+          <div className="container mx-auto max-w-xl">
+            <img
+              src={CHRNSH_Plan}
+              alt="CHRNSH 45.15 - Планировка"
+              className="w-full h-auto object-contain"
+              style={{ display: 'block', margin: '-2px', clipPath: 'inset(2px)', transform: 'rotate(90deg)' }}
+              loading="lazy"
+              decoding="async"
+            />
           </div>
         </div>
       </div>

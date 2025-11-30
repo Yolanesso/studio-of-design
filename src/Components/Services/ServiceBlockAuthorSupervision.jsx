@@ -3,17 +3,16 @@ import { createPortal } from "react-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import { useScrollAnimation } from "../../hooks/useScrollAnimation";
 
-import aeronMain from "../../Images/Projects/Aeron/aeron-main.png"
-import aeronFirst from "../../Images/Projects/Aeron/aeron-first.png"
-import aeronSecond from "../../Images/Projects/Aeron/aeron-second.png"
-import aeronThird from "../../Images/Projects/Aeron/aeron-trhird.png"
+import avtorskiy02 from "../../Images/Services/Авторский надзор/02.png"
+import avtorskiy03 from "../../Images/Services/Авторский надзор/03.png"
+import avtorskiy04 from "../../Images/Services/Авторский надзор/04.png"
 
 export default function ServiceBlockAuthorSupervision() {
   const [ref, isVisible] = useScrollAnimation();
   const [selectedImageIndex, setSelectedImageIndex] = useState(null);
   const [direction, setDirection] = useState(0);
   
-  const allImages = [aeronMain, aeronFirst, aeronSecond, aeronThird];
+  const allImages = [avtorskiy02, avtorskiy03, avtorskiy04];
   
   const openImage = (index) => {
     setSelectedImageIndex(index);
@@ -56,18 +55,18 @@ export default function ServiceBlockAuthorSupervision() {
 
   const mainImage = (
     <img 
-      src={aeronMain} 
+      src={avtorskiy02} 
       alt="Авторский надзор" 
       className="w-full h-auto cursor-pointer transition-opacity hover:opacity-90"
       style={{ 
-        aspectRatio: '650/350',
+        aspectRatio: '900/500',
         objectFit: 'cover'
       }}
       onClick={() => openImage(0)}
     />
   );
 
-  const thumbnailImages = [aeronFirst, aeronSecond, aeronThird];
+  const thumbnailImages = [avtorskiy03, avtorskiy04];
   
   const thumbnails = thumbnailImages.map((img, index) => (
     <div 
@@ -137,7 +136,7 @@ export default function ServiceBlockAuthorSupervision() {
           </div>
 
           <div className="mb-4 md:mb-6">
-            <div className="w-full max-w-[650px]">
+            <div className="w-full max-w-[900px]">
               {mainImage}
             </div>
           </div>

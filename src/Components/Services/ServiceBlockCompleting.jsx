@@ -2,12 +2,9 @@ import React, { useState, useCallback } from "react";
 import { createPortal } from "react-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import { useScrollAnimation } from "../../hooks/useScrollAnimation";
-import archConceptMain from '../../Images/Services/arch-con-main.png';
-
-import balanceMain from "../../Images/Projects/Balance/balance-main.png"
-import balanceFirst from "../../Images/Projects/Balance/balance-first.png"
-import balanceSecond from "../../Images/Projects/Balance/balance-second.png"
-import balanceThird from "../../Images/Projects/Balance/balance-third.png"
+import komplektatsiya01 from '../../Images/Services/Комплектация/01.png';
+import komplektatsiya05 from '../../Images/Services/Комплектация/05.png';
+import komplektatsiya06 from '../../Images/Services/Комплектация/06.png';
 
 
 export default function ServiceBlockCompleting() {
@@ -15,7 +12,7 @@ export default function ServiceBlockCompleting() {
   const [selectedImageIndex, setSelectedImageIndex] = useState(null);
   const [direction, setDirection] = useState(0);
   
-  const allImages = [balanceFirst, balanceMain, balanceSecond, balanceThird];
+  const allImages = [komplektatsiya01, komplektatsiya05, komplektatsiya06];
   
   const openImage = (index) => {
     setSelectedImageIndex(index);
@@ -58,18 +55,19 @@ export default function ServiceBlockCompleting() {
 
   const mainImage = (
     <img 
-      src={balanceFirst} 
+      src={komplektatsiya01} 
       alt="Комплектация Менеджмент" 
       className="w-full h-auto cursor-pointer transition-opacity hover:opacity-90"
       style={{ 
-        aspectRatio: '650/350',
-        objectFit: 'cover'
+        aspectRatio: '900/500',
+        objectFit: 'cover',
+        objectPosition: 'center 75%'
       }}
       onClick={() => openImage(0)}
     />
   );
 
-  const thumbnailImages = [balanceFirst, balanceSecond, balanceThird];
+  const thumbnailImages = [komplektatsiya05, komplektatsiya06];
   
   const thumbnails = thumbnailImages.map((img, index) => (
     <div 
@@ -151,7 +149,7 @@ export default function ServiceBlockCompleting() {
           </div>
 
           <div className="mb-4 md:mb-6">
-            <div className="w-full max-w-[650px]">
+            <div className="w-full max-w-[900px]">
               {mainImage}
             </div>
           </div>

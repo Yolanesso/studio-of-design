@@ -339,7 +339,7 @@ export default function Aeron110Page() {
     image: AeronImg,
     location: "Новосибирск, Россия",
     area: "110",
-    year: "2025",
+    year: "2024",
     objectPosition: "center",
   };
 

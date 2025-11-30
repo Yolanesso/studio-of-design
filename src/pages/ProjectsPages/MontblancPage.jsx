@@ -90,7 +90,7 @@ export default function MontblancPage() {
     image: MontblancImg,
     location: "Новосибирск, Россия",
     area: "88",
-    year: "2024",
+    year: "2023",
     objectPosition: "center"
   };
 
@@ -376,19 +376,15 @@ export default function MontblancPage() {
           </div>
 
           {/* Планировка на темном фоне */}
-          <div className="mt-8 sm:mt-12 md:mt-16 lg:mt-20 bg-black -mx-4 sm:-mx-6 md:-mx-8 lg:-mx-12 xl:-mx-16 2xl:-mx-[140px] px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16 2xl:px-[140px] py-8 sm:py-12 md:py-16 lg:py-20">
-            <div className="bg-white inline-block" style={{ borderRadius: '8px', overflow: 'hidden', padding: '2px' }}>
-              <div style={{ overflow: 'hidden', borderRadius: '6px' }}>
-                <img
-                  src={MontblancPlan}
-                  alt="MONTBLANC 88 - Планировка"
-                  className="w-full h-auto object-contain"
-                  style={{ filter: 'invert(1)', display: 'block', margin: '-1px' }}
-                  loading="lazy"
-                  decoding="async"
-                />
-              </div>
-            </div>
+          <div className="mt-8 sm:mt-12 md:mt-16 lg:mt-20 bg-black -mx-4 sm:-mx-6 md:-mx-8 lg:-mx-12 xl:-mx-16 2xl:-mx-[140px] px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16 2xl:px-[140px] py-8 sm:py-12 md:py-16 lg:py-20 overflow-hidden">
+            <img
+              src={MontblancPlan}
+              alt="MONTBLANC 88 - Планировка"
+              className="w-full h-auto object-contain"
+              style={{ filter: 'invert(1)', display: 'block', margin: '-2px', clipPath: 'inset(2px)' }}
+              loading="lazy"
+              decoding="async"
+            />
           </div>
         </div>
       </div>

@@ -4,6 +4,9 @@ import { useNavigate } from "react-router-dom";
 // MO68_94 - используем первое изображение как главное
 import MO68_Main from "../../Projects/MO68_94/01. Прихожая/010000.png";
 
+// Планировка
+import MO68_Plan from "../../Projects/MO68_94/МО_68_ПЛАНИРОВКА.png";
+
 // MO68_94 - Прихожая
 import MO68_Prihozhaya_01 from "../../Projects/MO68_94/01. Прихожая/010000.png";
 import MO68_Prihozhaya_02 from "../../Projects/MO68_94/01. Прихожая/020000.png";
@@ -81,7 +84,7 @@ import MO68_Sanuzel_05 from "../../Projects/MO68_94/09. Санузел при с
 
 // Массивы изображений по блокам - MO68_94
 const mo68PrihozhayaImages = [
-  MO68_Prihozhaya_01, MO68_Prihozhaya_02, MO68_Prihozhaya_03, MO68_Prihozhaya_04,
+  MO68_Prihozhaya_01, MO68_Prihozhaya_02, MO68_Prihozhaya_03,
   MO68_Prihozhaya_05
 ];
 const mo68VannayaImages = [
@@ -137,7 +140,7 @@ export default function MO68Page() {
     image: MO68_Main,
     location: "Новосибирск",
     area: "94",
-    year: "2024",
+    year: "2025",
     objectPosition: "center"
   };
 
@@ -422,13 +425,27 @@ export default function MO68Page() {
             </div>
           </div>
         </div>
+
+        {/* Планировка на темном фоне */}
+        <div className="mt-8 sm:mt-12 md:mt-16 lg:mt-20 bg-black -mx-4 sm:-mx-6 md:-mx-8 lg:-mx-12 xl:-mx-16 2xl:-mx-[140px] px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16 2xl:px-[140px] py-8 sm:py-12 md:py-16 lg:py-20 overflow-hidden">
+          <div className="container mx-auto max-w-[1296px]">
+            <img
+              src={MO68_Plan}
+              alt="MO68 94 - Планировка"
+              className="w-full h-auto object-contain"
+              style={{ display: 'block', margin: '-2px', clipPath: 'inset(2px)' }}
+              loading="lazy"
+              decoding="async"
+            />
+          </div>
+        </div>
       </div>
 
       {/* Галерея фотографий на светлой стороне */}
       <div className="bg-white">
         <div className="container mx-auto px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16 2xl:px-[140px] py-8 sm:py-12 md:py-16 lg:py-20 2xl:py-28">
           <div className="flex flex-col items-center">
-            <div className="w-full max-w-7xl space-y-6 sm:space-y-8 md:space-y-10 lg:space-y-8">
+            <div className="w-full max-w-[1600px] space-y-6 sm:space-y-8 md:space-y-10 lg:space-y-8">
               
 
               {/* Текстовый блок - Прихожая */}
@@ -456,30 +473,13 @@ export default function MO68Page() {
                 />
               </div>
 
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4 md:gap-6 lg:gap-8 items-center">
+              <div className="w-full">
                 <img
                   src={mo68PrihozhayaImages[2]}
                   alt="MO68 94 - Прихожая"
                   className="w-full h-auto object-contain"
                   loading="lazy"
                   decoding="async"
-                />
-                <img
-                  src={mo68PrihozhayaImages[3]}
-                  alt="MO68 94 - Прихожая"
-                  className="w-full h-auto object-contain"
-                  loading="lazy"
-                  decoding="async"
-                />
-              </div>
-
-              {/* Слайдер для 040000 и 040001 */}
-              <div className="w-full">
-                <ImageSlider
-                  lightImage={MO68_Prihozhaya_Night_04}
-                  darkImage={mo68PrihozhayaImages[3]}
-                  alt="MO68 94 - Прихожая"
-                  className="w-full h-auto"
                 />
               </div>
 
@@ -511,20 +511,13 @@ export default function MO68Page() {
                 />
               </div>
 
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4 md:gap-6 lg:gap-8 items-center">
-                <img
-                  src={mo68VannayaImages[1]}
+              {/* Слайдер для 070001 и 070002 */}
+              <div className="w-full">
+                <ImageSlider
+                  lightImage={mo68VannayaImages[2]}
+                  darkImage={mo68VannayaImages[1]}
                   alt="MO68 94 - Ванная комната"
-                  className="w-full h-auto object-contain"
-                  loading="lazy"
-                  decoding="async"
-                />
-                <img
-                  src={mo68VannayaImages[2]}
-                  alt="MO68 94 - Ванная комната"
-                  className="w-full h-auto object-contain"
-                  loading="lazy"
-                  decoding="async"
+                  className="w-full h-auto"
                 />
               </div>
 

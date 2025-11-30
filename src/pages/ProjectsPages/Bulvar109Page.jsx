@@ -148,7 +148,7 @@ export default function Bulvar109Page() {
     image: BulvarImg,
     location: "Новосибирск, Россия",
     area: "109",
-    year: "2024",
+    year: "2025",
     objectPosition: "center"
   };
 
