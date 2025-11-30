@@ -361,7 +361,10 @@ export default function ContactPage() {
                 </div>
 
                 <div className="flex items-center gap-1 sm:gap-2 md:gap-3 flex-shrink-0">
-                  <button className="bg-white text-gray-900 px-4 py-2 sm:px-5 sm:py-3 md:px-6 md:py-4 rounded-[27px] font-inter font-medium text-xs sm:text-sm md:text-base max-[377px]:hidden hover:bg-gray-100 transition-colors duration-200 border border-white">
+                  <button 
+                    onClick={() => scrollToSection("contact-form")}
+                    className="bg-white text-gray-900 px-4 py-2 sm:px-5 sm:py-3 md:px-6 md:py-4 rounded-[27px] font-inter font-medium text-xs sm:text-sm md:text-base max-[377px]:hidden hover:bg-gray-100 transition-colors duration-200 border border-white"
+                  >
                     Связаться с нами
                   </button>
                   <button
