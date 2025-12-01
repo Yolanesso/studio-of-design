@@ -10,7 +10,17 @@ const app = express();
 const PORT = process.env.PORT || 3001;
 
 // Middleware
-app.use(cors());
+// Настройка CORS для разрешения запросов с фронтенда
+app.use(cors({
+  origin: '*', // В продакшене лучше указать конкретный домен
+  methods: ['GET', 'POST', 'OPTIONS'],
+  allowedHeaders: ['Content-Type', 'Authorization'],
+  credentials: true
+}));
+
+// Обработка preflight запросов
+app.options('*', cors());
+
 app.use(express.json());
 
 // Инициализация Telegram бота

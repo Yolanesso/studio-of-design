@@ -279,10 +279,13 @@ export default function ContactPage() {
     setSubmitStatus({ type: null, message: "" });
 
     try {
-      // URL для Vercel (использует относительный путь для serverless функции)
-      // В production это будет /api/submit-form, в dev можно использовать localhost
+      // URL для API сервера с ботом
+      // В production укажите URL вашего сервера через переменную окружения VITE_API_URL
+      // Например: VITE_API_URL=https://your-server.com или VITE_API_URL=http://your-ip:3001
       const API_URL = import.meta.env.VITE_API_URL || (import.meta.env.DEV ? 'http://localhost:3001' : '');
       const endpoint = API_URL ? `${API_URL}/api/submit-form` : '/api/submit-form';
+      
+      console.log('Отправка запроса на:', endpoint);
       
       const response = await fetch(endpoint, {
         method: 'POST',
@@ -292,7 +295,16 @@ export default function ContactPage() {
         body: JSON.stringify(formData),
       });
 
-      const data = await response.json();
+      // Проверяем, что ответ в формате JSON
+      let data;
+      const contentType = response.headers.get('content-type');
+      if (contentType && contentType.includes('application/json')) {
+        data = await response.json();
+      } else {
+        const text = await response.text();
+        console.error('Неожиданный формат ответа:', text);
+        throw new Error(`Сервер вернул неожиданный формат ответа: ${response.status} ${response.statusText}`);
+      }
 
       if (response.ok && data.success) {
         setSubmitStatus({ 
@@ -317,9 +329,21 @@ export default function ContactPage() {
       }
     } catch (error) {
       console.error('Ошибка отправки формы:', error);
+      
+      // Более детальное сообщение об ошибке
+      let errorMessage = 'Не удалось отправить заявку. ';
+      
+      if (error.message.includes('Failed to fetch') || error.message.includes('NetworkError')) {
+        errorMessage += 'Проверьте подключение к интернету и убедитесь, что сервер доступен.';
+      } else if (error.message.includes('CORS')) {
+        errorMessage += 'Ошибка CORS. Проверьте настройки сервера.';
+      } else {
+        errorMessage += error.message || 'Попробуйте еще раз.';
+      }
+      
       setSubmitStatus({ 
         type: 'error', 
-        message: 'Не удалось отправить заявку. Проверьте подключение к интернету и попробуйте еще раз.' 
+        message: errorMessage
       });
     } finally {
       setIsSubmitting(false);
