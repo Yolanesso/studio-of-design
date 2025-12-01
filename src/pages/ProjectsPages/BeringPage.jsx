@@ -202,6 +202,29 @@ export default function BeringPage() {
     }
   };
 
+  // Preload критических изображений
+  useEffect(() => {
+    const preloadImages = [
+      beringPrihozhayaImages[0],
+      beringKuhnyaImages[0],
+    ];
+
+    preloadImages.forEach((src) => {
+      const link = document.createElement('link');
+      link.rel = 'preload';
+      link.as = 'image';
+      link.href = src;
+      document.head.appendChild(link);
+    });
+
+    return () => {
+      preloadImages.forEach((src) => {
+        const links = document.querySelectorAll(`link[href="${src}"]`);
+        links.forEach((link) => link.remove());
+      });
+    };
+  }, []);
+
   // Отслеживание активной секции и прогресса прокрутки
   useEffect(() => {
     const handleScroll = () => {
@@ -615,6 +638,7 @@ export default function BeringPage() {
                   className="w-full h-auto object-contain"
                   loading="eager"
                   decoding="async"
+                  fetchPriority="high"
                 />
                 <img
                   src={beringPrihozhayaImages[1]}
